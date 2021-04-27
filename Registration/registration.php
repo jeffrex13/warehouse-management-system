@@ -18,9 +18,10 @@
     <title>Admin Homepage</title>
 </head>
 <body>
+    <?php include('registration-server.php') ?>
     <div class="registration-container">
         <h1 class="registration-h1">Registration</h1>
-        <form action="" method="POST">
+        <form action="registration.php" method="POST">
             <div class="registration-grid">
                 <div class="grid-1">
                     <label for="username">Username</label>
@@ -29,12 +30,12 @@
                     <input id="password" type="text" class="inputs" name="passWord" placeholder="Auto generated password" disabled>
                 
                     <label for="firstName">First Name</label>
-                    <input id="firstName" type="text" class="inputs" name="firstName" placeholder="Enter your first name" required>
+                    <input id="firstName" type="text" class="inputs" name="firstName" placeholder="Enter your first name" pattern="[A-z\s]{1,}" title="Only Accept Letters Only!" required>
                     <label for="lastName">Last Name</label>
-                    <input id="lastName" type="text" class="inputs" name="lastName" placeholder="Enter your last name" required>
+                    <input id="lastName" type="text" class="inputs" name="lastName" placeholder="Enter your last name" pattern="[A-z\s]{1,}" title="Only Accepts Characters Only!" required>
                
                     <label for="middleName">Middle Name</label>
-                    <input id="middleName" type="text" class="inputs" name="middleName" placeholder="Enter your middle name" required>
+                    <input id="middleName" type="text" class="inputs" name="middleName" placeholder="Enter your middle name" pattern="[A-z\s]{1,}" title="Only Accepts Characters Only!" required>
                 
                     <label for="address">Address</label>
                     <input id="address" type="text" class="address" name="address" placeholder="Enter your address" required>
@@ -44,7 +45,7 @@
                     <input id="birthDate" type="date" class="inputs" name="birthDate" required>
                 
                     <label for="number">Mobile/Telephone Number</label>
-                    <input id="number" type="text" class="inputs" name="number" pattern="[0-9]" placeholder="Enter your mobile/telephone number" required>
+                    <input id="number" type="text" class="inputs" name="mobilenumber" pattern="[0-9]{1,}" placeholder="Enter your mobile/telephone number" required>
                     <label for="email">Email</label>
                     <input id="email" type="email" class="inputs" name="email" placeholder="Enter your email" required>
                 
