@@ -1,0 +1,68 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.prod-reg-container {
+    margin: 2% auto;
+    text-align: center;
+    padding: 0 1rem 1.5rem;
+    width: 60%;
+    background-color: #fff;
+    border: 1px solid #4B778D;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px rgb(75, 119, 141, 30%);
+}
+
+.prod-reg-header {
+    color: #4B778D;
+}
+
+.container2 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+}
+
+.grid1,
+.grid2 {
+    display: grid;
+}
+
+.grid1 input{
+    margin: 8px auto;
+    text-align: center;
+    width: 68%;
+    height: 24px;
+}
+
+.grid2 label{
+    margin: 2px auto;
+    text-align: center;
+    height: 0;
+}
+
+.grid2 input{
+    margin: 2px auto;
+    text-align: center;
+    width: 68%;
+    height: 24px;
+}
+
+#grid3 {
+    grid-template-columns: 1;
+}
+
+.submit-btn {
+    padding: 8px;
+    margin: 50px auto 10px;
+    height: 40px;
+    width: 30%;
+    background: #fff;
+    border: 2px solid #28B5B5;
+}
+
+.submit-btn:hover {
+    color: #fff;
+    background: #28B5B5;
+    cursor: pointer;
+}
