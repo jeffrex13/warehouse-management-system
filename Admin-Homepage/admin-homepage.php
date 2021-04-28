@@ -18,10 +18,10 @@
     <title>Admin Homepage</title>
 </head>
 <body>
-    <?php include('registration-server.php') ?>
+    <?php include('server.php') ?>
     <div class="registration-container">
         <h1 class="registration-h1">Registration</h1>
-        <form action="registration.php" method="POST">
+        <form action="admin-homepage.php" method="POST">
             <div class="registration-grid">
                 <div class="grid-1">
                     <label for="username">Username</label>
@@ -44,8 +44,8 @@
                     <label for="birthDate">Birth Date</label>
                     <input id="birthDate" type="date" class="inputs" name="birthDate" required>
                 
-                    <label for="number">Mobile/Telephone Number</label>
-                    <input id="number" type="text" class="inputs" name="mobilenumber" pattern="[0-9]{1,}" placeholder="Enter your mobile/telephone number" required>
+                    <label for="number">Contact Number</label>
+                    <input id="number" type="text" class="inputs" name="contactnumber" placeholder="Enter your contact number" required>
                     <label for="email">Email</label>
                     <input id="email" type="email" class="inputs" name="email" placeholder="Enter your email" required>
                 
