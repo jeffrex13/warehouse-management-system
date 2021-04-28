@@ -8,19 +8,24 @@
         <link rel="icon" href="" type = "image/x-icon">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="icon" href="https://static.thenounproject.com/png/165116-200.png" type = "image/x-icon">
         <title>LOGIN</title>
     </head>
     <body>
+        <?php include('index-server.php') ?>
         <div class="login-container">
             <div class="login-header">
                 <h3>WAREHOUSE INFORMATION MANAGEMENT SYSTEM</h3>
             </div>
             <div class="login-container2">
-                <form action="#">
+                <form action="index.php" method="POST">
+                    <?php
+                        echo "<input type='hidden' name='hidden' value='".$atmp."'>";
+                    ?>
                     <label for="username">Username</label>
                     <input id="username" type="text" name="userName" placeholder="Enter your username" required>
                     <label for="password">Password</label>
-                    <input id="password" type="password" name="password" placeholder="Enter your password" required>
+                    <input id="password" type="password" name="passWord" placeholder="Enter your password" required>
                     <input type="submit" class = "login-submit" name="login-button" value="LOGIN">
                 </form>
                 <a href="forgot-password.php" class="link"><h5>Forgot Password?</h5></a>
