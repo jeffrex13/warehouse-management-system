@@ -1,3 +1,16 @@
+<?php
+    session_start(); 
+
+    $username = $_SESSION['username'];
+    if (!isset($_SESSION['username'])) {
+        header('location: ../index.php');
+    }
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['username']);
+        header("location: ../index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +20,52 @@
     <link rel="icon" href="https://static.thenounproject.com/png/165116-200.png" type = "image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Product Registration</title>
 </head>
 <body>
     <?php include('server.php') ?>
-    <div class="prod-reg-container">
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../Admin-Homepage/admin-homepage.php">Admin Homepage</a>
+        <a href="product-registration.php" style="color: #4B778D">Product Registration</a>
+        <a href="#">Profile</a>
+        <a href="#">Gallery</a>
+        <a href="#">Inventory</a>
+        <a href="#">Sales and Purchase</a>
+        <a href="#">Search</a>
+        <button class="dropdown-btn">Product Monitoring 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#">Incoming Product</a>
+            <a href="#">Outgoing Product</a>
+            <a href="#">Stock Replenishment</a>
+        </div>
+        <a href="#">Daily Attendance</a>
+        <button class="dropdown-btn">Report 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#">Audit Trail</a>
+            <a href="#">Sales Report</a>
+            <a href="#">Purchase Report</a>
+        </div>
+        <button class="dropdown-btn">Maintenance 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#">Add</a>
+            <a href="#">Edit</a>
+            <a href="#">Backup</a>
+            <a href="#">Restore</a>
+        </div>
+        <a href="#">Help</a>
+        <a href="product-registration.php?logout=<?php echo "$username"?>">Logout</a>
+    </div>
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
+        <div class="prod-reg-container">
         <h2 class="prod-reg-header">Product Registration</h2>
         <form action="product-registration.php" method="POST">
             <div class="container2">
@@ -44,5 +98,7 @@
             </div>
         </form>
     </div>
+    </div>
+    <script src="../index.js"></script>
 </body>
 </html>

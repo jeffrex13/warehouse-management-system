@@ -36,7 +36,7 @@
     <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="admin-homepage.php" style="color: #4B778D">Admin Homepage</a>
-            <a href="#">Product Registration</a>
+            <a href="../Product-registration/product-registration.php">Product Registration</a>
             <a href="#">Profile</a>
             <a href="#">Gallery</a>
             <a href="#">Inventory</a>
