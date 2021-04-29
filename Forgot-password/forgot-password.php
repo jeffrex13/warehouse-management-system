@@ -10,9 +10,10 @@
     <title>Forgot Password</title>
 </head>
 <body>
+    <?php include('server.php') ?>
     <div class="fp-container">
         <h3 class="fp-header">Forgot Password</h3>
-        <form action="" method="" class="fp-form">
+        <form action="forgot-password.php" method="POST" class="fp-form">
             <label for="username">Username</label>
             <input id="username" type="text" name="userName" placeholder="Enter your username" required>
             <label for="email">Email</label>
