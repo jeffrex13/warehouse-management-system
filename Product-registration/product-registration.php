@@ -10,9 +10,10 @@
     <title>Product Registration</title>
 </head>
 <body>
+    <?php include('server.php') ?>
     <div class="prod-reg-container">
         <h2 class="prod-reg-header">Product Registration</h2>
-        <form action="" method="">
+        <form action="product-registration.php" method="POST">
             <div class="container2">
                 <div class="grid1">
                     <label for="Prod-ID">Product ID</label>
@@ -32,7 +33,7 @@
                     <input id="Color" type="text" name="color" placeholder="Enter Color" required>
 
                     <label for="Quantity">Quantity</label>
-                    <input id="Quantity" type="number" name="quantity" placeholder="Enter Quantity" required>
+                    <input id="Quantity" type="number" name="quantity" placeholder="Enter Quantity" min="0" required>
 
                     <label for="Price">Price</label>
                     <input id="Price" type="text" name="price" placeholder="Enter Price" required>
@@ -40,7 +41,7 @@
             </div>
             <div id="grid3">
                     <input type="submit" class="submit-btn" name="submit-button" value="Submit">  
-                </div>
+            </div>
         </form>
     </div>
 </body>
