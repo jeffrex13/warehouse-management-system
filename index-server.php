@@ -23,7 +23,7 @@
                     if ($level_of_access) {
                         if ($level_of_access['loa'] == 'admin') {
                             $_SESSION['username'] = $userName;
-                            echo 'Welcome Admin';
+                            header('location: ./Admin-Homepage/admin-homepage.php');
                         }
                         if ($level_of_access['loa'] == 'employee') {
                             $_SESSION['username'] = $userName;
