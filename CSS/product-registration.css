@@ -6,7 +6,7 @@ body {
     margin: 2% auto;
     text-align: center;
     padding: 0 1rem 1.5rem;
-    width: 50%;
+    width: 60%;
     background-color: #fff;
     border: 1px solid #4B778D;
     border-radius: 10px;
@@ -89,12 +89,7 @@ body {
     color: black;
 }
 
-/* Sidebar */
-
-body {
-    font-family: 'Poppins', sans-serif;
-}
-
+/* Navbar CSS */
 .sidebar {
     height: 100%;
     width: 0; 
