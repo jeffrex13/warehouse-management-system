@@ -1,3 +1,16 @@
+<?php
+    session_start(); 
+
+    $username = $_SESSION['username'];
+    if (!isset($_SESSION['username'])) {
+        header('location: ../index.php');
+    }
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['username']);
+        header("location: ../index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +40,7 @@
         </div>
         <a href="#">Daily Attendance</a>
         <a href="#">Help</a>
-        <a href="#">Logout</a>
+        <a href="employee-sidenav.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
