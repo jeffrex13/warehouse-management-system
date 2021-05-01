@@ -10,7 +10,7 @@
         $passWord = mysqli_real_escape_string($db, $_POST['passWord']);
         $atmp = mysqli_real_escape_string($db, $_POST['hidden']);
 
-        $check_username = "SELECT * FROM tbl_user WHERE username='$userName' and password='$passWord'";
+        $check_username = "SELECT * FROM tbl_user WHERE username='$userName'";
         $results0 = mysqli_query($db, $check_username);
         if (mysqli_num_rows($results0) == 1) {
             $query = "SELECT * FROM tbl_user WHERE username='$userName' AND password='$passWord'";
@@ -41,7 +41,7 @@
                     <div class="alert">
                     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
                         Wrong username/password combination<br/>
-                        Login Attempt: <?php echo $atmp;?>
+                        Login Counter: <?php echo $atmp;?>
                     </div>
                 <?php
             }
@@ -51,13 +51,13 @@
                 <div class="alert">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
                     Invalid Username<br/>
-                    <p>Login Attempt: <?php echo $atmp;?></p>
+                    <p>Login Counter: <?php echo $atmp;?></p>
                 </div>
             <?php
         }
         if($atmp==3)
         {
-            echo 'Forgot Password';
+            header('location: ./Forgot-password/forgot-password.php');
         }
     }
 ?>
