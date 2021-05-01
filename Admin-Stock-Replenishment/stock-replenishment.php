@@ -17,11 +17,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/admin-outgoing-product.css">
+    <link rel="stylesheet" href="../CSS/admin-stock-replenishment.css">
     <link rel="icon" href="https://static.thenounproject.com/png/165116-200.png" type = "image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Outgoing Product</title>
+    <title>Stock Replenishment</title>
 </head>
 <body>
     <div id="mySidebar" class="sidebar">
@@ -38,8 +38,8 @@
         </button>
         <div class="dropdown-container">
             <a href="../Admin-Incoming-Product/incoming-product.php">Incoming Product</a>
-            <a href="outgoing-product.php" style="color: #51c4d3">Outgoing Product</a>
-            <a href="../Admin-Stock-Replenishment/stock-replenishment.php">Stock Replenishment</a>
+            <a href="../Admin-Outgoing-Product/outgoing-product.php">Outgoing Product</a>
+            <a href="stock-replenishment.php" style="color: #51c4d3">Stock Replenishment</a>
         </div>
         <a href="#">Daily Attendance</a>
         <button class="dropdown-btn">Report 
@@ -60,37 +60,14 @@
             <a href="#">Restore</a>
         </div>
         <a href="#">Help</a>
-        <a href="outgoing-product.php?logout=<?php echo "$username"?>">Logout</a>
+        <a href="stock-replenishment.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
-            <form method="post" action="outgoing-product.php">
-                <h1 class="outgoing-product-h1">Outgoing Product</h1>
-                <div class="outgoing-product-grid">
-                    <div class="grid-1">
-                        <label for="brandName">Brand Name</label>
-                        <input id="brandName" type="text" class="inputs" name="brandName" placeholder="Enter brand name" required>
-                        <label for="type">Type</label>
-                        <input id="type" type="text" class="inputs" name="type" placeholder="Enter type" required>
-                        <label for="model">Model</label>
-                        <input id="model" type="text" class="inputs" name="model" placeholder="Enter model" required>
-                    </div>
-                    <div class="grid-2">
-                        <label for="date">Date</label>
-                        <input id="date" type="date" class="inputs" name="date" required>
-                        <label for="quantity">Quantity</label>
-                        <input id="quantity" type="number" class="inputs" name="quantity" placeholder="Enter quantity" required>
-                    </div>
-                </div>
-                <div class="button-div">
-                    <input type="submit" class="submit-button" name="submit-button" value="Submit">
-                </div>
-            </form>
-            <hr/>
+            <h1 class="stock-replenishment-h1">Stock Replenishment</h1>
             <table>
                 <thead>
-                    <th>Date</th>
                     <th>Brand Name</th>
                     <th>Type</th>
                     <th>Model</th>
@@ -98,21 +75,18 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Jan. 6, 2021</td>
                         <td>Hanabishi</td>
                         <td>Air-Condition</td>
                         <td>HTAC25S</td>
                         <td>15</td>
                     </tr>
                     <tr>
-                        <td>Jan. 11, 2021</td>
                         <td>Hanabishi</td>
                         <td>Air Circulator Fan</td>
                         <td>HACF88</td>
                         <td>30</td>
                     </tr>
                     <tr>
-                        <td>Feb. 1, 2021</td>
                         <td>Whirlpool</td>
                         <td>Microwave Oven</td>
                         <td>MWX203BL</td>
