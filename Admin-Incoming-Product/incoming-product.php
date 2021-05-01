@@ -39,7 +39,7 @@
         <div class="dropdown-container">
             <a href="incoming-product.php" style="color: #51c4d3">Incoming Product</a>
             <a href="../Admin-Outgoing-Product/outgoing-product.php">Outgoing Product</a>
-            <a href="#">Stock Replenishment</a>
+            <a href="../Admin-Stock-Replenishment/stock-replenishment.php">Stock Replenishment</a>
         </div>
         <a href="#">Daily Attendance</a>
         <button class="dropdown-btn">Report 
