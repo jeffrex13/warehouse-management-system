@@ -1,3 +1,16 @@
+<?php
+    session_start(); 
+
+    $username = $_SESSION['username'];
+    if (!isset($_SESSION['username'])) {
+        header('location: ../index.php');
+    }
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['username']);
+        header("location: ../index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="EN">
     <head>
@@ -14,10 +27,10 @@
     <body id="body">
         <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">Admin Homepage</a>
+            <a href="../Admin-Homepage/admin-homepage.php">Admin Homepage</a>
             <a href="../Product-registration/product-registration.php">Product Registration</a>
             <a href="#">Profile</a>
-            <a href="#" style="color: #4B778D">Gallery</a>
+            <a href="admin-gallery.php" style="color: #4B778D">Gallery</a>
             <a href="#">Inventory</a>
             <a href="#">Sales and Purchase</a>
             <a href="#">Search</a>
@@ -26,7 +39,7 @@
             </button>
             <div class="dropdown-container">
                 <a href="#">Incoming Product</a>
-                <a href="#">Outgoing Product</a>
+                <a href="../Admin-Outgoing-Product/outgoing-product.php">Outgoing Product</a>
                 <a href="#">Stock Replenishment</a>
             </div>
             <a href="#">Daily Attendance</a>
@@ -48,7 +61,7 @@
                 <a href="#">Restore</a>
             </div>
             <a href="#">Help</a>
-            <a href="#">Logout</a>
+            <a href="admin-gallery.php?logout=<?php echo "$username"?>">Logout</a>
         </div>
         <div id="main">
             <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
