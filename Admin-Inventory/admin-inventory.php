@@ -74,6 +74,7 @@
         <div id="main">
             <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
             <div class="container">
+                <h1 class="inv-header">Inventory</h1>
                 <form action="" method="post">
                     <label for="search">Search</label>
                     <input type="text" name="search" id="search" placeholder="Search for product">
