@@ -44,8 +44,6 @@
         <a href="../Admin-Gallery/admin-gallery.php">Gallery</a>
         <a href="./admin-inventory.php" style="color: #4B778D">Inventory</a>
         <a href="#">Sales and Purchase</a>
-        <a href="#">Search</a>
-        <button class="dropdown-btn">Product Monitoring 
         <a href="../Admin-Search/admin-search.php">Search</a>
         <button class="dropdown-btn">Product Monitoring
             <i class="fa fa-caret-down"></i>
@@ -56,8 +54,6 @@
             <a href="../Admin-Stock-Replenishment/stock-replenishment.php">Stock Replenishment</a>
         </div>
         <a href="../Admin-Daily-Attendance/daily-attendance.php">Daily Attendance</a>
-        <button class="dropdown-btn">Report 
-        <a href="#">Daily Attendance</a>
         <button class="dropdown-btn">Report
             <i class="fa fa-caret-down"></i>
         </button>
