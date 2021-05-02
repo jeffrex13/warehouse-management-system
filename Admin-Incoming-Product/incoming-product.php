@@ -30,7 +30,7 @@
         <a href="..Product-registration/product-registration.php">Product Registration</a>
         <a href="#">Profile</a>
         <a href="..Admin-Gallery/admin-gallery.php">Gallery</a>
-        <a href="#">Inventory</a>
+        <a href="../Admin-Inventory/admin-inventory.php">Inventory</a>
         <a href="#">Sales and Purchase</a>
         <a href="#">Search</a>
         <button class="dropdown-btn" style="color: #4B778D">Product Monitoring 
@@ -41,7 +41,7 @@
             <a href="../Admin-Outgoing-Product/outgoing-product.php">Outgoing Product</a>
             <a href="../Admin-Stock-Replenishment/stock-replenishment.php">Stock Replenishment</a>
         </div>
-        <a href="#">Daily Attendance</a>
+        <a href="../Admin-Daily-Attendance/daily-attendance.php">Daily Attendance</a>
         <button class="dropdown-btn">Report 
             <i class="fa fa-caret-down"></i>
         </button>
