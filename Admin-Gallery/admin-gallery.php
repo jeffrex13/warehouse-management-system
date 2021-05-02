@@ -33,7 +33,7 @@
             <a href="admin-gallery.php" style="color: #4B778D">Gallery</a>
             <a href="../Admin-Inventory/admin-inventory.php">Inventory</a>
             <a href="#">Sales and Purchase</a>
-            <a href="#">Search</a>
+            <a href="../Admin-Search/admin-search.php">Search</a>
             <button class="dropdown-btn">Product Monitoring 
                 <i class="fa fa-caret-down"></i>
             </button>
