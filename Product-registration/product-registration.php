@@ -31,7 +31,7 @@
         <a href="product-registration.php" style="color: #4B778D">Product Registration</a>
         <a href="#">Profile</a>
         <a href="../Admin-Gallery/admin-gallery.php">Gallery</a>
-        <a href="#">Inventory</a>
+        <a href="../Admin-Inventory/admin-inventory.php">Inventory</a>
         <a href="#">Sales and Purchase</a>
         <a href="#">Search</a>
         <button class="dropdown-btn">Product Monitoring 
