@@ -17,11 +17,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/admin-stock-replenishment.css">
+    <link rel="stylesheet" href="../CSS/admin-daily-attendance.css">
     <link rel="icon" href="https://static.thenounproject.com/png/165116-200.png" type = "image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!--Dropdown-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Stock Replenishment</title>
+    <!-- Search Icon -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Daily Attendance</title>
 </head>
 <body>
     <div id="mySidebar" class="sidebar">
@@ -33,15 +36,15 @@
         <a href="../Admin-Inventory/admin-inventory.php">Inventory</a>
         <a href="#">Sales and Purchase</a>
         <a href="#">Search</a>
-        <button class="dropdown-btn" style="color: #4B778D">Product Monitoring 
+        <button class="dropdown-btn">Product Monitoring 
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
             <a href="../Admin-Incoming-Product/incoming-product.php">Incoming Product</a>
             <a href="../Admin-Outgoing-Product/outgoing-product.php">Outgoing Product</a>
-            <a href="stock-replenishment.php" style="color: #51c4d3">Stock Replenishment</a>
+            <a href="../Admin-Stock-Replenishment/stock-replenishment.php">Stock Replenishment</a>
         </div>
-        <a href="../Admin-Daily-Attendance/daily-attendance.php">Daily Attendance</a>
+        <a href="daily-attendance.php" style="color: #4B778D">Daily Attendance</a>
         <button class="dropdown-btn">Report 
             <i class="fa fa-caret-down"></i>
         </button>
@@ -60,37 +63,47 @@
             <a href="#">Restore</a>
         </div>
         <a href="#">Help</a>
-        <a href="stock-replenishment.php?logout=<?php echo "$username"?>">Logout</a>
+        <a href="daily-attendance.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
-            <h1 class="stock-replenishment-h1">Stock Replenishment</h1>
+            <h1 class="daily-attendance-header">Daily Attendance</h1>
+            <div class="search-form">
+                <form action="" method="post">
+                    <label for="search">Search</label>
+                    <input type="text" name="search" id="search" placeholder="Search user">
+                    <input type="submit" value="Search">                
+                </form>
+            </div>
             <table>
                 <thead>
-                    <th>Brand Name</th>
+                    <th>Time and Date</th>
+                    <th>Staff</th>
+                    <th>Type of Transaction</th>
+                    <th>Brand</th>
                     <th>Type</th>
                     <th>Model</th>
                     <th>Quantity</th>
                 </thead>
                 <tbody>
                     <tr>
+                        <td>10:00, Jan. 5, 2021</td>
+                        <td>Jan Christan Evangelista</td>
+                        <td>Receive Product</td>
                         <td>Hanabishi</td>
-                        <td>Air-Condition</td>
+                        <td>Washing Machine</td>
                         <td>HTAC25S</td>
-                        <td>15</td>
+                        <td>20</td>
                     </tr>
                     <tr>
+                        <td>11:00, Jan. 5, 2021</td>
+                        <td>Jan Christan Evangelista</td>
+                        <td>Delivered Product</td>
                         <td>Hanabishi</td>
-                        <td>Air Circulator Fan</td>
-                        <td>HACF88</td>
-                        <td>30</td>
-                    </tr>
-                    <tr>
-                        <td>Whirlpool</td>
-                        <td>Microwave Oven</td>
-                        <td>MWX203BL</td>
-                        <td>3</td>
+                        <td>Washing Machine</td>
+                        <td>HTAC25S</td>
+                        <td>5</td>
                     </tr>
                 </tbody>
             </table>

@@ -41,7 +41,7 @@
             <a href="outgoing-product.php" style="color: #51c4d3">Outgoing Product</a>
             <a href="../Admin-Stock-Replenishment/stock-replenishment.php">Stock Replenishment</a>
         </div>
-        <a href="#">Daily Attendance</a>
+        <a href="../Admin-Daily-Attendance/daily-attendance.php">Daily Attendance</a>
         <button class="dropdown-btn">Report 
             <i class="fa fa-caret-down"></i>
         </button>
