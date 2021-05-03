@@ -59,7 +59,7 @@
             <a href="#">Restore</a>
         </div>
         <a href="#">Help</a>
-        <a href="admin-sidenav.php?logout=<?php echo "$username"?>">Logout</a>
+        <a href="incoming-product.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
