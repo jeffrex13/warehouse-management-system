@@ -31,7 +31,7 @@
         <a href="#">Profile</a>
         <a href="../Admin-Gallery/admin-gallery.php">Gallery</a>
         <a href="../Admin-Inventory/admin-inventory.php">Inventory</a>
-        <a href="#">Sales and Purchase</a>
+        <a href="../Admin-Sales-and-Purchase/sales-and-purchase.php">Sales and Purchase</a>
         <a href="../Admin-Search/admin-search.php">Search</a>
         <button class="dropdown-btn" style="color: #4B778D">Product Monitoring 
             <i class="fa fa-caret-down"></i>
@@ -54,7 +54,6 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Add</a>
             <a href="#">Edit</a>
             <a href="#">Backup</a>
             <a href="#">Restore</a>
