@@ -29,7 +29,7 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="../Admin-Homepage/admin-homepage.php">Admin Homepage</a>
             <a href="../Product-registration/product-registration.php">Product Registration</a>
-            <a href="#">Profile</a>
+            <a href="../Admin-profile/admin-profile.php">Profile</a>
             <a href="admin-gallery.php" style="color: #4B778D">Gallery</a>
             <a href="../Admin-Inventory/admin-inventory.php">Inventory</a>
             <a href="#">Sales and Purchase</a>
