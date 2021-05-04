@@ -12,7 +12,7 @@
             $this->Ln();
             $this -> SetFont('Helvetica', '', 12);
             $this->SetTextColor(40, 181, 181);
-            $this -> Cell(0, 0, 'Antipolo City', 0, 0, 'C');
+            $this -> Cell(0, 0, 'Brgy San isidro Block 5 Lot 46 Brittany 1, Antipolo City', 0, 0, 'C');
             $this->Ln();
             $this -> SetFont('Helvetica', 'B', 15);
             $this -> Cell(0, 10, 'Audit Trail Report', 0, 2, 'C');
