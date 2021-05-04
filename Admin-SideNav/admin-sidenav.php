@@ -56,7 +56,7 @@
             </button>
             <div class="dropdown-container">
                 <a href="#">Add</a>
-                <a href="#">Edit</a>
+                <a href="../Admin-Maintenance/admin-edit.php">Edit</a>
                 <a href="#">Backup</a>
                 <a href="#">Restore</a>
             </div>
