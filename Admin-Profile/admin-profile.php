@@ -51,7 +51,7 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Audit Trail</a>
+            <a href="../Admin-Report/Admin-audit-trail.php">Audit Trail</a>
             <a href="#">Sales Report</a>
             <a href="#">Purchase Report</a>
         </div>
@@ -59,7 +59,7 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Edit</a>
+            <a href="../Admin-Maintenance/admin-edit.php">Edit</a>
             <a href="#">Backup</a>
             <a href="#">Restore</a>
         </div>

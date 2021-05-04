@@ -1,3 +1,16 @@
+<?php
+    session_start(); 
+
+    $username = $_SESSION['username'];
+    if (!isset($_SESSION['username'])) {
+        header('location: ../index.php');
+    }
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['username']);
+        header("location: ../index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +50,7 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Audit Trail</a>
+            <a href="../Admin-Report/Admin-audit-trail.php">Audit Trail</a>
             <a href="#">Sales Report</a>
             <a href="#">Purchase Report</a>
         </div>
@@ -45,12 +58,12 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="./admin-edit.html" style="color: #51c4d3">Edit</a>
+            <a href="./admin-edit.php" style="color: #51c4d3">Edit</a>
             <a href="#">Backup</a>
             <a href="#">Restore</a>
         </div>
         <a href="#">Help</a>
-        <a href="admin-profile.php?logout=<?php echo "$username"?>">Logout</a>
+        <a href="admin-edit.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
