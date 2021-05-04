@@ -76,7 +76,7 @@
                 </form>
             </div>
             <div class="print-btn-div">
-                <a href="" class="print-btn">Print PDF</a>
+                <a href="audit-trail-pdf.php" target="_blank" class="print-btn">Print PDF</a>
             </div>
             <table>
                 <thead>
