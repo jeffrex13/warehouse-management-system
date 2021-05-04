@@ -46,12 +46,12 @@
             <a href="../Admin-Outgoing-Product/outgoing-product.php">Outgoing Product</a>
             <a href="../Admin-Stock-Replenishment/stock-replenishment.php">Stock Replenishment</a>
         </div>
-        <a href="./Admin-Daily-Attendance/daily-attendance.php">Daily Attendance</a>
+        <a href="../Admin-Daily-Attendance/daily-attendance.php">Daily Attendance</a>
         <button class="dropdown-btn">Report
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Audit Trail</a>
+            <a href="../Admin-Report/Admin-audit-trail.php">Audit Trail</a>
             <a href="#">Sales Report</a>
             <a href="#">Purchase Report</a>
         </div>
