@@ -50,7 +50,7 @@
         </button>
         <div class="dropdown-container">
             <a href="Admin-audit-trail.php" style="color: #51c4d3">Audit Trail</a>
-            <a href="#">Sales Report</a>
+            <a href="Admin-Sales-report.php">Sales Report</a>
             <a href="#">Purchase Report</a>
         </div>
         <button class="dropdown-btn">Maintenance 
