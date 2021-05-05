@@ -17,14 +17,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/admin-sales-report.css">
+    <link rel="stylesheet" href="../CSS/admin-purchase-report.css">
     <link rel="icon" href="https://static.thenounproject.com/png/165116-200.png" type = "image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <!--Dropdown-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Search Icon -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <title>Sales Report</title>
+    <title>Purchase Report</title>
 </head>
 <body>
     <div id="mySidebar" class="sidebar">
@@ -50,8 +50,8 @@
         </button>
         <div class="dropdown-container">
             <a href="./Admin-audit-trail.php">Audit Trail</a>
-            <a href="./Admin-Sales-report.php" style="color: #51c4d3">Sales Report</a>
-            <a href="./Admin-Purchase-Report.php">Purchase Report</a>
+            <a href="./Admin-Sales-report.php">Sales Report</a>
+            <a href="./Admin-Purchase-Report.php" style="color: #51c4d3">Purchase Report</a>
         </div>
         <button class="dropdown-btn">Maintenance 
             <i class="fa fa-caret-down"></i>
@@ -62,12 +62,12 @@
             <a href="#">Restore</a>
         </div>
         <a href="#">Help</a>
-        <a href="Admin-Sales-report.php?logout=<?php echo "$username"?>">Logout</a>
+        <a href="Admin-Purchase-Report.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
-            <h1 class="sales-report-header">Sales Report</h1>
+            <h1 class="purchase-report-header">Purchase Report</h1>
             <div class="search-form">
                 <form action="" method="post">
                     <label for="search">Search</label>

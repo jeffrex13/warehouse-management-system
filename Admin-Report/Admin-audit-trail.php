@@ -51,7 +51,7 @@
         <div class="dropdown-container">
             <a href="Admin-audit-trail.php" style="color: #51c4d3">Audit Trail</a>
             <a href="Admin-Sales-report.php">Sales Report</a>
-            <a href="#">Purchase Report</a>
+            <a href="Admin-Purchase-Report.php">Purchase Report</a>
         </div>
         <button class="dropdown-btn">Maintenance 
             <i class="fa fa-caret-down"></i>

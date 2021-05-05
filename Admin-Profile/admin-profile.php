@@ -53,7 +53,7 @@
         <div class="dropdown-container">
             <a href="../Admin-Report/Admin-audit-trail.php">Audit Trail</a>
             <a href="../Admin-Report/Admin-Sales-report.php">Sales Report</a>
-            <a href="#">Purchase Report</a>
+            <a href="../Admin-Report/Admin-Purchase-Report.php">Purchase Report</a>
         </div>
         <button class="dropdown-btn">Maintenance 
             <i class="fa fa-caret-down"></i>
