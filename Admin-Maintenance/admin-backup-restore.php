@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/admin-profile.css">
+    <link rel="stylesheet" href="../CSS/admin-backup-restore.css">
     <link rel="icon" href="https://static.thenounproject.com/png/165116-200.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <!--Dropdown-->
@@ -25,15 +25,14 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
         integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <title>Profile</title>
+    <title>Backup and Restore</title>
 </head>
-
 <body id="body">
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="../Admin-Homepage/admin-homepage.php">Admin Homepage</a>
         <a href="../Product-registration/product-registration.php">Product Registration</a>
-        <a href="./admin-profile.php" style="color: #4B778D">Profile</a>
+        <a href="./admin-profile.php">Profile</a>
         <a href="../Admin-Gallery/admin-gallery.php">Gallery</a>
         <a href="../Admin-Inventory/admin-inventory.php">Inventory</a>
         <a href="../Admin-Sales-and-Purchase/sales-and-purchase.php">Sales and Purchase</a>
@@ -59,44 +58,23 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="../Admin-Maintenance/admin-edit.php">Edit</a>
-            <a href="../Admin-Maintenance/admin-backup-restore.php">Backup & Restore</a>
+            <a href="./admin-edit.php">Edit</a>
+            <a href="./admin-backup-restore.php" style="color: #51c4d3">Backup & Restore</a>
         </div>
         <a href="#">Help</a>
-        <a href="admin-profile.php?logout=<?php echo "$username"?>">Logout</a>
+        <a href="admin-backup-restore.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
-            <h1 class="profile-header">Profile</h1>
-            <h3 class="name">John Doe</h3>
-            <div class="div-info">
-                <p class="info" style="">Level of Access: </p>
-                <p class="info1">Admin</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Phone Number: </p>
-                <p class="info1">09999999999</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Email Address: </p>
-                <p class="info1">user@gmail.com</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Address: </p>
-                <p class="info1">Antipolo</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Birthdate: </p>
-                <p class="info1">January 1, 1991</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Store/Branch: </p>
-                <p class="info1">Marikina Branch</p>
-            </div>
-        </div>   
+            <h1 class="edit-header">Backup and Restore</h1>
+            <form action="" method="">
+                <input class="backup-button" type="button" value="Backup">
+                <input class="restore-button" type="button" value="Restore">
+            </form>
+            
+        </div>
     </div>
     <script src="../index.js"></script>
 </body>
-
 </html>

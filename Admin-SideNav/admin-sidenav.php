@@ -57,8 +57,7 @@
             <div class="dropdown-container">
                 <a href="#">Add</a>
                 <a href="../Admin-Maintenance/admin-edit.php">Edit</a>
-                <a href="#">Backup</a>
-                <a href="#">Restore</a>
+                <a href="../Admin-Maintenance/admin-backup-restore.php">Backup & Restore</a>
             </div>
             <a href="#">Help</a>
             <a href="admin-sidenav.php?logout=<?php echo "$username"?>">Logout</a>

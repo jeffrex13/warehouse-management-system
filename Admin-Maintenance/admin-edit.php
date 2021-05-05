@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
         integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <title>Profile</title>
+    <title>Edit</title>
 </head>
 <body id="body">
     <div id="mySidebar" class="sidebar">
@@ -59,8 +59,7 @@
         </button>
         <div class="dropdown-container">
             <a href="./admin-edit.php" style="color: #51c4d3">Edit</a>
-            <a href="#">Backup</a>
-            <a href="#">Restore</a>
+            <a href="./admin-backup-restore.php">Backup & Restore</a>
         </div>
         <a href="#">Help</a>
         <a href="admin-edit.php?logout=<?php echo "$username"?>">Logout</a>
