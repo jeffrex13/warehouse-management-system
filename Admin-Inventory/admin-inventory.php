@@ -1,5 +1,6 @@
 <?php
-    session_start(); 
+    session_start();
+    $db = mysqli_connect('localhost', 'root', '', 'warehouse_management_system');
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
@@ -68,21 +69,13 @@
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
             <h1 class="inv-header">Inventory</h1>
-            <form action="" method="post">
-                <label for="search">Search</label>
-                <input type="text" name="search" id="search" placeholder="Search for product">
-                <label for="product-category">Search by</label>
-                    <select id="product-category" name="cars">
-                    <option value="product-id">Product ID</option>
-                    <option value="brand-name">Brand Name</option>
-                    <option value="type">Type</option>
-                    <option value="model">Model</option>
-                    <option value="color">Color</option>
-                    <option value="quantity">Quantity</option>
-                    <option value="price">Price</option>
-                    </select>
-                <input type="submit" value="Search">                
-            </form>
+            <div class="search-form">
+                <form action="admin-inventory.php" method="post">
+                    <label for="search">Search</label>
+                    <input type="text" name="search" id="search" placeholder="Search product" required>
+                    <input type="submit" name="btn_search" value="Search">                
+                </form>
+            </div>
             <table>
                 <thead>
                     <th>Product ID</th>
@@ -94,33 +87,113 @@
                     <th>Price</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1100001</td>
-                        <td>Hanabishi</td>
-                        <td>Air-Condition</td>
-                        <td>HTAC25S</td>
-                        <td>White</td>
-                        <td>15</td>
-                        <td>Php 8,000.00</td>
-                    </tr>
-                    <tr>
-                        <td>1100002</td>
-                        <td>Hanabishi</td>
-                        <td>Air Circulator Fan</td>
-                        <td>HACF88</td>
-                        <td>White</td>
-                        <td>30</td>
-                        <td>Php 1,583.00</td>
-                    </tr>
-                    <tr>
-                        <td>1100003</td>
-                        <td>Whirlpool</td>
-                        <td>Microwave Oven</td>
-                        <td>MWX203BL</td>
-                        <td>Black</td>
-                        <td>3</td>
-                        <td>Php 4,698.00</td>
-                    </tr>
+                    <a class="refresh" href="admin-inventory.php">Refresh</a>
+                    <?php
+                        if (isset($_POST['btn_search'])) {
+                            $search = mysqli_real_escape_string($db, $_POST['search']);
+
+                            $sql = "SELECT * FROM tbl_product WHERE productId='$search' OR brandName='$search'
+                            OR type='$search' OR model='$search' OR color='$search' OR quantity='$search' OR price='$search'";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    if($row['quantity'] <= 8) {
+                                        ?>
+                                            <tr>
+                                                <td style="background: red"><?php echo $row['productId'];?></td>
+                                                <td style="background: red"><?php echo $row['brandName'];?></td>
+                                                <td style="background: red"><?php echo $row['type'];?></td>
+                                                <td style="background: red"><?php echo $row['model'];?></td>
+                                                <td style="background: red"><?php echo $row['color'];?></td>
+                                                <td style="background: red"><?php echo $row['quantity'];?></td>
+                                                <td style="background: red"><?php echo $row['price'];?></td>
+                                            </tr>
+                                        <?php
+                                    } else if($row['quantity'] > 8 && $row['quantity'] <= 10) {
+                                        ?>
+                                            <tr>
+                                                <td style="background: orange;"><?php echo $row['productId'];?></td>
+                                                <td style="background: orange;"><?php echo $row['brandName'];?></td>
+                                                <td style="background: orange;"><?php echo $row['type'];?></td>
+                                                <td style="background: orange;"><?php echo $row['model'];?></td>
+                                                <td style="background: orange;"><?php echo $row['color'];?></td>
+                                                <td style="background: orange;"><?php echo $row['quantity'];?></td>
+                                                <td style="background: orange;"><?php echo $row['price'];?></td>
+                                            </tr>
+                                        <?php
+                                    } else {
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $row['productId'];?></td>
+                                                <td><?php echo $row['brandName'];?></td>
+                                                <td><?php echo $row['type'];?></td>
+                                                <td><?php echo $row['model'];?></td>
+                                                <td><?php echo $row['color'];?></td>
+                                                <td><?php echo $row['quantity'];?></td>
+                                                <td><?php echo $row['price'];?></td>
+                                            </tr>
+                                        <?php
+                                    }
+                                }
+                            } else {
+                                ?>
+                                    <tr>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                    </tr>
+                                <?php
+                            }
+                        } else {
+                            $sql = "SELECT * FROM tbl_product";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    if($row['quantity'] <= 8) {
+                                        ?>
+                                            <tr>
+                                                <td style="background: red"><?php echo $row['productId'];?></td>
+                                                <td style="background: red"><?php echo $row['brandName'];?></td>
+                                                <td style="background: red"><?php echo $row['type'];?></td>
+                                                <td style="background: red"><?php echo $row['model'];?></td>
+                                                <td style="background: red"><?php echo $row['color'];?></td>
+                                                <td style="background: red"><?php echo $row['quantity'];?></td>
+                                                <td style="background: red"><?php echo $row['price'];?></td>
+                                            </tr>
+                                        <?php
+                                    } else if($row['quantity'] > 8 && $row['quantity'] <= 10) {
+                                        ?>
+                                            <tr>
+                                                <td style="background: orange;"><?php echo $row['productId'];?></td>
+                                                <td style="background: orange;"><?php echo $row['brandName'];?></td>
+                                                <td style="background: orange;"><?php echo $row['type'];?></td>
+                                                <td style="background: orange;"><?php echo $row['model'];?></td>
+                                                <td style="background: orange;"><?php echo $row['color'];?></td>
+                                                <td style="background: orange;"><?php echo $row['quantity'];?></td>
+                                                <td style="background: orange;"><?php echo $row['price'];?></td>
+                                            </tr>
+                                        <?php
+                                    } else {
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $row['productId'];?></td>
+                                                <td><?php echo $row['brandName'];?></td>
+                                                <td><?php echo $row['type'];?></td>
+                                                <td><?php echo $row['model'];?></td>
+                                                <td><?php echo $row['color'];?></td>
+                                                <td><?php echo $row['quantity'];?></td>
+                                                <td><?php echo $row['price'];?></td>
+                                            </tr>
+                                        <?php
+                                    }
+                                }
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>   
