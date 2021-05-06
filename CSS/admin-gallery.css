@@ -10,8 +10,9 @@ body {
 .container {
     box-shadow: 1px 1px 10px 1px rgb(75, 119, 141, 30%);
     border-radius: 10px;
+    height: auto;
     margin: auto;
-    padding: 0 6.5rem;
+    padding: 1.2rem 6.5rem;
     width: 65%;
 }
 
@@ -25,9 +26,14 @@ body {
   margin: 1px 2px 5px 1px;
 }
 
+label {
+  font-size: 14px;
+}
+
 input[type=submit] {
+  display: block;
   height: 26px;
-  margin: 10px 0 22px 15px;
+  margin: 10px auto 22px;
   padding: 2px;
   width: 15%;
   background: #fff;

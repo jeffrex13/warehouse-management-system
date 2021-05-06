@@ -69,12 +69,14 @@
                 <label for="new-image" class="upload-label">Upload new image: </label>
                 <form action="admin-gallery.php" method="post" enctype="multipart/form-data">
                     <input type="file" name="myfile" id="new-image" class="upload-input" accept="image/png, image/jpeg" required>
+                    <label for="product-id">Product ID</label>
+                    <input id="product-id" type="text" name="product-id" placeholder="Product ID" />
                     <input type="submit" name="btn_submit" value="Submit">
                 </form>
                 <div class="slideshow-container fade">
 
                 <!-- Full images with numbers and message Info -->
-                <?php
+                <!-- <?php
                     $sql = "SELECT * FROM tbl_gallery";
                     $result = $db->query($sql);
                     if ($result->num_rows > 0) {
@@ -85,13 +87,13 @@
                             ?>
                                 <div class="Containers">
                                 <div class="MessageInfo"><?php echo $row['id'];?> / <?php echo $row1[0];?></div>
-                                <img src="../Photos/<?php echo $row['filename'];?>" style="width:100%">
+                                <img src="../Photos/<?php echo $row['filename'];?>" style="width:100%"> -->
                                 <!--<div class="Info">Blender</div>-->
-                                </div>
+                                <!-- </div>
                             <?php
                         }
                     }
-                ?>
+                ?> -->
 
                 <!-- Back and forward buttons -->
                 <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
