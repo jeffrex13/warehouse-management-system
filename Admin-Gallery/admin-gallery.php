@@ -1,5 +1,5 @@
 <?php
-    session_start(); 
+    session_start();
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
@@ -76,7 +76,7 @@
                 <div class="slideshow-container fade">
 
                 <!-- Full images with numbers and message Info -->
-                <!-- <?php
+                <?php
                     $sql = "SELECT * FROM tbl_gallery";
                     $result = $db->query($sql);
                     if ($result->num_rows > 0) {
@@ -86,14 +86,14 @@
                             $row1=mysqli_fetch_array($result1);
                             ?>
                                 <div class="Containers">
-                                <div class="MessageInfo"><?php echo $row['id'];?> / <?php echo $row1[0];?></div>
-                                <img src="../Photos/<?php echo $row['filename'];?>" style="width:100%"> -->
-                                <!--<div class="Info">Blender</div>-->
-                                <!-- </div>
+                                    <div class="MessageInfo"><?php echo $row['id'];?> / <?php echo $row1[0];?></div>
+                                    <img src="../Photos/<?php echo $row['filename'];?>" style="width:100%">
+                                    <div class="Info">Blender</div>
+                                </div>
                             <?php
                         }
                     }
-                ?> -->
+                ?>
 
                 <!-- Back and forward buttons -->
                 <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
