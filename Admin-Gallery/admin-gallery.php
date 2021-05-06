@@ -62,44 +62,41 @@
             <a href="admin-gallery.php?logout=<?php echo "$username"?>">Logout</a>
         </div>
         <div id="main">
+            <?php include("server.php");?>
             <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
             <div class="container">
                 <h1 class="AG-header">Gallery</h1>
                 <label for="new-image" class="upload-label">Upload new image: </label>
-                <input type="file" id="new-image" class="upload-input" accept="image/png, image/jpeg">
+                <form action="admin-gallery.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="myfile" id="new-image" class="upload-input" accept="image/png, image/jpeg" required>
+                    <input type="submit" name="btn_submit" value="Submit">
+                </form>
                 <div class="slideshow-container fade">
 
                 <!-- Full images with numbers and message Info -->
-                <div class="Containers">
-                <div class="MessageInfo">1 / 3</div>
-                <img src="../Photos/blender.jpeg" style="width:100%">
-                <div class="Info">Blender</div>
-                </div>
-
-                <div class="Containers">
-                <div class="MessageInfo">2 / 3</div>
-                <img src="../Photos/stove.jpeg" style="width:100%">
-                <div class="Info">Stove</div>
-                </div>
-
-                <div class="Containers">
-                <div class="MessageInfo">3 / 3</div>
-                <img src="../Photos/washing-machine.jpeg" style="width:100%">
-                <div class="Info">Washing Machine</div>
-                </div>
+                <?php
+                    $sql = "SELECT * FROM tbl_gallery";
+                    $result = $db->query($sql);
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            $sql1 = "select count(id) as count from tbl_gallery";
+                            $result1 = $db->query($sql1);
+                            $row1=mysqli_fetch_array($result1);
+                            ?>
+                                <div class="Containers">
+                                <div class="MessageInfo"><?php echo $row['id'];?> / <?php echo $row1[0];?></div>
+                                <img src="../Photos/<?php echo $row['filename'];?>" style="width:100%">
+                                <!--<div class="Info">Blender</div>-->
+                                </div>
+                            <?php
+                        }
+                    }
+                ?>
 
                 <!-- Back and forward buttons -->
                 <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="forward" onclick="plusSlides(1)">&#10095;</a>
                 </div>
-                <br>
-
-                <!-- The circles/dots -->
-                <div style="text-align:center">
-                <span class="dots" onclick="currentSlide(1)"></span>
-                <span class="dots" onclick="currentSlide(2)"></span>
-                <span class="dots" onclick="currentSlide(3)"></span>
-                </div> 
         </div>
         <script src="./index.js"></script>
     </body>
