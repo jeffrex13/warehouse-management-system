@@ -36,7 +36,7 @@
             $this->SetFont('Arial','',8);
             
             $this->Cell(0,10,'Page '.$this->PageNo()." / {pages}",0,0,'C');
-            $this->Cell(-20,10,'Printed By: Admin',0,0,'C');
+            $this->Cell(-20,10,'Printed By: Administrator',0,0,'C');
         }
     }
 

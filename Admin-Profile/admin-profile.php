@@ -1,6 +1,8 @@
 <?php
     session_start(); 
 
+    $db = mysqli_connect('localhost', 'root', '', 'warehouse_management_system');
+
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
         header('location: ../index.php');
@@ -69,31 +71,37 @@
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
             <h1 class="profile-header">Profile</h1>
-            <h3 class="name">John Doe</h3>
-            <div class="div-info">
-                <p class="info" style="">Level of Access: </p>
-                <p class="info1">Admin</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Phone Number: </p>
-                <p class="info1">09999999999</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Email Address: </p>
-                <p class="info1">user@gmail.com</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Address: </p>
-                <p class="info1">Antipolo</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Birthdate: </p>
-                <p class="info1">January 1, 1991</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Store/Branch: </p>
-                <p class="info1">Marikina Branch</p>
-            </div>
+            <?php
+                $sql = "SELECT * FROM tbl_user WHERE username='$username'";
+                $result = $db->query($sql);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        ?>
+                            <h3 class="name"><?php echo $row['firstname'] . " " . $row['lastname'] . " " . $row['middlename'];?></h3>
+                            <div class="div-info">
+                                <p class="info" style="">Level of Access: </p>
+                                <p class="info1"><?php echo $row['loa'];?></p>
+                            </div>
+                            <div class="div-info">
+                                <p class="info">Phone Number: </p>
+                                <p class="info1"><?php echo $row['contactnumber'];?></p>
+                            </div>
+                            <div class="div-info">
+                                <p class="info">Email Address: </p>
+                                <p class="info1"><?php echo $row['email'];?></p>
+                            </div>
+                            <div class="div-info">
+                                <p class="info">Address: </p>
+                                <p class="info1"><?php echo $row['address'];?></p>
+                            </div>
+                            <div class="div-info">
+                                <p class="info">Birthdate: </p>
+                                <p class="info1"><?php echo $row['birthdate'];?></p>
+                            </div>
+                        <?php
+                    }
+                }
+            ?>
         </div>   
     </div>
     <script src="../index.js"></script>
