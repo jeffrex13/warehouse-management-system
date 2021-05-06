@@ -103,8 +103,8 @@
                         
                             <label for="loa">Level Of Access</label>
                             <select name="loa" class="inputs" id="loa">
-                                <option value="employee">Employee</option>
-                                <option value="branch">Branch</option>
+                                <option value="Employee">Employee</option>
+                                <option value="Branch">Branch</option>
                             </select>
                             <label for="store">Store</label>
                             <input id="store" type="text" class="inputs" name="store" placeholder="Enter your store(optional)">

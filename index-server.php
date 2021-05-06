@@ -21,15 +21,15 @@
                     $result = mysqli_query($db, $loa_check_query);
                     $level_of_access = mysqli_fetch_assoc($result);
                     if ($level_of_access) {
-                        if ($level_of_access['loa'] == 'admin') {
+                        if ($level_of_access['loa'] == 'Administrator') {
                             $_SESSION['username'] = $userName;
                             header('location: ./Admin-Homepage/admin-homepage.php');
                         }
-                        if ($level_of_access['loa'] == 'employee') {
+                        if ($level_of_access['loa'] == 'Employee') {
                             $_SESSION['username'] = $userName;
                             echo 'Welcome Employee';
                         }
-                        if ($level_of_access['loa'] == 'branch') {
+                        if ($level_of_access['loa'] == 'Branch') {
                             $_SESSION['username'] = $userName;
                             echo 'Welcome Branch';
                         }
