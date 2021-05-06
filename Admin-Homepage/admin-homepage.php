@@ -114,11 +114,11 @@
                     </div>
                     <br/>
                     <div class="button-div">
-                        <input type="submit" class="submit-button" name="submit-button" value="Submit">
+                        <input id="submit-btn" type="submit" class="submit-button" name="submit-button" value="Submit" disabled>
                     </div>
                 </form>
             </div>
         </div>
-    <script src="../index.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
