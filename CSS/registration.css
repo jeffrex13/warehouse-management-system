@@ -48,16 +48,14 @@ input:focus {
 }
 
 input[type=submit] {
+    color: #28B5B5;
     padding: 1rem;
     width: 50%;
     border: 1px solid #808080;
     border-radius: 5px;
-    background-color: #28B5B5;
+    background-color: #e1e5ea;
 }
 
-input[type=submit]:hover {
-    background-color: #4B778D;
-}
 
 /* Labels */
 label {
