@@ -1,11 +1,19 @@
 <?php
-    session_start(); 
+    session_start();
+    $db = mysqli_connect('localhost', 'root', '', 'warehouse_management_system');
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
         header('location: ../index.php');
     }
     if (isset($_GET['logout'])) {
+        date_default_timezone_set('Asia/Manila');
+        $time = date("h:i a");
+        $date = date("D M j, Y");
+
+        $query = "UPDATE tbl_audit_trail SET timeout = '$time', date = '$date' 
+        WHERE username='$username' AND timeout IS NULL";
+        mysqli_query($db, $query);
         session_destroy();
         unset($_SESSION['username']);
         header("location: ../index.php");
@@ -66,6 +74,7 @@
         <div class="prod-reg-container">
         <h2 class="prod-reg-header">Product Registration</h2>
         <form action="product-registration.php" method="POST">
+            <input type="hidden" name="username" value=<?php echo $username;?> />
             <div class="container2">
                 <div class="grid1">
                     <label for="Prod-ID">Product ID</label>

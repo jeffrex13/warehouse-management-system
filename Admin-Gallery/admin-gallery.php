@@ -76,9 +76,10 @@
                 <h1 class="AG-header">Gallery</h1>
                 <label for="new-image" class="upload-label">Upload new image: </label>
                 <form action="admin-gallery.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="username" value=<?php echo $username;?> />
                     <input type="file" name="myfile" id="new-image" class="upload-input" accept="image/png, image/jpeg" required>
                     <label for="product-id">Product ID</label>
-                    <input id="product-id" type="text" name="product-id" placeholder="Product ID" />
+                    <input id="product-id" type="text" name="product-id" placeholder="Product ID" required/>
                     <input type="submit" name="btn_submit" value="Submit">
                 </form>
                 <div class="slideshow-container fade">
@@ -108,6 +109,7 @@
                 <a class="forward" onclick="plusSlides(1)">&#10095;</a>
                 </div>
         </div>
-        <script src="./index.js"></script>
+        <script src="../index.js"></script>
+        <script src="./index1.js"></script>
     </body>
 </html>

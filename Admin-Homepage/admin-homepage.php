@@ -85,6 +85,7 @@
             <form action="admin-homepage.php" method="POST">
                 <div class="registration-grid">
                     <div class="grid-1">
+                        <input type="hidden" name="uname" value=<?php echo $username;?> />
                         <label for="username">Username</label>
                         <input id="username" type="text" class="inputs" name="userName"
                             placeholder="Enter your username" pattern="[A-z0-9]{8,}"
