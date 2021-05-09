@@ -52,6 +52,11 @@
             <a href="../Admin-Incoming-Product/incoming-product.php">Incoming Product</a>
             <a href="../Admin-Outgoing-Product/outgoing-product.php">Outgoing Product</a>
             <a href="../Admin-Stock-Replenishment/stock-replenishment.php">Stock Replenishment</a>
+            <a href="../Admin-Report/Admin-Incoming-products-report.php">Incoming Products Report</a>
+            <a href="../Admin-Report/Admin-Outgoing-products-report.php">Outgoing Products Report</a>
+            <a href="../Admin-Report/Admin-Stock-replenishment-report">Stock Replenishment Report</a>
+            <a href="../Admin-Report/Admin-Attendance-report.php">Attendance Report</a>
+            <a href="../Admin-Report/Admin-Billing-report.php">Billing Report</a>
         </div>
         <a href="../Admin-Daily-Attendance/daily-attendance.php">Daily Attendance</a>
         <button class="dropdown-btn">Report
