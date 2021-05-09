@@ -18,15 +18,14 @@
             $this -> Cell(0, 10, 'Audit Trail Report', 0, 2, 'C');
             $this->Ln(5);
 
-            $this->SetFont('Arial','B',11);
+            $this->SetFont('Arial','B',10);
             $this->SetDrawColor(180,180,255);
             $this->Cell(25,10,'Username',1,0,'C');
-            $this->Cell(30,10,'First Name',1,0,'C');
-            $this->Cell(30,10,'Last Name',1,0,'C');
-            $this->Cell(30,10,'Middle Name',1,0,'C');
-            $this->Cell(25,10,'Time In',1,0,'C');
-            $this->Cell(25,10,'Time Out',1,0,'C');
-            $this->Cell(25,10,'Date',1,1,'C');
+            $this->Cell(44,10,'Name',1,0,'C');
+            $this->Cell(25,10,'Activity Time',1,0,'C');
+            $this->Cell(25,10,'Logged Out',1,0,'C');
+            $this->Cell(45,10,'Activity',1,0,'C');
+            $this->Cell(26,10,'Date',1,1,'C');
         }
         function Footer(){
             $this->Cell(190,0,'','T',1,'',true);
@@ -53,12 +52,11 @@
     $query=mysqli_query($con,"select * from tbl_audit_trail");
     while($data=mysqli_fetch_array($query)){
         $pdf->Cell(25,5,$data['username'],'LRT',0);
-        $pdf->Cell(30,5,$data['firstname'],'LRT',0);
-        $pdf->Cell(30,5,$data['lastname'],'LRT',0);
-        $pdf->Cell(30,5,$data['middlename'],'LRT',0);
+        $pdf->Cell(44,5,$data['firstname']." ".$data['lastname'],'LRT',0);
         $pdf->Cell(25,5,$data['timein'],'LRT',0);
         $pdf->Cell(25,5,$data['timeout'],'LRT',0);
-        $pdf->Cell(25,5,$data['date'],'LRT',1);
+        $pdf->Cell(45,5,$data['activity'],'LRT',0);
+        $pdf->Cell(26,5,$data['date'],'LRT',1);
     }
     $pdf->Output();
 ?>

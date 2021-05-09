@@ -7,6 +7,13 @@
         header('location: ../index.php');
     }
     if (isset($_GET['logout'])) {
+        date_default_timezone_set('Asia/Manila');
+        $time = date("h:i a");
+        $date = date("D M j, Y");
+
+        $query = "UPDATE tbl_audit_trail SET timeout = '$time', date = '$date' 
+        WHERE username='$username' AND timeout IS NULL";
+        mysqli_query($db, $query);
         session_destroy();
         unset($_SESSION['username']);
         header("location: ../index.php");
@@ -91,6 +98,24 @@
                     <?php
                         if (isset($_POST['btn_search'])) {
                             $search = mysqli_real_escape_string($db, $_POST['search']);
+
+                            $sql = "SELECT * FROM tbl_user WHERE username='$username'";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    date_default_timezone_set('Asia/Manila');
+                                    $time = date("h:i a");
+                                    $date = date("D M j, Y");
+                                    $uName = $row['username'];
+                                    $firstname = $row['firstname'];
+                                    $lastname = $row['lastname'];
+                                    $middlename = $row['middlename'];
+                                    $query = "INSERT INTO tbl_audit_trail(username, firstname, lastname, middlename, 
+                                    timein, activity, date) 
+                                    VALUES('$uName', '$firstname', '$lastname', '$middlename', '$time', 'Search Product to the inventory','$date')";
+                                    mysqli_query($db, $query);
+                                }
+                            }
 
                             $sql = "SELECT * FROM tbl_product WHERE productId='$search' OR brandName='$search'
                             OR type='$search' OR model='$search' OR color='$search' OR quantity='$search' OR price='$search'";

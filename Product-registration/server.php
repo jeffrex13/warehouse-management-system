@@ -9,6 +9,7 @@
         $color = mysqli_real_escape_string($db, $_POST['color']);
         $quantity = mysqli_real_escape_string($db, $_POST['quantity']);
         $price = mysqli_real_escape_string($db, $_POST['price']);
+        $userName = mysqli_real_escape_string($db, $_POST['username']);
 
         $number = "0123456789";
         $length = 8;
@@ -30,6 +31,24 @@
             $query = "INSERT INTO tbl_product(productId, brandName, type, model, color, quantity, price)
             VALUES('$prodID','$brandName','$type','$model','$color','$quantity','₱$price')";
             mysqli_query($db, $query);
+
+            $sql = "SELECT * FROM tbl_user WHERE username='$userName'";
+            $result = $db->query($sql);
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    date_default_timezone_set('Asia/Manila');
+                    $time = date("h:i a");
+                    $date = date("D M j, Y");
+                    $uName = $row['username'];
+                    $firstname = $row['firstname'];
+                    $lastname = $row['lastname'];
+                    $middlename = $row['middlename'];
+                    $query = "INSERT INTO tbl_audit_trail(username, firstname, lastname, middlename, 
+                    timein, activity, date) 
+                    VALUES('$uName', '$firstname', '$lastname', '$middlename', '$time', 'Registered Product','$date')";
+                    mysqli_query($db, $query);
+                }
+            }
 
             ?>
                 <div class="alert">

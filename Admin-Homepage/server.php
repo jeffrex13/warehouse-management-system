@@ -11,6 +11,7 @@
     $db = mysqli_connect('localhost', 'root', '', 'warehouse_management_system');
 
     if (isset($_POST['submit-button'])) {
+        $uname = mysqli_real_escape_string($db, $_POST['uname']);
         $userName = mysqli_real_escape_string($db, $_POST['userName']);
         $firstName = mysqli_real_escape_string($db, $_POST['firstName']);
         $lastName = mysqli_real_escape_string($db, $_POST['lastName']);
@@ -68,6 +69,24 @@
                 address, birthdate, contactnumber, email, loa) VALUES('$userName', '$password', '$firstName',
                 '$lastName', '$middleName', '$address', '$birthDate', '$contactnumber', '$email', '$loa')";
                 mysqli_query($db, $query);
+
+                $sql = "SELECT * FROM tbl_user WHERE username='$uname'";
+                $result = $db->query($sql);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        date_default_timezone_set('Asia/Manila');
+                        $time = date("h:i a");
+                        $date = date("D M j, Y");
+                        $uName = $row['username'];
+                        $fname = $row['firstname'];
+                        $lname = $row['lastname'];
+                        $mname = $row['middlename'];
+                        $query = "INSERT INTO tbl_audit_trail(username, firstname, lastname, middlename, 
+                        timein, activity, date) 
+                        VALUES('$uName', '$fname', '$lname', '$mname', '$time', 'Registered user to the system','$date')";
+                        mysqli_query($db, $query);
+                    }
+                }
     
                 try {
                     $generated_password = $password;
@@ -113,6 +132,24 @@
                 address, birthdate, contactnumber, email, loa, store) VALUES('$userName', '$password', '$firstName',
                 '$lastName', '$middleName', '$address', '$birthDate', '$contactnumber', '$email', '$loa', '$store')";
                 mysqli_query($db, $query);
+
+                $sql = "SELECT * FROM tbl_user WHERE username='$uname'";
+                $result = $db->query($sql);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        date_default_timezone_set('Asia/Manila');
+                        $time = date("h:i a");
+                        $date = date("D M j, Y");
+                        $uName = $row['username'];
+                        $fname = $row['firstname'];
+                        $lname = $row['lastname'];
+                        $mname = $row['middlename'];
+                        $query = "INSERT INTO tbl_audit_trail(username, firstname, lastname, middlename, 
+                        timein, activity, date) 
+                        VALUES('$uName', '$fname', '$lname', '$mname', '$time', 'Registered user to the system','$date')";
+                        mysqli_query($db, $query);
+                    }
+                }
     
                 try {
                     $generated_password = $password;
