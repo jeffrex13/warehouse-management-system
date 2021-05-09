@@ -25,15 +25,31 @@ for (i = 0; i < dropdown.length; i++) {
 }
 
 let checker = document.getElementById('terms-and-condition');
-let btn = document.getElementById('submit-btn');
+let submitBtn = document.getElementById('submit-btn');
 
 checker.onchange = function() {
     if(this.checked) {
-        btn.disabled = false;
-        btn.style.background="#fff";
-        btn.style.color="#28B5B5";
+        submitBtn.disabled = false;
+        submitBtn.style.background="#fff";
+        submitBtn.style.color="#28B5B5";
     } else {
-        btn.disabled = true;
-        btn.style.background="#e1e5ea";
+        submitBtn.disabled = true;
+        submitBtn.style.background="#e1e5ea";
     }
 }
+
+let modal = document.getElementById("modal");
+let btn = document.getElementById("terms");
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+span.onclick = function() {
+    modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  
