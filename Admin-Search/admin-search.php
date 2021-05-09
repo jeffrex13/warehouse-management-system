@@ -33,6 +33,10 @@
     <!-- Search Icon -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
         integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+    <script src="jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+    <script src="jquery-ui/jquery-ui.min.js"></script>
     <title>Search</title>
 </head>
 
@@ -79,18 +83,8 @@
             <h1 class="search-header">Search</h1>
             <form action="" method="post" class="search-form">
                 <label for="search">Search</label>
-                <input type="text" name="search" id="search" placeholder="Search">
-                <!-- <label for="search-category">Search by</label>
-                <select id="search-category" name="search">
-                    <option value="product-id">Product ID</option>
-                    <option value="brand-name">Brand Name</option>
-                    <option value="type">Type</option>
-                    <option value="model">Model</option>
-                    <option value="color">Color</option>
-                    <option value="quantity">Quantity</option>
-                    <option value="price">Price</option>
-                </select> -->
-                <input type="submit" value="Search">
+                <input type="text" name="search" id="search" aria-labelledby="search-label" placeholder="Start typing..." required>
+                <input type="submit" name="btn_search" value="Search">
             </form>
             <table>
                 <thead>
@@ -144,6 +138,7 @@
         </div>
     </div>
     <script src="../index.js"></script>
+    <script src="./auto-complete.js"></script>
 </body>
 
 </html>
