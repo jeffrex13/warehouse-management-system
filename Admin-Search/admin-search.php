@@ -96,6 +96,24 @@
                 if (isset($_POST['btn_search'])) {
                     $search = mysqli_real_escape_string($db, $_POST['search']);
 
+                    $sql = "SELECT * FROM tbl_user WHERE username='$username'";
+                    $result = $db->query($sql);
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            date_default_timezone_set('Asia/Manila');
+                            $time = date("h:i a");
+                            $date = date("D M j, Y");
+                            $uName = $row['username'];
+                            $firstname = $row['firstname'];
+                            $lastname = $row['lastname'];
+                            $middlename = $row['middlename'];
+                            $query = "INSERT INTO tbl_audit_trail(username, firstname, lastname, middlename, 
+                            timein, activity, date) 
+                            VALUES('$uName', '$firstname', '$lastname', '$middlename', '$time', 'Searched user or product','$date')";
+                            mysqli_query($db, $query);
+                        }
+                    }
+
                     $sql = "SELECT * FROM tbl_user WHERE username='$search' OR firstname='$search' OR
                     lastname='$search' OR middlename='$search' OR contactnumber='$search' OR email='$search'
                     OR store='$search'";
