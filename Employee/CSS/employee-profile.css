@@ -89,13 +89,15 @@ body {
     padding-right: 8px;
 }
 
+/* PROFILE */
+
 .container {
     background-color: #fff;
     border: 1px solid #4B778D;
     border-radius: 10px;
     box-shadow: 1px 1px 10px 1px rgb(75, 119, 141, 30%);
-    width: 50%;
-    margin: 3% auto;
+    width: 40%;
+    margin: 2% auto;
     padding: 2rem 3rem;
 }
 
@@ -116,7 +118,7 @@ body {
 
 .info {
     font-size: 15px;
-    width: 25%;
+    width: 30%;
 }
 
 .info1 {
