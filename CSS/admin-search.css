@@ -98,7 +98,7 @@ body {
     border: 1px solid #4B778D;
     border-radius: 10px;
     box-shadow: 1px 1px 10px 1px rgb(75, 119, 141, 30%);
-    width: 70%;
+    width: 80%;
     margin: 3% auto;
     padding: 2rem 3rem;
 }
@@ -148,8 +148,8 @@ table {
 
 thead {
     background: #28B5B5;
-    font-size: 18px;
-    text-align: left;
+    font-size: 15px;
+    text-align: center;
     margin: 0;
     position: sticky;
 }
@@ -157,4 +157,13 @@ thead {
 tr {
     border-top: 1px solid black;
     line-height: 45px;
+}
+
+.refresh {
+    text-decoration: none;
+    color: #28B5B5;
+}
+
+.refresh:hover {
+    text-decoration: underline;
 }
