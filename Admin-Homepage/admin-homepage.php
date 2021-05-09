@@ -1,11 +1,19 @@
 <?php
     session_start(); 
+    include('server.php');
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
         header('location: ../index.php');
     }
     if (isset($_GET['logout'])) {
+        date_default_timezone_set('Asia/Manila');
+        $time = date("h:i a");
+        $date = date("D M j, Y");
+
+        $query = "UPDATE tbl_audit_trail SET timeout = '$time', date = '$date' 
+        WHERE username='$username' AND timeout IS NULL";
+        mysqli_query($db, $query);
         session_destroy();
         unset($_SESSION['username']);
         header("location: ../index.php");
@@ -32,7 +40,6 @@
     <title>Admin Homepage</title>
 </head>
 <body>
-    <?php include('server.php') ?>
     <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="admin-homepage.php" style="color: #4B778D">Admin Homepage</a>
