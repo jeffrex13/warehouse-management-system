@@ -83,7 +83,7 @@
             <div class="container2">
                 <div class="grid1">
                     <label for="Prod-ID">Product ID</label>
-                    <input id="Prod-ID" type="text" name="prodID" placeholder="Auto generated ID" disabled>
+                    <input id="Prod-ID" type="text" name="prodID" placeholder="Enter Product Id" required>
 
                     <label for="Brand-name">Brand name</label>
                     <input id="Brand-name" type="text" name="brandName" placeholder="Enter Brand Name" required>
