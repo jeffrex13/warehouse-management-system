@@ -160,3 +160,13 @@ tr {
     float: right;
     padding-right: 8px;
 }
+
+.refresh {
+    margin-left: 45rem;
+    text-decoration: none;
+    color: #28B5B5;
+}
+
+.refresh:hover {
+    text-decoration: underline;
+}
