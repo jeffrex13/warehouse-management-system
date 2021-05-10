@@ -99,7 +99,7 @@
                     <input id="Color" type="text" name="color" placeholder="Enter Color" required>
 
                     <label for="Quantity">Quantity</label>
-                    <input id="Quantity" type="number" name="quantity" placeholder="Enter Quantity" min="0" required>
+                    <input id="Quantity" type="number" name="quantity" placeholder="Enter Quantity" min="1" required>
 
                     <label for="Price">Price</label>
                     <input id="Price" type="text" name="price" placeholder="Enter Price" required>
