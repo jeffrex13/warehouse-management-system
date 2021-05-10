@@ -24,8 +24,8 @@
             $this->Cell(44,10,'Name',1,0,'C');
             $this->Cell(25,10,'Activity Time',1,0,'C');
             $this->Cell(25,10,'Logged Out',1,0,'C');
-            $this->Cell(45,10,'Activity',1,0,'C');
-            $this->Cell(26,10,'Date',1,1,'C');
+            $this->Cell(50,10,'Activity',1,0,'C');
+            $this->Cell(21,10,'Date',1,1,'C');
         }
         function Footer(){
             $this->Cell(190,0,'','T',1,'',true);
@@ -55,8 +55,8 @@
         $pdf->Cell(44,5,$data['firstname']." ".$data['lastname'],'LRT',0);
         $pdf->Cell(25,5,$data['timein'],'LRT',0);
         $pdf->Cell(25,5,$data['timeout'],'LRT',0);
-        $pdf->Cell(45,5,$data['activity'],'LRT',0);
-        $pdf->Cell(26,5,$data['date'],'LRT',1);
+        $pdf->Cell(50,5,$data['activity'],'LRT',0);
+        $pdf->Cell(21,5,$data['date'],'LRT',1);
     }
     $pdf->Output();
 ?>
