@@ -10,7 +10,7 @@
     if (isset($_GET['logout'])) {
         date_default_timezone_set('Asia/Manila');
         $time = date("h:i a");
-        $date = date("D M j, Y");
+        $date = date("M j, Y");
 
         $query = "UPDATE tbl_audit_trail SET timeout = '$time', date = '$date' 
         WHERE username='$username' AND timeout IS NULL";
