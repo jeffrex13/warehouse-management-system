@@ -1,3 +1,4 @@
+
 // Gallery
 var slidePosition = 1;
 SlideShow(slidePosition);
@@ -28,6 +29,7 @@ function SlideShow(n) {
   circles[slidePosition-1].className += " enable";
 } 
 
+
 // SIDENAV
 
 function openNav() {
@@ -55,3 +57,4 @@ for (i = 0; i < dropdown.length; i++) {
         }
     });
 }
+
