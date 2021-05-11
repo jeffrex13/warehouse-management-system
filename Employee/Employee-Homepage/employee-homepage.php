@@ -35,9 +35,9 @@
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="./employee-homepage.php" style="color: #4B778D">Profile</a>
-        <a href="#">Gallery</a>
+        <a href="../Employee-Gallery/employee-gallery.php">Gallery</a>
         <a href="#">Barcode Generator</a>
-        <a href="#">Search</a>
+        <a href="../Employee-Search/employee-search.php">Search</a>
         <button class="dropdown-btn">Product Monitoring 
             <i class="fa fa-caret-down"></i>
         </button>
