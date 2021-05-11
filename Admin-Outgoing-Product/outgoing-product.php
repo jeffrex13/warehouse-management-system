@@ -1,6 +1,7 @@
 <?php
     session_start();
     $db = mysqli_connect('localhost', 'root', '', 'warehouse_management_system');
+    include('server.php');
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
@@ -9,7 +10,7 @@
     if (isset($_GET['logout'])) {
         date_default_timezone_set('Asia/Manila');
         $time = date("h:i a");
-        $date = date("D M j, Y");
+        $date = date("M j, Y");
 
         $query = "UPDATE tbl_audit_trail SET timeout = '$time', date = '$date' 
         WHERE username='$username' AND timeout IS NULL";
@@ -78,20 +79,17 @@
         <div class="container">
             <form method="post" action="outgoing-product.php">
                 <h1 class="outgoing-product-h1">Outgoing Product</h1>
+                <input type="hidden" name="uname" value=<?php echo $username;?> />
                 <div class="outgoing-product-grid">
                     <div class="grid-1">
-                        <label for="brandName">Brand Name</label>
-                        <input id="brandName" type="text" class="inputs" name="brandName" placeholder="Enter brand name" required>
-                        <label for="type">Type</label>
-                        <input id="type" type="text" class="inputs" name="type" placeholder="Enter type" required>
-                        <label for="model">Model</label>
-                        <input id="model" type="text" class="inputs" name="model" placeholder="Enter model" required>
+                        <label for="brandName">Product Id</label>
+                        <input id="brandName" type="text" class="inputs" name="productId" placeholder="Enter product ID" required>
+                        <label for="quantity">Quantity</label>
+                        <input id="quantity" type="number" class="inputs" name="quantity" min="1" placeholder="Enter quantity" required>
                     </div>
                     <div class="grid-2">
                         <label for="date">Date</label>
                         <input id="date" type="date" class="inputs" name="date" required>
-                        <label for="quantity">Quantity</label>
-                        <input id="quantity" type="number" class="inputs" name="quantity" placeholder="Enter quantity" required>
                     </div>
                 </div>
                 <div class="button-div">
@@ -102,33 +100,31 @@
             <table>
                 <thead>
                     <th>Date</th>
+                    <th>Product Id</th>
                     <th>Brand Name</th>
                     <th>Type</th>
                     <th>Model</th>
                     <th>Quantity</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Jan. 6, 2021</td>
-                        <td>Hanabishi</td>
-                        <td>Air-Condition</td>
-                        <td>HTAC25S</td>
-                        <td>15</td>
-                    </tr>
-                    <tr>
-                        <td>Jan. 11, 2021</td>
-                        <td>Hanabishi</td>
-                        <td>Air Circulator Fan</td>
-                        <td>HACF88</td>
-                        <td>30</td>
-                    </tr>
-                    <tr>
-                        <td>Feb. 1, 2021</td>
-                        <td>Whirlpool</td>
-                        <td>Microwave Oven</td>
-                        <td>MWX203BL</td>
-                        <td>3</td>
-                    </tr>
+                    <?php
+                        $sql = "SELECT * FROM tbl_outgoing_product";
+                        $result = $db->query($sql);
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['date'];?></td>
+                                        <td><?php echo $row['product_id'];?></td>
+                                        <td><?php echo $row['brandName'];?></td>
+                                        <td><?php echo $row['type'];?></td>
+                                        <td><?php echo $row['model'];?></td>
+                                        <td><?php echo $row['quantity'];?></td>
+                                    </tr>
+                                <?php
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
