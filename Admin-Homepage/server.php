@@ -139,7 +139,7 @@
                     while($row = $result->fetch_assoc()) {
                         date_default_timezone_set('Asia/Manila');
                         $time = date("h:i a");
-                        $date = date("D M j, Y");
+                        $date = date("M j, Y");
                         $uName = $row['username'];
                         $fname = $row['firstname'];
                         $lname = $row['lastname'];

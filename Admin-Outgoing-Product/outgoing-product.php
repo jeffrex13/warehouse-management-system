@@ -10,7 +10,7 @@
     if (isset($_GET['logout'])) {
         date_default_timezone_set('Asia/Manila');
         $time = date("h:i a");
-        $date = date("D M j, Y");
+        $date = date("M j, Y");
 
         $query = "UPDATE tbl_audit_trail SET timeout = '$time', date = '$date' 
         WHERE username='$username' AND timeout IS NULL";
@@ -100,6 +100,7 @@
             <table>
                 <thead>
                     <th>Date</th>
+                    <th>Product Id</th>
                     <th>Brand Name</th>
                     <th>Type</th>
                     <th>Model</th>
@@ -114,8 +115,10 @@
                                 ?>
                                     <tr>
                                         <td><?php echo $row['date'];?></td>
+                                        <td><?php echo $row['product_id'];?></td>
                                         <td><?php echo $row['brandName'];?></td>
                                         <td><?php echo $row['type'];?></td>
+                                        <td><?php echo $row['model'];?></td>
                                         <td><?php echo $row['quantity'];?></td>
                                     </tr>
                                 <?php
