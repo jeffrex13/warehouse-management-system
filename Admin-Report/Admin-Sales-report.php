@@ -83,12 +83,12 @@
             <div class="search-form">
                 <form action="" method="post">
                     <label for="search">Search</label>
-                    <input type="text" name="search" id="search" placeholder="Search product">
-                    <input type="submit" value="Search">                
+                    <input type="text" name="search" id="search" placeholder="Search">
+                    <input type="submit" value="Search" name="btn_search">                
                 </form>
             </div>
             <div class="print-btn-div">
-                <a href="#" target="_blank" class="print-btn">Print PDF</a>
+                <a href="sales-report-pdf.php" target="_blank" class="print-btn">Print PDF</a>
             </div>
             <table>
                 <thead>
@@ -100,22 +100,77 @@
                     <th>Price</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Jan. 7, 2021</td>
-                        <td>Samsung</td>
-                        <td>Washing Machine</td>
-                        <td>HTAC25S</td>
-                        <td>10</td>
-                        <td>₱500,000.00</td>
-                    </tr>
-                    <tr>
-                        <td>Jan. 7, 2021</td>
-                        <td>Samsung</td>
-                        <td>Washing Machine</td>
-                        <td>HTAC25S</td>
-                        <td>10</td>
-                        <td>₱500,000.00</td>
-                    </tr>
+                    <a href="Admin-Sales-report.php" target="_blank" class="print-btn">Refresh</a>
+                    <?php
+                        if (isset($_POST['btn_search'])) {
+                            $search = mysqli_real_escape_string($db, $_POST['search']);
+                        
+                            $sql = "SELECT * FROM tbl_user WHERE username='$username'";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    date_default_timezone_set('Asia/Manila');
+                                    $time = date("h:i a");
+                                    $date = date("M j, Y");
+                                    $uName = $row['username'];
+                                    $firstname = $row['firstname'];
+                                    $lastname = $row['lastname'];
+                                    $middlename = $row['middlename'];
+                                    $query = "INSERT INTO tbl_audit_trail(username, firstname, lastname, middlename, 
+                                    timein, activity, date) 
+                                    VALUES('$uName', '$firstname', '$lastname', '$middlename', '$time', 'Searched in sales report','$date')";
+                                    mysqli_query($db, $query);
+                                }
+                            }
+
+                            $sql = "SELECT * FROM tbl_sales_and_purchase where typeOfTransaction = '$search' OR date = '$search' OR
+                            brandName = '$search' OR type = '$search' OR quantity = '$search' OR price = '$search' 
+                            AND typeOfTransaction='Sales'";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $row['typeOfTransaction'];?></td>
+                                            <td><?php echo $row['date'];?></td>
+                                            <td><?php echo $row['brandName'];?></td>
+                                            <td><?php echo $row['type'];?></td>
+                                            <td><?php echo $row['quantity'];?></td>
+                                            <td><?php echo "₱".$row['price'];?></td>
+                                        </tr>
+                                    <?php
+                                }
+                            } else {
+                                ?>
+                                    <tr>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                    </tr>
+                                <?php
+                            }
+                        } else {
+                            $sql = "SELECT * FROM tbl_sales_and_purchase WHERE typeOfTransaction='Sales'";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $row['typeOfTransaction'];?></td>
+                                            <td><?php echo $row['date'];?></td>
+                                            <td><?php echo $row['brandName'];?></td>
+                                            <td><?php echo $row['type'];?></td>
+                                            <td><?php echo $row['quantity'];?></td>
+                                            <td><?php echo "₱".$row['price'];?></td>
+                                        </tr>
+                                    <?php
+                                }
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>

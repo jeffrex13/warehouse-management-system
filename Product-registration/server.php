@@ -34,7 +34,7 @@
             }
         } else {
             $query = "INSERT INTO tbl_product(productId, brandName, type, model, color, quantity, price)
-            VALUES('$prodID','$brandName','$type','$model','$color','$quantity','₱$price')";
+            VALUES('$prodID','$brandName','$type','$model','$color','$quantity','$price')";
             mysqli_query($db, $query);
 
             $sql = "SELECT * FROM tbl_user WHERE username='$userName'";

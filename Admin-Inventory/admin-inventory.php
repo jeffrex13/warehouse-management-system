@@ -136,7 +136,7 @@
                                                 <td style="background: red"><?php echo $row['model'];?></td>
                                                 <td style="background: red"><?php echo $row['color'];?></td>
                                                 <td style="background: red"><?php echo $row['quantity'];?></td>
-                                                <td style="background: red"><?php echo $row['price'];?></td>
+                                                <td style="background: red"><?php echo "₱".$row['price'];?></td>
                                             </tr>
                                         <?php
                                     } else if($row['quantity'] > 8 && $row['quantity'] <= 10) {
@@ -148,7 +148,7 @@
                                                 <td style="background: orange;"><?php echo $row['model'];?></td>
                                                 <td style="background: orange;"><?php echo $row['color'];?></td>
                                                 <td style="background: orange;"><?php echo $row['quantity'];?></td>
-                                                <td style="background: orange;"><?php echo $row['price'];?></td>
+                                                <td style="background: orange;"><?php echo "₱".$row['price'];?></td>
                                             </tr>
                                         <?php
                                     } else {
@@ -160,7 +160,7 @@
                                                 <td><?php echo $row['model'];?></td>
                                                 <td><?php echo $row['color'];?></td>
                                                 <td><?php echo $row['quantity'];?></td>
-                                                <td><?php echo $row['price'];?></td>
+                                                <td><?php echo "₱".$row['price'];?></td>
                                             </tr>
                                         <?php
                                     }
@@ -192,7 +192,7 @@
                                                 <td style="background: red"><?php echo $row['model'];?></td>
                                                 <td style="background: red"><?php echo $row['color'];?></td>
                                                 <td style="background: red"><?php echo $row['quantity'];?></td>
-                                                <td style="background: red"><?php echo $row['price'];?></td>
+                                                <td style="background: red"><?php echo "₱".$row['price'];?></td>
                                             </tr>
                                         <?php
                                     } else if($row['quantity'] > 8 && $row['quantity'] <= 10) {
@@ -204,7 +204,7 @@
                                                 <td style="background: orange;"><?php echo $row['model'];?></td>
                                                 <td style="background: orange;"><?php echo $row['color'];?></td>
                                                 <td style="background: orange;"><?php echo $row['quantity'];?></td>
-                                                <td style="background: orange;"><?php echo $row['price'];?></td>
+                                                <td style="background: orange;"><?php echo "₱".$row['price'];?></td>
                                             </tr>
                                         <?php
                                     } else {
@@ -216,7 +216,7 @@
                                                 <td><?php echo $row['model'];?></td>
                                                 <td><?php echo $row['color'];?></td>
                                                 <td><?php echo $row['quantity'];?></td>
-                                                <td><?php echo $row['price'];?></td>
+                                                <td><?php echo "₱".$row['price'];?></td>
                                             </tr>
                                         <?php
                                     }
