@@ -56,7 +56,7 @@
         $pdf->Cell(40,5,$data['brandName'],'LRT',0);
         $pdf->Cell(40,5,$data['type'],'LRT',0);
         $pdf->Cell(25,5,$data['quantity'],'LRT',0);
-        $pdf->Cell(25,5,$data['price'],'LRT',1);
+        $pdf->Cell(25,5,"P".$data['price'],'LRT',1);
     }
     $pdf->Output();
 ?>

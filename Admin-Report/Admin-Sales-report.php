@@ -136,7 +136,7 @@
                                             <td><?php echo $row['brandName'];?></td>
                                             <td><?php echo $row['type'];?></td>
                                             <td><?php echo $row['quantity'];?></td>
-                                            <td><?php echo $row['price'];?></td>
+                                            <td><?php echo "₱".$row['price'];?></td>
                                         </tr>
                                     <?php
                                 }
@@ -164,7 +164,7 @@
                                             <td><?php echo $row['brandName'];?></td>
                                             <td><?php echo $row['type'];?></td>
                                             <td><?php echo $row['quantity'];?></td>
-                                            <td><?php echo $row['price'];?></td>
+                                            <td><?php echo "₱".$row['price'];?></td>
                                         </tr>
                                     <?php
                                 }
