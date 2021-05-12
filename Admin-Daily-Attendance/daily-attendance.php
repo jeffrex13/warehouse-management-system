@@ -81,10 +81,10 @@
         <div class="container">
             <h1 class="daily-attendance-header">Daily Attendance</h1>
             <div class="search-form">
-                <form action="" method="post">
+                <form action="daily-attendance.php" method="post">
                     <label for="search">Search</label>
                     <input type="text" name="search" id="search" placeholder="Search user">
-                    <input type="submit" value="Search">                
+                    <input type="submit" value="Search" name="btn_search">                
                 </form>
             </div>
             <table>
@@ -94,28 +94,80 @@
                     <th>Type of Transaction</th>
                     <th>Brand</th>
                     <th>Type</th>
-                    <th>Model</th>
                     <th>Quantity</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>10:00, Jan. 5, 2021</td>
-                        <td>Jan Christan Evangelista</td>
-                        <td>Receive Product</td>
-                        <td>Hanabishi</td>
-                        <td>Washing Machine</td>
-                        <td>HTAC25S</td>
-                        <td>20</td>
-                    </tr>
-                    <tr>
-                        <td>11:00, Jan. 5, 2021</td>
-                        <td>Jan Christan Evangelista</td>
-                        <td>Delivered Product</td>
-                        <td>Hanabishi</td>
-                        <td>Washing Machine</td>
-                        <td>HTAC25S</td>
-                        <td>5</td>
-                    </tr>
+                    <a class="refresh" href="daily-attendance.php">Refresh</a>
+                    <?php
+                        if (isset($_POST['btn_search'])) {
+                            $search = mysqli_real_escape_string($db, $_POST['search']);
+                        
+                            $sql = "SELECT * FROM tbl_user WHERE username='$username'";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    date_default_timezone_set('Asia/Manila');
+                                    $time = date("h:i a");
+                                    $date = date("M j, Y");
+                                    $uName = $row['username'];
+                                    $firstname = $row['firstname'];
+                                    $lastname = $row['lastname'];
+                                    $middlename = $row['middlename'];
+                                    $query = "INSERT INTO tbl_audit_trail(username, firstname, lastname, middlename, 
+                                    timein, activity, date) 
+                                    VALUES('$uName', '$firstname', '$lastname', '$middlename', '$time', 'Searched in daily attendance','$date')";
+                                    mysqli_query($db, $query);
+                                }
+                            }
+
+                            $sql = "SELECT * FROM tb_daily_attendance where time = '$search' OR date = '$search' OR
+                            staff = '$search' OR typeOfTransaction = '$search' OR brand = '$search' OR type = '$search' OR
+                            quantity = '$search'";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $row['time'] . " " . $row['date'];?></td>
+                                            <td><?php echo $row['staff'];?></td>
+                                            <td><?php echo $row['typeOfTransaction'];?></td>
+                                            <td><?php echo $row['brand'];?></td>
+                                            <td><?php echo $row['type'];?></td>
+                                            <td><?php echo $row['quantity'];?></td>
+                                        </tr>
+                                    <?php
+                                }
+                            } else {
+                                ?>
+                                    <tr>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                    </tr>
+                                <?php
+                            }
+                        } else {
+                            $sql = "SELECT * FROM tb_daily_attendance";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $row['time'] . "/" . $row['date'];?></td>
+                                            <td><?php echo $row['staff'];?></td>
+                                            <td><?php echo $row['typeOfTransaction'];?></td>
+                                            <td><?php echo $row['brand'];?></td>
+                                            <td><?php echo $row['type'];?></td>
+                                            <td><?php echo $row['quantity'];?></td>
+                                        </tr>
+                                    <?php
+                                }
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>

@@ -29,6 +29,24 @@
                     </div>
                 <?php
             } else {
+                $sql = "SELECT * FROM tbl_user WHERE username='$userName'";
+                $result = $db->query($sql);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        date_default_timezone_set('Asia/Manila');
+                        $time = date("h:i a");
+                        $date = date("M j, Y");
+                        $uName = $row['username'];
+                        $firstname = $row['firstname'];
+                        $lastname = $row['lastname'];
+                        $middlename = $row['middlename'];
+                        $query = "INSERT INTO tbl_audit_trail(username, firstname, lastname, middlename, 
+                        timein, activity, date) 
+                        VALUES('$userName', '$firstname', '$lastname', '$middlename', '$time', 'Retrieved forgot password','$date')";
+                        mysqli_query($db, $query);
+                    }
+                }
+
                 $query2 = "SELECT * FROM tbl_user WHERE username='$userName'";
                 $result2 = mysqli_query($db, $query2);
                 $row2 = $result2->fetch_assoc();

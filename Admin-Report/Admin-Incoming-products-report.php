@@ -57,14 +57,14 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="../Admin-Report/Admin-audit-trail.php">Audit Trail</a>
-            <a href="../Admin-Report/Admin-Sales-report.php">Sales Report</a>
-            <a href="../Admin-Report/Admin-Purchase-Report.php">Purchase Report</a>
-            <a href="./Admin-Incoming-products-report.php" style="color: #51c4d3">Incoming Products Report</a>
-            <a href="../Admin-Report/Admin-Outgoing-products-report.php">Outgoing Products Report</a>
-            <a href="../Admin-Report/Admin-Stock-replenishment-report">Stock Replenishment Report</a>
-            <a href="../Admin-Report/Admin-Attendance-report.php">Attendance Report</a>
-            <a href="../Admin-Report/Admin-Billing-report.php">Billing Report</a>
+            <a href="Admin-audit-trail.php">Audit Trail</a>
+            <a href="Admin-Sales-report.php">Sales Report</a>
+            <a href="Admin-Purchase-Report.php">Purchase Report</a>
+            <a href="Admin-Incoming-products-report.php" style="color: #51c4d3">Incoming Products Report</a>
+            <a href="Admin-Outgoing-products-report.php">Outgoing Products Report</a>
+            <a href="Admin-Stock-replenishment-report.php">Stock Replenishment Report</a>
+            <a href="Admin-Attendance-report.php">Attendance Report</a>
+            <a href="Admin-Billing-report.php">Billing Report</a>
         </div>
         <button class="dropdown-btn">Maintenance 
             <i class="fa fa-caret-down"></i>
