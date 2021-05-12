@@ -79,30 +79,30 @@
             <h1 class="stock-replenishment-h1">Stock Replenishment</h1>
             <table>
                 <thead>
+                    <th>Product Id</th>
                     <th>Brand Name</th>
                     <th>Type</th>
                     <th>Model</th>
                     <th>Quantity</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Hanabishi</td>
-                        <td>Air-Condition</td>
-                        <td>HTAC25S</td>
-                        <td>15</td>
-                    </tr>
-                    <tr>
-                        <td>Hanabishi</td>
-                        <td>Air Circulator Fan</td>
-                        <td>HACF88</td>
-                        <td>30</td>
-                    </tr>
-                    <tr>
-                        <td>Whirlpool</td>
-                        <td>Microwave Oven</td>
-                        <td>MWX203BL</td>
-                        <td>3</td>
-                    </tr>
+                    <?php
+                        $sql = "SELECT * FROM tbl_product WHERE quantity <= 8";
+                        $result = $db->query($sql);
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['productId'];?></td>
+                                        <td><?php echo $row['brandName'];?></td>
+                                        <td><?php echo $row['type'];?></td>
+                                        <td><?php echo $row['model'];?></td>
+                                        <td><?php echo $row['quantity'];?></td>
+                                    </tr>
+                                <?php
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
