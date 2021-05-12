@@ -86,6 +86,8 @@
                         <input id="brandName" type="text" class="inputs" name="brandName" placeholder="Enter brand name" required>
                         <label for="type">Type</label>
                         <input id="type" type="text" class="inputs" name="type" placeholder="Enter type" required>
+                        <label for="type">Model</label>
+                        <input id="type" type="text" class="inputs" name="model" placeholder="Enter model">
                     </div>
                     <div class="grid-2">
                         <label for="date">Date</label>
@@ -104,6 +106,7 @@
                     <th>Date</th>
                     <th>Brand Name</th>
                     <th>Type</th>
+                    <th>Model</th>
                     <th>Quantity</th>
                 </thead>
                 <tbody>
@@ -117,6 +120,7 @@
                                         <td><?php echo $row['date'];?></td>
                                         <td><?php echo $row['brandName'];?></td>
                                         <td><?php echo $row['type'];?></td>
+                                        <td><?php echo $row['model'];?></td>
                                         <td><?php echo $row['quantity'];?></td>
                                     </tr>
                                 <?php
