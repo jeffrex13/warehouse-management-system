@@ -84,7 +84,7 @@
                 <form action="" method="post">
                     <label for="search">Search</label>
                     <input type="text" name="search" id="search" placeholder="Search user">
-                    <input type="submit" value="Search">                
+                    <input type="submit" value="Search" name="btn_search">                
                 </form>
             </div>
             <div class="print-btn-div">
@@ -96,29 +96,89 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Middle Name</th>
-                    <th>Time In</th>
+                    <th>Activity Time</th>
                     <th>Time Out</th>
+                    <th>Activity</th>
                     <th>Date</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>JBevangelista</td>
-                        <td>Jan Bernard</td>
-                        <td>Evangelista</td>
-                        <td>Espiritu</td>
-                        <td>10:00 AM</td>
-                        <td>12:00 PM</td>
-                        <td>January 7, 1997</td>
-                    </tr>
-                    <tr>
-                        <td>JBevangelista</td>
-                        <td>Jan Bernard</td>
-                        <td>Evangelista</td>
-                        <td>Espiritu</td>
-                        <td>10:00 AM</td>
-                        <td>12:00 PM</td>
-                        <td>January 7, 1997</td>
-                    </tr>
+                    <a class="refresh" href="Admin-audit-trail.php">Refresh</a>
+                    <?php
+                        if (isset($_POST['btn_search'])) {
+                            $search = mysqli_real_escape_string($db, $_POST['search']);
+                        
+                            $sql = "SELECT * FROM tbl_user WHERE username='$username'";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    date_default_timezone_set('Asia/Manila');
+                                    $time = date("h:i a");
+                                    $date = date("M j, Y");
+                                    $uName = $row['username'];
+                                    $firstname = $row['firstname'];
+                                    $lastname = $row['lastname'];
+                                    $middlename = $row['middlename'];
+                                    $query = "INSERT INTO tbl_audit_trail(username, firstname, lastname, middlename, 
+                                    timein, activity, date) 
+                                    VALUES('$uName', '$firstname', '$lastname', '$middlename', '$time', 'Searched in audit trail','$date')";
+                                    mysqli_query($db, $query);
+                                }
+                            }
+
+                            $sql = "SELECT * FROM tbl_audit_trail where username = '$search' OR firstname = '$search' OR
+                            lastname = '$search' OR middlename = '$search' OR timein = '$search' OR timeout = '$search' OR
+                            activity = '$search' OR date = '$search'";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $row['username'];?></td>
+                                            <td><?php echo $row['firstname'];?></td>
+                                            <td><?php echo $row['lastname'];?></td>
+                                            <td><?php echo $row['middlename'];?></td>
+                                            <td><?php echo $row['timein'];?></td>
+                                            <td><?php echo $row['timeout'];?></td>
+                                            <td><?php echo $row['activity'];?></td>
+                                            <td><?php echo $row['date'];?></td>
+                                        </tr>
+                                    <?php
+                                }
+                            } else {
+                                ?>
+                                    <tr>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                    </tr>
+                                <?php
+                            }
+                        } else {
+                            $sql = "SELECT * FROM tbl_audit_trail";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $row['username'];?></td>
+                                            <td><?php echo $row['firstname'];?></td>
+                                            <td><?php echo $row['lastname'];?></td>
+                                            <td><?php echo $row['middlename'];?></td>
+                                            <td><?php echo $row['timein'];?></td>
+                                            <td><?php echo $row['timeout'];?></td>
+                                            <td><?php echo $row['activity'];?></td>
+                                            <td><?php echo $row['date'];?></td>
+                                        </tr>
+                                    <?php
+                                }
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
