@@ -25,11 +25,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/employee-outgoing-product.css">
+    <link rel="stylesheet" href="../CSS/employee-incoming-product.css">
     <link rel="icon" href="https://static.thenounproject.com/png/165116-200.png" type = "image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Employee Outgoing Product</title>
+    <title>Employee Incoming Product</title>
 </head>
 <body>
     <div id="mySidebar" class="sidebar">
@@ -42,18 +42,18 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="../Employee-Incoming-Product/employee-incoming-product.php">Incoming Product</a>
-            <a href="./employee-outgoing-product.php" style="color: #51c4d3">Outgoing Product</a>
+            <a href="./employee-incoming-product.php" style="color: #51c4d3">Incoming Product</a>
+            <a href="../Employee-Outgoing-Product/employee-outgoing-product.php">Outgoing Product</a>
             <a href="#">Stock Replenishment</a>
         </div>
         <a href="#">Daily Attendance</a>
         <a href="#">Help</a>
-        <a href="employee-outgoing-product.php?logout=<?php echo "$username"?>">Logout</a>
+        <a href="employee-incoming-product.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
-                <h1 class="outgoing-product-h1">Outgoing Product</h1>
+                <h1 class="incoming-product-h1">Incoming Product</h1>
             <table>
                 <thead>
                     <th>Date</th>
@@ -70,7 +70,7 @@
                         <td>Air-Condition</td>
                         <td>HTAC25S</td>
                         <td>15</td>
-                        <td><button class="delivered-btn">Delivered</button></td>
+                        <td><button class="received-btn">Received</button></td>
                     </tr>
                     <tr>
                         <td>Jan. 11, 2021</td>
@@ -78,7 +78,7 @@
                         <td>Air Circulator Fan</td>
                         <td>HACF88</td>
                         <td>30</td>
-                        <td><button class="delivered-btn">Delivered</button></td>
+                        <td><button class="received-btn">Received</button></td>
                     </tr>
                     <tr>
                         <td>Feb. 1, 2021</td>
@@ -86,7 +86,7 @@
                         <td>Microwave Oven</td>
                         <td>MWX203BL</td>
                         <td>3</td>
-                        <td><button class="received-btn">Delivered</button></td>
+                        <td><button class="received-btn">Received</button></td>
                     </tr>
                 </tbody>
             </table>
