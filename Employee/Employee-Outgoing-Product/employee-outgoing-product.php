@@ -70,7 +70,7 @@
                         <td>Air-Condition</td>
                         <td>HTAC25S</td>
                         <td>15</td>
-                        <td><button class="received-btn">Received</button></td>
+                        <td><button class="delivered-btn">Delivered</button></td>
                     </tr>
                     <tr>
                         <td>Jan. 11, 2021</td>
@@ -78,7 +78,7 @@
                         <td>Air Circulator Fan</td>
                         <td>HACF88</td>
                         <td>30</td>
-                        <td><button class="received-btn">Received</button></td>
+                        <td><button class="delivered-btn">Delivered</button></td>
                     </tr>
                     <tr>
                         <td>Feb. 1, 2021</td>

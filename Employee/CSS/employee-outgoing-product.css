@@ -50,13 +50,13 @@ tr {
     margin-bottom: 5rem;
 }
 
-.received-btn {
+.delivered-btn {
     background: #fff;
     padding: 5px;
     margin: 2px;
 }
 
-.received-btn:hover {
+.delivered-btn:hover {
     color: #fff;
     background: #28B5B5;
     
