@@ -84,6 +84,7 @@
                     <th>Type</th>
                     <th>Model</th>
                     <th>Quantity</th>
+                    <th>Store</th>
                 </thead>
                 <tbody>
                     <?php
@@ -98,6 +99,7 @@
                                         <td><?php echo $row['type'];?></td>
                                         <td><?php echo $row['model'];?></td>
                                         <td><?php echo $row['quantity'];?></td>
+                                        <td>N/A</td>
                                     </tr>
                                 <?php
                             }
