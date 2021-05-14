@@ -36,7 +36,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="../Employee-Homepage/employee-homepage.php">Profile</a>
         <a href="./employee-gallery.php" style="color: #4B778D">Gallery</a>
-        <a href="#">Barcode Generator</a>
+        <a href="../Employee-Barcode-Generator/employee-barcode-generator.php">Barcode Generator</a>
         <a href="../Employee-Search/employee-search.php">Search</a>
         <button class="dropdown-btn">Product Monitoring 
             <i class="fa fa-caret-down"></i>

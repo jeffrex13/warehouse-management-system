@@ -25,7 +25,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/employee-outgoing-product.css">
+    <link rel="stylesheet" href="../CSS/employee-barcode-generator.css">
     <link rel="icon" href="https://static.thenounproject.com/png/165116-200.png" type = "image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -36,7 +36,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="../Employee-Homepage/employee-homepage.php">Profile</a>
         <a href="../Employee-Gallery/employee-gallery.php">Gallery</a>
-        <a href="../Employee-Barcode-Generator/employee-barcode-generator.php">Barcode Generator</a>
+        <a href="./employee-barcode-generator.php" style="color: #4B778D">Barcode Generator</a>
         <a href="../Employee-Search/employee-search.php">Search</a>
         <button class="dropdown-btn">Product Monitoring 
             <i class="fa fa-caret-down"></i>
@@ -48,48 +48,13 @@
         </div>
         <a href="#">Daily Attendance</a>
         <a href="#">Help</a>
-        <a href="employee-outgoing-product.php?logout=<?php echo "$username"?>">Logout</a>
+        <a href="employee-barcode-generator.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
-                <h1 class="outgoing-product-h1">Outgoing Product</h1>
-            <table>
-                <thead>
-                    <th>Date</th>
-                    <th>Brand Name</th>
-                    <th>Type</th>
-                    <th>Model</th>
-                    <th>Quantity</th>
-                    <th></th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Jan. 6, 2021</td>
-                        <td>Hanabishi</td>
-                        <td>Air-Condition</td>
-                        <td>HTAC25S</td>
-                        <td>15</td>
-                        <td><button class="delivered-btn">Delivered</button></td>
-                    </tr>
-                    <tr>
-                        <td>Jan. 11, 2021</td>
-                        <td>Hanabishi</td>
-                        <td>Air Circulator Fan</td>
-                        <td>HACF88</td>
-                        <td>30</td>
-                        <td><button class="delivered-btn">Delivered</button></td>
-                    </tr>
-                    <tr>
-                        <td>Feb. 1, 2021</td>
-                        <td>Whirlpool</td>
-                        <td>Microwave Oven</td>
-                        <td>MWX203BL</td>
-                        <td>3</td>
-                        <td><button class="received-btn">Delivered</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            <h1 class="generator-header">Barcode Generator</h1>
+            
         </div>
     </div>
     <script src="../index.js"></script>
