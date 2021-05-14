@@ -80,42 +80,38 @@
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
             <h1 class="purchase-report-header">Purchase Report</h1>
-            <div class="search-form">
-                <form action="" method="post">
-                    <label for="search">Search</label>
-                    <input type="text" name="search" id="search" placeholder="Search product">
-                    <input type="submit" value="Search">                
-                </form>
-            </div>
             <div class="print-btn-div">
-                <a href="#" target="_blank" class="print-btn">Print PDF</a>
+                <a href="purchase-report-pdf.php" target="_blank" class="print-btn">Print PDF</a>
             </div>
             <table>
                 <thead>
+                    <th>Type of Transaction</th>
                     <th>Date</th>
                     <th>Brand Name</th>
                     <th>Type</th>
-                    <th>Model</th>
                     <th>Quantity</th>
                     <th>Price</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Jan. 7, 2021</td>
-                        <td>Samsung</td>
-                        <td>Washing Machine</td>
-                        <td>HTAC25S</td>
-                        <td>10</td>
-                        <td>₱500,000.00</td>
-                    </tr>
-                    <tr>
-                        <td>Jan. 7, 2021</td>
-                        <td>Samsung</td>
-                        <td>Washing Machine</td>
-                        <td>HTAC25S</td>
-                        <td>10</td>
-                        <td>₱500,000.00</td>
-                    </tr>
+                    <a href="Admin-Purchase-Report.php" class="print-btn">Refresh</a>
+                    <?php
+                        $sql = "SELECT * FROM tbl_sales_and_purchase WHERE typeOfTransaction='Purchase'";
+                        $result = $db->query($sql);
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['typeOfTransaction'];?></td>
+                                        <td><?php echo $row['date'];?></td>
+                                        <td><?php echo $row['brandName'];?></td>
+                                        <td><?php echo $row['type'];?></td>
+                                        <td><?php echo $row['quantity'];?></td>
+                                        <td><?php echo "₱".$row['price'];?></td>
+                                    </tr>
+                                <?php
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
