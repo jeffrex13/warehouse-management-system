@@ -63,7 +63,7 @@
             <a href="../Admin-Report/Admin-Purchase-Report.php">Purchase Report</a>
             <a href="../Admin-Report/Admin-Incoming-products-report.php">Incoming Products Report</a>
             <a href="../Admin-Report/Admin-Outgoing-products-report.php">Outgoing Products Report</a>
-            <a href="../Admin-Report/Admin-Stock-replenishment-report">Stock Replenishment Report</a>
+            <a href="../Admin-Report/Admin-Stock-replenishment-report.php">Stock Replenishment Report</a>
             <a href="../Admin-Report/Admin-Attendance-report.php">Attendance Report</a>
             <a href="../Admin-Report/Admin-Billing-report.php">Billing Report</a>
         </div>
