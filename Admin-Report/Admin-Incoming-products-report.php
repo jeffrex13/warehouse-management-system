@@ -92,7 +92,6 @@
                     <th>Quantity</th>
                 </thead>
                 <tbody>
-                    <a href="Admin-Incoming-products-report.php" class="print-btn">Refresh</a>
                     <?php
                         $sql = "SELECT * FROM tbl_incoming_product";
                         $result = $db->query($sql);
