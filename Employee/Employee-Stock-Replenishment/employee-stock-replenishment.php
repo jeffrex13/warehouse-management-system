@@ -21,15 +21,16 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/employee-search.css">
-    <link rel="icon" href="https://static.thenounproject.com/png/165116-200.png" type = "image/x-icon">
+    <link rel="stylesheet" href="../CSS/employee-stock-replenishment.css">
+    <link rel="icon" href="https://static.thenounproject.com/png/165116-200.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Employee Search</title>
+    <title>Employee Stock Replenishment</title>
 </head>
 <body>
     <div id="mySidebar" class="sidebar">
@@ -37,52 +38,44 @@
         <a href="../Employee-Homepage/employee-homepage.php">Profile</a>
         <a href="../Employee-Gallery/employee-gallery.php">Gallery</a>
         <a href="../Employee-Barcode-Generator/employee-barcode-generator.php">Barcode Generator</a>
-        <a href="./employee-search.php" style="color: #4B778D">Search</a>
-        <button class="dropdown-btn">Product Monitoring 
+        <a href="./employee-search.php">Search</a>
+        <button class="dropdown-btn">Product Monitoring
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
             <a href="../Employee-Incoming-Product/employee-incoming-product.php">Incoming Product</a>
             <a href="../Employee-Outgoing-Product/employee-outgoing-product.php">Outgoing Product</a>
-            <a href="../Employee-Stock-Replenishment/employee-stock-replenishment.php">Stock Replenishment</a>
+            <a href="./employee-stock-replenishment.php" style="color: #51c4d3">Stock Replenishment</a>
         </div>
-        <a href="../Employee-Help/employee-help.php">Help</a>
-        <a href="employee-search.php?logout=<?php echo "$username"?>">Logout</a>
+        <a href="#">Help</a>
+        <a href="employee-stock-replenishment.php?logout=<?php echo " $username"?>">Logout</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
-           <h1 class="search-header ">Search</h1>
-           <form action="admin-search.php" method="post" class="search-form">
-            <label for="search">Search</label>
-            <input type="text" name="search" id="search" aria-labelledby="search-label" placeholder="Start typing..." required>
-            <input type="submit" name="btn_search" value="Search">
-            </form>
-            <a class="refresh" href="employee-search.php">Refresh</a>
+            <h1 class="stock-replenishment-header">Stock Replenishment</h1>
             <table>
                 <thead>
                     <th>Product Id</th>
                     <th>Brand Name</th>
                     <th>Type</th>
                     <th>Model</th>
-                    <th>Color</th>
                     <th>Quantity</th>
-                    <th>Price</th>
+                    <th>Store</th>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Sample Data</td>
-                        <td>Sample Data</td>
-                        <td>Sample Data</td>
-                        <td>Sample Data</td>
-                        <td>Sample Data</td>
-                        <td>Sample Data</td>
-                        <td>Sample Data</td>   
+                        <td>11211</td>
+                        <td>Black and Decker</td>
+                        <td>Microwave Oven</td>
+                        <td>AMW-25</td>
+                        <td>2</td>
+                        <td>N/A</td>
                     </tr>
-                </tbody>   
-        </form>
+            </table>
         </div>
     </div>
     <script src="../index.js"></script>
 </body>
+
 </html>

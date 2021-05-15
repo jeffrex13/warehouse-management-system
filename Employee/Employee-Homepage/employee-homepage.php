@@ -42,11 +42,10 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Incoming Product</a>
-            <a href="#">Outgoing Product</a>
-            <a href="#">Stock Replenishment</a>
+            <a href="../Employee-Incoming-Product/employee-incoming-product.php">Incoming Product</a>
+            <a href="../Employee-Outgoing-Product/employee-outgoing-product.php">Outgoing Product</a>
+            <a href="../Employee-Stock-Replenishment/employee-stock-replenishment.php">Stock Replenishment</a>
         </div>
-        <a href="#">Daily Attendance</a>
         <a href="#">Help</a>
         <a href="employee-homepage.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
