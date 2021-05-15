@@ -53,7 +53,7 @@
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
             <h1 class="generator-header">Barcode Generator</h1>
-            
+            <button><a href="barcode-test.php" target="_blank">Generate Barcode</a></button>
         </div>
     </div>
     <script src="../index.js"></script>
