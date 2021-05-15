@@ -104,6 +104,22 @@
                                 <?php
                             }
                         }
+                        $sql = "SELECT * FROM tbl_product_store WHERE quantity <= 10";
+                        $result = $db->query($sql);
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['productId'];?></td>
+                                        <td><?php echo $row['brandName'];?></td>
+                                        <td><?php echo $row['type'];?></td>
+                                        <td><?php echo $row['model'];?></td>
+                                        <td><?php echo $row['quantity'];?></td>
+                                        <td><?php echo $row['store'];?></td>
+                                    </tr>
+                                <?php
+                            }
+                        }
                     ?>
                 </tbody>
             </table>
