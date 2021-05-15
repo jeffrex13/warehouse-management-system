@@ -80,45 +80,53 @@
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
             <h1 class="stock-replenishment-report-header">Stock Replenishment Report</h1>
-            <div class="search-form">
-                <form action="" method="post">
-                    <label for="search">Search</label>
-                    <input type="text" name="search" id="search" placeholder="Search user">
-                    <input type="submit" value="Search">                
-                </form>
-            </div>
             <div class="print-btn-div">
-                <a href="#" target="_blank" class="print-btn">Print PDF</a>
+                <a href="Stock-replenishment-report-pdf.php" target="_blank" class="print-btn">Print PDF</a>
             </div>
             <table>
                 <thead>
-                    <th>Table Head</th>
-                    <th>Table Head</th>
-                    <th>Table Head</th>
-                    <th>Table Head</th>
-                    <th>Table Head</th>
-                    <th>Table Head</th>
-                    <th>Table Head</th>
+                    <th>roductP ID</th>
+                    <th>Brand Name</th>
+                    <th>Type</th>
+                    <th>Model</th>
+                    <th>Quantity</th>
+                    <th>Store</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>JBevangelista</td>
-                        <td>Jan Bernard</td>
-                        <td>Evangelista</td>
-                        <td>Espiritu</td>
-                        <td>10:00 AM</td>
-                        <td>12:00 PM</td>
-                        <td>January 7, 1997</td>
-                    </tr>
-                    <tr>
-                        <td>JBevangelista</td>
-                        <td>Jan Bernard</td>
-                        <td>Evangelista</td>
-                        <td>Espiritu</td>
-                        <td>10:00 AM</td>
-                        <td>12:00 PM</td>
-                        <td>January 7, 1997</td>
-                    </tr>
+                    <?php
+                        $sql = "SELECT * FROM tbl_product WHERE quantity <= 10";
+                        $result = $db->query($sql);
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['productId'];?></td>
+                                        <td><?php echo $row['brandName'];?></td>
+                                        <td><?php echo $row['type'];?></td>
+                                        <td><?php echo $row['model'];?></td>
+                                        <td><?php echo $row['quantity'];?></td>
+                                        <td>N/A</td>
+                                    </tr>
+                                <?php
+                            }
+                        }
+                        $sql = "SELECT * FROM tbl_product_store WHERE quantity <= 10";
+                        $result = $db->query($sql);
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['productId'];?></td>
+                                        <td><?php echo $row['brandName'];?></td>
+                                        <td><?php echo $row['type'];?></td>
+                                        <td><?php echo $row['model'];?></td>
+                                        <td><?php echo $row['quantity'];?></td>
+                                        <td><?php echo $row['store'];?></td>
+                                    </tr>
+                                <?php
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>        
         </div>         

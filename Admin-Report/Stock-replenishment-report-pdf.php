@@ -15,17 +15,16 @@
             $this -> Cell(0, 0, 'Brgy San isidro Block 5 Lot 46 Brittany 1, Antipolo City', 0, 0, 'C');
             $this->Ln();
             $this -> SetFont('Helvetica', 'B', 15);
-            $this -> Cell(0, 10, 'Outgoing Product Report', 0, 2, 'C');
+            $this -> Cell(0, 10, 'Stock Replenishment Report', 0, 2, 'C');
             $this->Ln(5);
 
             $this->SetFont('Arial','B',10);
             $this->SetDrawColor(180,180,255);
-            $this->Cell(25,10,'Date',1,0,'C');
-            $this->Cell(25,10,'Product Id',1,0,'C');
+            $this->Cell(35,10,'Product Id',1,0,'C');
             $this->Cell(25,10,'Brand Name',1,0,'C');
-            $this->Cell(30,10,'Type',1,0,'C');
+            $this->Cell(40,10,'Type',1,0,'C');
             $this->Cell(40,10,'Model',1,0,'C');
-            $this->Cell(20,10,'Quantity',1,0,'C');
+            $this->Cell(25,10,'Quantity',1,0,'C');
             $this->Cell(25,10,'Store',1,1,'C');
         }
         function Footer(){
@@ -50,15 +49,23 @@
     $pdf->SetFont('Arial','',9);
     $pdf->SetDrawColor(180,180,255);
 
-    $query=mysqli_query($con,"select * from tbl_outgoing_product");
+    $query=mysqli_query($con,"SELECT * FROM tbl_product WHERE quantity <= 10");
     while($data=mysqli_fetch_array($query)){
-        $pdf->Cell(25,5,$data['date'],'LRT',0);
-        $pdf->Cell(25,5,$data['product_id'],'LRT',0);
+        $pdf->Cell(35,5,$data['productId'],'LRT',0);
         $pdf->Cell(25,5,$data['brandName'],'LRT',0);
-        $pdf->Cell(30,5,$data['type'],'LRT',0);
+        $pdf->Cell(40,5,$data['type'],'LRT',0);
         $pdf->Cell(40,5,$data['model'],'LRT',0);
-        $pdf->Cell(20,5,$data['quantity'],'LRT',0);
-        $pdf->Cell(25,5,$data['store'],'LRT',1);
+        $pdf->Cell(25,5,$data['quantity'],'LRT',0);
+        $pdf->Cell(25,5,"N/A",'LRT',1);
+    }
+    $query=mysqli_query($con,"SELECT * FROM tbl_product_store WHERE quantity <= 10");
+    while($data=mysqli_fetch_array($query)){
+        $pdf->Cell(35,5,$data['productId'],'LRT',0);
+        $pdf->Cell(25,5,$data['brandName'],'LRT',0);
+        $pdf->Cell(40,5,$data['type'],'LRT',0);
+        $pdf->Cell(40,5,$data['model'],'LRT',0);
+        $pdf->Cell(25,5,$data['quantity'],'LRT',0);
+        $pdf->Cell(25,5,$data['quantity'],'LRT',1);
     }
     $pdf->Output();
 ?>

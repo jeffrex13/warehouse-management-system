@@ -90,6 +90,8 @@
                     <div class="grid-2">
                         <label for="date">Date</label>
                         <input id="date" type="date" class="inputs" name="date" required>
+                        <label for="store">Store</label>
+                        <input id="store" type="text" class="inputs" name="store" placeholder="Enter store" required>
                     </div>
                 </div>
                 <div class="button-div">
@@ -105,6 +107,7 @@
                     <th>Type</th>
                     <th>Model</th>
                     <th>Quantity</th>
+                    <th>Store</th>
                 </thead>
                 <tbody>
                     <?php
@@ -120,6 +123,7 @@
                                         <td><?php echo $row['type'];?></td>
                                         <td><?php echo $row['model'];?></td>
                                         <td><?php echo $row['quantity'];?></td>
+                                        <td><?php echo $row['store'];?></td>
                                     </tr>
                                 <?php
                             }
