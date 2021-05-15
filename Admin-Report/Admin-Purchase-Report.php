@@ -93,7 +93,6 @@
                     <th>Price</th>
                 </thead>
                 <tbody>
-                    <a href="Admin-Purchase-Report.php" class="print-btn">Refresh</a>
                     <?php
                         $sql = "SELECT * FROM tbl_sales_and_purchase WHERE typeOfTransaction='Purchase'";
                         $result = $db->query($sql);
