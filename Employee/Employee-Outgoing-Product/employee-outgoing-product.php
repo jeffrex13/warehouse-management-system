@@ -44,9 +44,8 @@
         <div class="dropdown-container">
             <a href="../Employee-Incoming-Product/employee-incoming-product.php">Incoming Product</a>
             <a href="./employee-outgoing-product.php" style="color: #51c4d3">Outgoing Product</a>
-            <a href="#">Stock Replenishment</a>
+            <a href="../Employee-Stock-Replenishment/employee-stock-replenishment.php">Stock Replenishment</a>
         </div>
-        <a href="#">Daily Attendance</a>
         <a href="#">Help</a>
         <a href="employee-outgoing-product.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
