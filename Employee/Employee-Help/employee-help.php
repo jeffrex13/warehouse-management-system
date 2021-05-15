@@ -25,19 +25,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/employee-profile.css">
+    <link rel="stylesheet" href="../CSS/employee-help.css">
     <link rel="icon" href="https://static.thenounproject.com/png/165116-200.png" type = "image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Employee Profile</title>
+    <title>Employee Help</title>
 </head>
 <body>
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="./employee-homepage.php" style="color: #4B778D">Profile</a>
+        <a href="../Employee-Homepage/employee-homepage.php">Profile</a>
         <a href="../Employee-Gallery/employee-gallery.php">Gallery</a>
         <a href="../Employee-Barcode-Generator/employee-barcode-generator.php">Barcode Generator</a>
-        <a href="../Employee-Search/employee-search.php">Search</a>
+        <a href="./employee-search.php">Search</a>
         <button class="dropdown-btn">Product Monitoring 
             <i class="fa fa-caret-down"></i>
         </button>
@@ -46,34 +46,13 @@
             <a href="../Employee-Outgoing-Product/employee-outgoing-product.php">Outgoing Product</a>
             <a href="../Employee-Stock-Replenishment/employee-stock-replenishment.php">Stock Replenishment</a>
         </div>
-        <a href="../Employee-Help/employee-help.php">Help</a>
-        <a href="employee-homepage.php?logout=<?php echo "$username"?>">Logout</a>
+        <a href="./employee-help.php" style="color: #4B778D">Help</a>
+        <a href="employee-help.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
-           <h1 class="profile-header">Profile</h1>
-           <h3 class="name">User</h3>
-           <div class="div-info">
-                <p class="info">Level of Access: </p>
-                <p class="info1">Employee</p>                  
-           </div>
-           <div class="div-info">
-                <p class="info">Phone Number: </p>
-                <p class="info1">09999999999</p>
-           </div>
-           <div class="div-info">
-                <p class="info">Email Address: </p>
-                <p class="info1">user@gmail.com</p>
-           </div>
-           <div class="div-info">
-                <p class="info">Address: </p>
-                <p class="info1">Antipolo City</p>
-           </div>
-            <div class="div-info">
-                <p class="info">Birthdate: </p>
-                <p class="info1">01/01/2001</p>
-           </div>
+            <h1 class="help-header">Help</h1>
         </div>
     </div>
     <script src="../index.js"></script>

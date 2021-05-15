@@ -46,7 +46,7 @@
             <a href="../Employee-Outgoing-Product/employee-outgoing-product.php">Outgoing Product</a>
             <a href="../Employee-Stock-Replenishment/employee-stock-replenishment.php">Stock Replenishment</a> 
         </div>
-        <a href="#">Help</a>
+        <a href="../Employee-Help/employee-help.php">Help</a>
         <a href="employee-gallery.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
     <div id="main">
