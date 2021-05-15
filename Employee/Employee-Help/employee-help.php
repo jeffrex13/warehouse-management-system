@@ -52,7 +52,7 @@
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
-            <h1 class="help-header">Search</h1>
+            <h1 class="help-header">Help</h1>
         </div>
     </div>
     <script src="../index.js"></script>
