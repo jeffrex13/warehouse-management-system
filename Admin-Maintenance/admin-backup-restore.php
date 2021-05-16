@@ -1,6 +1,7 @@
 <?php
     session_start();
     $db = mysqli_connect('localhost', 'root', '', 'warehouse_management_system');
+    include('server.php');
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
@@ -81,9 +82,10 @@
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
             <h1 class="edit-header">Backup and Restore</h1>
-            <form action="" method="">
-                <input class="backup-button" type="button" value="Backup">
-                <input class="restore-button" type="button" value="Restore">
+            <form action="admin-backup-restore.php" method="POST">
+                <input type="hidden" name="uname" value=<?php echo $username;?> />
+                <input class="backup-button" name="button_backup" type="submit" value="Backup">
+                <input class="restore-button" name="button_restore" type="submit" value="Restore">
             </form>
             
         </div>
