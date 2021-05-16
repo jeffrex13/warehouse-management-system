@@ -1,6 +1,7 @@
 <?php
     session_start();
     $db = mysqli_connect('localhost', 'root', '', 'warehouse_management_system');
+    include('server.php');
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
@@ -81,8 +82,9 @@
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
             <h1 class="edit-header">Edit</h1>
-            <form action="" method="">
+            <form action="admin-edit.php" method="POST">
                 <h3>Personal Information</h3>
+                <input type="hidden" name="uname" value=<?php echo $username;?> />
                 <div class="info">
                     <label class="info-items" for="email-address">Email Address</label>
                     <input type="email" name="email" id="email-address">
@@ -93,7 +95,7 @@
                 </div>
                 <div class="info">
                     <label class="info-items" for="confirm-password">Confirm Password</label>
-                    <input type="password" name="conf-password" id="confirm-password">
+                    <input type="password" name="confPassword" id="confirm-password">
                 </div>
                 <div class="info">
                     <label class="info-items" for="address">Address</label>
@@ -101,13 +103,14 @@
                 </div>
                 <div class="info">
                     <label class="info-items" for="contact-number">Contact Number</label>
-                    <input type="text" name="contact-number" id="contact-number">
+                    <input type="text" name="contactNumber" id="contact-number">
                 </div>
-                <input type="submit" value="Edit">
+                <input type="submit" name="btn_edit" value="Edit">
             </form>
             <hr>
-            <form action="" method="">
+            <form action="admin-edit.php" method="POST">
                 <h3>Product Information</h3>
+                <input type="hidden" name="uname" value=<?php echo $username;?> />
                 <div class="info">
                     <label class="info-items" for="brand-name">Brand name</label>
                     <input type="text" name="brand" id="brand-name">
@@ -117,10 +120,10 @@
                     <input type="text" name="model" id="model">
                 </div>
                 <div class="info">
-                    <label class="info-items" for="type">Type</label>
-                    <input type="text" name="" id="">
+                    <label class="info-items" for="price">Price</label>
+                    <input type="text" name="price" id="price">
                 </div>
-                <input type="submit" value="Edit">
+                <input type="submit" name="btn_edit1" value="Edit">
             </form>
         </div>
     </div>
