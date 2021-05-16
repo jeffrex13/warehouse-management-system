@@ -204,4 +204,105 @@
             }
         }
     }
+
+    if (isset($_POST['button_backup']))
+	{
+        $uname = mysqli_real_escape_string($db, $_POST['uname']);
+
+		$sql = "SELECT * FROM tbl_user WHERE username='$uname'";
+        $result = $db->query($sql);
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                date_default_timezone_set('Asia/Manila');
+                $time = date("h:i a");
+                $date = date("M j, Y");
+                $uName = $row['username'];
+                $fname = $row['firstname'];
+                $lname = $row['lastname'];
+                $mname = $row['middlename'];
+                $query = "INSERT INTO tbl_audit_trail(username, firstname, lastname, middlename, 
+                timein, activity, date) 
+                VALUES('$uName', '$fname', '$lname', '$mname', '$time', 'Backup Database','$date')";
+                mysqli_query($db, $query);
+            }
+        }
+		$tables = array();
+		$result = mysqli_query($db,"SHOW TABLES");
+		while($row = mysqli_fetch_row($result))
+		{
+			$tables[] = $row[0];
+		}
+		$return = '';
+		foreach($tables as $table)
+		{
+			$result = mysqli_query($db,"SELECT * FROM ".$table);
+			$num_fields = mysqli_num_fields($result);
+
+			$return .= 'DROP TABLE '.$table.';';
+			$row2 = mysqli_fetch_row(mysqli_query($db,"SHOW CREATE TABLE ".$table));
+			$return .= "\n\n".$row2[1].";\n\n";
+
+			for($i=0;$i<$num_fields;$i++)
+			{
+				while($row = mysqli_fetch_row($result))
+				{
+					$return .= "INSERT INTO ".$table." VALUES(";
+					for($j=0;$j<$num_fields;$j++)
+					{
+						$row[$j] = addslashes($row[$j]);
+						if(isset($row[$j]))
+						{ 
+							$return .= '"'.$row[$j].'"';
+						}
+						else
+						{ 
+							$return .= '""';
+						}
+						if($j<$num_fields-1)
+						{ 
+							$return .= ',';
+						}
+					}
+					$return .= ");\n";
+				}
+			}
+
+			$return .= "\n\n\n";
+		}
+
+		//save file
+		$handle = fopen("backup.sql","w+");
+		//$handle = fopen("backup.sql","w+");
+		fwrite($handle,$return);
+		fclose($handle);
+		?>
+            <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                Successfully backed up database
+            </div>
+        <?php
+	}
+	if (isset($_POST['button_restore']))
+	{
+		$filename = "backup.sql";
+		//$filename = "backup.sql";
+		$handle = fopen($filename,"r+");
+		$contents = fread($handle,filesize($filename));
+		$sql = explode(';',$contents);
+		foreach($sql as $query)
+		{
+		  $result = mysqli_query($db,$query);
+		  if($result)
+		  {
+			//echo "Successfully imported";
+		  }
+		}
+		fclose($handle);
+		?>
+            <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                Successfully restore database
+            </div>
+        <?php
+	}
 ?>
