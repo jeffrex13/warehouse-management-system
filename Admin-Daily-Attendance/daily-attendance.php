@@ -156,7 +156,7 @@
                                 while($row = $result->fetch_assoc()) {
                                     ?>
                                         <tr>
-                                            <td><?php echo $row['time'] . "/" . $row['date'];?></td>
+                                            <td><?php echo $row['time'] . " - " . $row['date'];?></td>
                                             <td><?php echo $row['staff'];?></td>
                                             <td><?php echo $row['typeOfTransaction'];?></td>
                                             <td><?php echo $row['brand'];?></td>

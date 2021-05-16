@@ -80,45 +80,37 @@
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
             <h1 class="attendance-report-header">Attendance Report</h1>
-            <div class="search-form">
-                <form action="" method="post">
-                    <label for="search">Search</label>
-                    <input type="text" name="search" id="search" placeholder="Search user">
-                    <input type="submit" value="Search">                
-                </form>
-            </div>
             <div class="print-btn-div">
-                <a href="#" target="_blank" class="print-btn">Print PDF</a>
+                <a href="attendance-report-pdf.php" target="_blank" class="print-btn">Print PDF</a>
             </div>
             <table>
                 <thead>
-                    <th>Username</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Middle Name</th>
-                    <th>Time In</th>
-                    <th>Time Out</th>
-                    <th>Date</th>
+                    <th>Time and Date</th>
+                    <th>Staff</th>
+                    <th>Type of Transaction</th>
+                    <th>Brand</th>
+                    <th>Type</th>
+                    <th>Quantity</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>JBevangelista</td>
-                        <td>Jan Bernard</td>
-                        <td>Evangelista</td>
-                        <td>Espiritu</td>
-                        <td>10:00 AM</td>
-                        <td>12:00 PM</td>
-                        <td>January 7, 1997</td>
-                    </tr>
-                    <tr>
-                        <td>JBevangelista</td>
-                        <td>Jan Bernard</td>
-                        <td>Evangelista</td>
-                        <td>Espiritu</td>
-                        <td>10:00 AM</td>
-                        <td>12:00 PM</td>
-                        <td>January 7, 1997</td>
-                    </tr>
+                    <?php
+                        $sql = "SELECT * FROM tb_daily_attendance";
+                        $result = $db->query($sql);
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['time'] . " - " . $row['date'];?></td>
+                                        <td><?php echo $row['staff'];?></td>
+                                        <td><?php echo $row['typeOfTransaction'];?></td>
+                                        <td><?php echo $row['brand'];?></td>
+                                        <td><?php echo $row['type'];?></td>
+                                        <td><?php echo $row['quantity'];?></td>
+                                    </tr>
+                                <?php
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>
 

@@ -1,4 +1,4 @@
-?php
+<?php
     session_start();
     $db = mysqli_connect('localhost', 'root', '', 'warehouse_management_system');
 
