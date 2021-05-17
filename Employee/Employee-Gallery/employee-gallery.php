@@ -54,16 +54,26 @@
         <div class="container">
             <h1 class="EG-header">Gallery</h1>
             <div class="slideshow-container fade">
-                <div class="Containers">
-                    <div class="MessageInfo"></div>
-                    <img src="../Photos/blender.jpeg" style="width:100%">
-                </div>
-                <div class="Containers">
-                    <div class="MessageInfo"></div>
-                    <img src="../Photos/stove.jpeg" style="width:100%">
-                </div>
+                <?php
+                    $sql = "SELECT * FROM tbl_gallery";
+                    $result = $db->query($sql);
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            $sql1 = "select count(id) as count from tbl_gallery";
+                            $result1 = $db->query($sql1);
+                            $row1=mysqli_fetch_array($result1);
+                            ?>
+                                <div class="Containers">
+                                    <div class="MessageInfo"><?php echo $row['id'];?> / <?php echo $row1[0];?></div>
+                                    <img src="../Photos/<?php echo $row['filename'];?>" style="width:100%">
+                                </div>
+                            <?php
+                        }
+                    }
+                ?>
                 <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+            </div>
         </div>
     </div>
     <script src="./index1.js"></script>
