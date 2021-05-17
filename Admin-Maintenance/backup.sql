@@ -29,7 +29,7 @@ CREATE TABLE `tbl_audit_trail` (
   `activity` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO tbl_audit_trail VALUES("1","admin","Ordep","Badeo","Labrador","12:46 am","12:47 am","Logged In","May 7, 2021");
 INSERT INTO tbl_audit_trail VALUES("2","admin","Ordep","Badeo","Labrador","12:47 am","12:54 am","Logged In","May 7, 2021");
@@ -125,41 +125,11 @@ INSERT INTO tbl_audit_trail VALUES("91","admin","Ordep","Badeo","Labrador","09:4
 INSERT INTO tbl_audit_trail VALUES("92","admin","Ordep","Badeo","Labrador","09:46 pm","09:52 pm","Searched in audit trail","May 12, 2021");
 INSERT INTO tbl_audit_trail VALUES("93","admin","Ordep","Badeo","Labrador","09:47 pm","09:52 pm","Searched in audit trail","May 12, 2021");
 INSERT INTO tbl_audit_trail VALUES("94","admin","Ordep","Badeo","Labrador","09:48 pm","09:52 pm","Searched in audit trail","May 12, 2021");
-INSERT INTO tbl_audit_trail VALUES("95","admin","Ordep","Badeo","Labrador","09:52 pm","","Logged In","May 12, 2021");
-INSERT INTO tbl_audit_trail VALUES("96","admin","Ordep","Badeo","Labrador","10:46 pm","","Input New Incoming Product","May 12, 2021");
-INSERT INTO tbl_audit_trail VALUES("97","admin","Ordep","Badeo","Labrador","10:47 pm","","Input New Incoming Product","May 12, 2021");
-INSERT INTO tbl_audit_trail VALUES("98","admin","Ordep","Badeo","Labrador","10:58 pm","","Searched in sales report","May 12, 2021");
-INSERT INTO tbl_audit_trail VALUES("99","admin","Ordep","Badeo","Labrador","10:58 pm","","Searched in sales report","May 12, 2021");
-INSERT INTO tbl_audit_trail VALUES("100","admin","Ordep","Badeo","Labrador","10:58 pm","","Searched in sales report","May 12, 2021");
-INSERT INTO tbl_audit_trail VALUES("101","admin","Ordep","Badeo","Labrador","10:59 pm","","Searched in sales report","May 12, 2021");
-INSERT INTO tbl_audit_trail VALUES("102","admin","Ordep","Badeo","Labrador","11:37 pm","","Searched in sales report","May 12, 2021");
-INSERT INTO tbl_audit_trail VALUES("103","admin","Ordep","Badeo","Labrador","10:31 pm","","Logged In","May 14, 2021");
-INSERT INTO tbl_audit_trail VALUES("104","admin","Ordep","Badeo","Labrador","10:34 pm","","Searched in sales report","May 14, 2021");
-INSERT INTO tbl_audit_trail VALUES("105","admin","Ordep","Badeo","Labrador","10:34 pm","","Searched in sales report","May 14, 2021");
-INSERT INTO tbl_audit_trail VALUES("106","admin","Ordep","Badeo","Labrador","10:34 pm","","Searched in sales report","May 14, 2021");
-INSERT INTO tbl_audit_trail VALUES("107","admin","Ordep","Badeo","Labrador","10:42 pm","","Searched in sales report","May 14, 2021");
-INSERT INTO tbl_audit_trail VALUES("108","admin","Ordep","Badeo","Labrador","10:44 pm","","Searched in sales report","May 14, 2021");
-INSERT INTO tbl_audit_trail VALUES("109","admin","Ordep","Badeo","Labrador","10:46 pm","","Searched in sales report","May 14, 2021");
-INSERT INTO tbl_audit_trail VALUES("110","admin","Ordep","Badeo","Labrador","10:47 pm","","Searched in sales report","May 14, 2021");
-INSERT INTO tbl_audit_trail VALUES("111","admin","Ordep","Badeo","Labrador","10:51 pm","","Searched in sales report","May 14, 2021");
-INSERT INTO tbl_audit_trail VALUES("112","admin","Ordep","Badeo","Labrador","10:52 pm","","Searched in sales report","May 14, 2021");
-INSERT INTO tbl_audit_trail VALUES("113","admin","Ordep","Badeo","Labrador","10:55 pm","","Searched in Sales and Purchase","May 14, 2021");
-INSERT INTO tbl_audit_trail VALUES("114","admin","Ordep","Badeo","Labrador","11:01 pm","","Searched user or product","May 14, 2021");
-INSERT INTO tbl_audit_trail VALUES("115","admin","Ordep","Badeo","Labrador","11:01 pm","","Searched user or product","May 14, 2021");
-INSERT INTO tbl_audit_trail VALUES("116","admin","Ordep","Badeo","Labrador","11:33 am","","Logged In","May 15, 2021");
-INSERT INTO tbl_audit_trail VALUES("117","admin","Ordep","Badeo","Labrador","01:01 pm","","Input New Outgoing Product","May 15, 2021");
-INSERT INTO tbl_audit_trail VALUES("118","admin","Ordep","Badeo","Labrador","01:04 pm","","Input New Outgoing Product","May 15, 2021");
-INSERT INTO tbl_audit_trail VALUES("119","admin","Ordep","Badeo","Labrador","01:28 pm","","Logged In","May 16, 2021");
-INSERT INTO tbl_audit_trail VALUES("120","admin","Ordep","Badeo","Labrador","02:47 pm","","Update email address","May 16, 2021");
-INSERT INTO tbl_audit_trail VALUES("121","admin","Ordep","Badeo","Labrador","02:47 pm","","Update email address","May 16, 2021");
-INSERT INTO tbl_audit_trail VALUES("122","admin","Ordep","Badeo","Labrador","02:49 pm","","Update password","May 16, 2021");
-INSERT INTO tbl_audit_trail VALUES("123","admin","Ordep","Badeo","Labrador","02:49 pm","","Update password","May 16, 2021");
-INSERT INTO tbl_audit_trail VALUES("124","admin","Ordep","Badeo","Labrador","04:42 pm","","Update price","May 16, 2021");
-INSERT INTO tbl_audit_trail VALUES("125","admin","Ordep","Badeo","Labrador","04:44 pm","","Update price","May 16, 2021");
-INSERT INTO tbl_audit_trail VALUES("126","admin","Ordep","Badeo","Labrador","04:45 pm","","Update price","May 16, 2021");
-INSERT INTO tbl_audit_trail VALUES("127","admin","Ordep","Badeo","Labrador","04:45 pm","","Update price","May 16, 2021");
-INSERT INTO tbl_audit_trail VALUES("128","admin","Ordep","Badeo","Labrador","04:46 pm","","Update price","May 16, 2021");
-INSERT INTO tbl_audit_trail VALUES("129","admin","Ordep","Badeo","Labrador","05:02 pm","","Backup Database","May 16, 2021");
+INSERT INTO tbl_audit_trail VALUES("95","admin","Ordep","Badeo","Labrador","05:16 pm","05:43 pm","Logged In","May 16, 2021");
+INSERT INTO tbl_audit_trail VALUES("96","admin","Ordep","Badeo","Labrador","05:41 pm","05:43 pm","Logged In","May 16, 2021");
+INSERT INTO tbl_audit_trail VALUES("97","admin","Ordep","Badeo","Labrador","05:43 pm","05:44 pm","Logged In","May 16, 2021");
+INSERT INTO tbl_audit_trail VALUES("98","admin","Ordep","Badeo","Labrador","05:50 pm","","Logged In","May 16, 2021");
+INSERT INTO tbl_audit_trail VALUES("99","admin","Ordep","Badeo","Labrador","05:53 pm","","Backup Database","May 16, 2021");
 
 
 
