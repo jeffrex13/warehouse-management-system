@@ -88,7 +88,7 @@
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         ?>
-                            <h3 class="name"><?php echo $row['firstname'] . " " . $row['lastname'] . " " . $row['middlename'];?></h3>
+                            <h3 class="name"><?php echo $row['firstname'] . " " . $row['middlename'] . " " . $row['lastname'];?></h3>
                             <div class="div-info">
                                 <p class="info" style="">Level of Access: </p>
                                 <p class="info1"><?php echo $row['loa'];?></p>

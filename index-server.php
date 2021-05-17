@@ -61,7 +61,7 @@
                                 }
                             }
                             $_SESSION['username'] = $userName;
-                            echo 'Welcome Employee';
+                            header('location: ./Employee/Employee-Homepage/employee-homepage.php');
                         }
                         if ($level_of_access['loa'] == 'Branch') {
                             $sql = "SELECT * FROM tbl_user WHERE username='$userName'";

@@ -4,7 +4,7 @@
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
-        header('location: ../index.php');
+        header('location: ../../index.php');
     }
     if (isset($_GET['logout'])) {
         date_default_timezone_set('Asia/Manila');
@@ -16,7 +16,7 @@
         mysqli_query($db, $query);
         session_destroy();
         unset($_SESSION['username']);
-        header("location: ../index.php");
+        header("location: ../../index.php");
     }
 ?>
 <!DOCTYPE html>
