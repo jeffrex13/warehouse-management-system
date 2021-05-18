@@ -103,6 +103,7 @@
             <hr/>
             <table>
                 <thead>
+                    <th>ID</th>
                     <th>Date</th>
                     <th>Brand Name</th>
                     <th>Type</th>
@@ -117,6 +118,7 @@
                             while($row = $result->fetch_assoc()) {
                                 ?>
                                     <tr>
+                                        <td><?php echo $row['productID'];?></td>
                                         <td><?php echo $row['date'];?></td>
                                         <td><?php echo $row['brandName'];?></td>
                                         <td><?php echo $row['type'];?></td>
