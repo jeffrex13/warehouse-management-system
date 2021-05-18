@@ -7,10 +7,13 @@
         $date = mysqli_real_escape_string($db, $_POST['date']);
         $quantity = mysqli_real_escape_string($db, $_POST['quantity']);
 
+        $number = "0123456789";
+        $length = 8;
+        $productId =  substr(str_shuffle($number),0,$length);
 
         if (empty($model)) {
-            $query = "INSERT INTO tbl_incoming_product (brandName, type, date, quantity) 
-            VALUES('$brandName', '$type', '$date', '$quantity')";
+            $query = "INSERT INTO tbl_incoming_product (productID, brandName, type, date, quantity) 
+            VALUES('$productId', '$brandName', '$type', '$date', '$quantity')";
             mysqli_query($db, $query);
 
             $sql = "SELECT * FROM tbl_user WHERE username='$uname'";
@@ -38,8 +41,8 @@
                 </div>
             <?php
         } else {
-            $query = "INSERT INTO tbl_incoming_product (brandName, type, model, date, quantity) 
-            VALUES('$brandName', '$type', '$model', '$date', '$quantity')";
+            $query = "INSERT INTO tbl_incoming_product (productID, brandName, type, model, date, quantity) 
+            VALUES('$productId', '$brandName', '$type', '$model', '$date', '$quantity')";
             mysqli_query($db, $query);
 
             $sql = "SELECT * FROM tbl_user WHERE username='$uname'";
