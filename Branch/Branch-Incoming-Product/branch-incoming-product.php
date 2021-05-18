@@ -39,7 +39,7 @@
         <a href="../Branch-Homepage/branch-homepage.php">Profile</a>
         <a href="#">Gallery</a>
         <a href="#">Search</a>
-        <a href="#">Inventory</a>
+        <a href="../Branch-Inventory/branch-inventory.php">Inventory</a>
         <a href="./branch-incoming-product.php" style="color: #4B778D">Incoming Product</a>
         <a href="#">Billing</a>
         <a href="#">Help</a>
