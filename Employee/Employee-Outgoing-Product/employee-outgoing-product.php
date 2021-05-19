@@ -53,6 +53,18 @@
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
                 <h1 class="outgoing-product-h1">Outgoing Product</h1>
+                <div class="grid">
+                    <form class="search-form">
+                        <label for="search">Search Product</label>
+                        <input type="text" name="" id="search">
+                        <input class="search-btn" type="submit" value="Search">
+                    </form>
+                    <form class="received-form">
+                        <label for="received">Received Product</label>
+                        <input type="text" name="" id="received">
+                        <input class="received-btn" type="submit" value="Search">
+                    </form>
+                </div>
             <table>
                 <thead>
                     <th>ID</th>

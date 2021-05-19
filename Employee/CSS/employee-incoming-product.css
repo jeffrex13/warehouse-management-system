@@ -17,13 +17,10 @@ body {
     color: #4B778D;
 }
 
-/* Labels */
-label {
-    margin-left: 3rem;
-}
 
 /* Table CSS */
 table {
+    margin: 1rem auto;
     width: 100%;
     border-collapse: collapse;
 }
@@ -50,17 +47,38 @@ tr {
     margin-bottom: 5rem;
 }
 
-.received-btn {
-    background: #fff;
-    padding: 5px;
-    margin: 2px;
+.grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
-.received-btn:hover {
-    color: #fff;
-    background: #28B5B5;
-    
+.search-form{
+    text-align: center;
 }
+
+.received-form{
+    text-align: center;
+}
+
+label {
+    display: block;
+}
+
+#search{
+    height: 21px;
+    width: 60%;
+}
+
+#received{
+    height: 21px;
+    width: 60%;
+}
+
+.received-btn, .search-btn {
+    padding: 0.2rem 1rem;
+    margin: 0.5rem auto;
+}
+
 
 @media screen and (max-width: 1080px) {
     .incoming-product-grid {

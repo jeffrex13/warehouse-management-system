@@ -37,8 +37,8 @@
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="../Branch-Homepage/branch-homepage.php">Profile</a>
-        <a href="#">Gallery</a>
-        <a href="#">Search</a>
+        <a href="../Branch-Gallery/branch-gallery.php">Gallery</a>
+        <a href="../Branch-Search/branch-search.php">Search</a>
         <a href="../Branch-Inventory/branch-inventory.php">Inventory</a>
         <a href="./branch-incoming-product.php" style="color: #4B778D">Incoming Product</a>
         <a href="#">Billing</a>
@@ -49,6 +49,18 @@
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
                 <h1 class="incoming-product-h1">Incoming Product</h1>
+                <div class="grid">
+                    <form class="search-form">
+                        <label for="search">Search Product</label>
+                        <input type="text" name="" id="search">
+                        <input class="search-btn" type="submit" value="Search">
+                    </form>
+                    <form class="received-form">
+                        <label for="received">Received Product</label>
+                        <input type="text" name="" id="received">
+                        <input class="received-btn" type="submit" value="Search">
+                    </form>
+                </div>
             <table>
                 <thead>
                     <th>Date</th>
@@ -56,7 +68,6 @@
                     <th>Type</th>
                     <th>Model</th>
                     <th>Quantity</th>
-                    <th></th>
                 </thead>
                 <tbody>
                     <tr>
@@ -65,7 +76,6 @@
                         <td>Air-Condition</td>
                         <td>HTAC25S</td>
                         <td>15</td>
-                        <td><button class="received-btn">Received</button></td>
                     </tr>
                     <tr>
                         <td>Jan. 11, 2021</td>
@@ -73,7 +83,6 @@
                         <td>Air Circulator Fan</td>
                         <td>HACF88</td>
                         <td>30</td>
-                        <td><button class="received-btn">Received</button></td>
                     </tr>
                     <tr>
                         <td>Feb. 1, 2021</td>
@@ -81,7 +90,6 @@
                         <td>Microwave Oven</td>
                         <td>MWX203BL</td>
                         <td>3</td>
-                        <td><button class="received-btn">Received</button></td>
                     </tr>
                 </tbody>
             </table>
