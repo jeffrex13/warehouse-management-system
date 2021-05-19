@@ -37,8 +37,8 @@
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="./branch-homepage.php" style="color: #4B778D">Profile</a>
-        <a href="#">Gallery</a>
-        <a href="#">Search</a>
+        <a href="../Branch-Gallery/branch-gallery.php">Gallery</a>
+        <a href="../Branch-Search/branch-search.php">Search</a>
         <a href="../Branch-Inventory/branch-inventory.php">Inventory</a>
         <a href="../Branch-Incoming-Product/branch-incoming-product.php">Incoming Product</a>
         <a href="#">Billing</a>

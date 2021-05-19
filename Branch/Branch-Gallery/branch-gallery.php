@@ -38,7 +38,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="../Branch-Homepage/branch-homepage.php">Profile</a>
         <a href="./branch-gallery.php" style="color: #4B778D">Gallery</a>
-        <a href="#">Search</a>
+        <a href="../Branch-Search/branch-search.php">Search</a>
         <a href="../Branch-Inventory/branch-inventory.php">Inventory</a>
         <a href="../Branch-Incoming-Product/branch-incoming-product.php">Incoming Product</a>
         <a href="#">Billing</a>
