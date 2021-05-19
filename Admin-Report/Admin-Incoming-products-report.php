@@ -11,7 +11,7 @@
         $time = date("h:i a");
         $date = date("M j, Y");
 
-        $query = "UPDATE tbl_audit_trail SET timeout = '$time', date = '$date' 
+        $query = "UPDATE tbl_audit_trail SET timeout = '$time', date = '$date'
         WHERE username='$username' AND timeout IS NULL";
         mysqli_query($db, $query);
         session_destroy();
@@ -44,7 +44,7 @@
         <a href="../Admin-Inventory/admin-inventory.php">Inventory</a>
         <a href="../Admin-Sales-and-Purchase/sales-and-purchase.php">Sales and Purchase</a>
         <a href="../Admin-Search/admin-search.php">Search</a>
-        <button class="dropdown-btn">Product Monitoring 
+        <button class="dropdown-btn">Product Monitoring
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
@@ -53,7 +53,7 @@
             <a href="../Admin-Stock-Replenishment/stock-replenishment.php">Stock Replenishment</a>
         </div>
         <a href="../Admin-Daily-Attendance/daily-attendance.php">Daily Attendance</a>
-        <button class="dropdown-btn">Report 
+        <button class="dropdown-btn">Report
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
@@ -66,7 +66,7 @@
             <a href="Admin-Attendance-report.php">Attendance Report</a>
             <a href="Admin-Billing-report.php">Billing Report</a>
         </div>
-        <button class="dropdown-btn">Maintenance 
+        <button class="dropdown-btn">Maintenance
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
@@ -89,6 +89,7 @@
                     <th>Brand Name</th>
                     <th>Type</th>
                     <th>Model</th>
+                    <th>Price</th>
                     <th>Quantity</th>
                 </thead>
                 <tbody>
@@ -103,6 +104,7 @@
                                         <td><?php echo $row['brandName'];?></td>
                                         <td><?php echo $row['type'];?></td>
                                         <td><?php echo $row['model'];?></td>
+                                        <td><?php echo "₱" . $row['price'];?></td>
                                         <td><?php echo $row['quantity'];?></td>
                                     </tr>
                                 <?php
@@ -111,7 +113,7 @@
                     ?>
                 </tbody>
             </table>
-        </div>         
+        </div>
     </div>
     <script src="../index.js"></script>
 </body>

@@ -21,18 +21,19 @@
             $this->SetFont('Arial','B',10);
             $this->SetDrawColor(180,180,255);
             $this->Cell(30,10,'Date',1,0,'C');
-            $this->Cell(45,10,'Brand Name',1,0,'C');
-            $this->Cell(45,10,'Type',1,0,'C');
-            $this->Cell(45,10,'Model',1,0,'C');
+            $this->Cell(35,10,'Brand Name',1,0,'C');
+            $this->Cell(35,10,'Type',1,0,'C');
+            $this->Cell(40,10,'Model',1,0,'C');
+            $this->Cell(25,10,'Price',1,0,'C');
             $this->Cell(25,10,'Quantity',1,1,'C');
         }
         function Footer(){
             $this->Cell(190,0,'','T',1,'',true);
-            
+
             $this->SetY(-15);
-                    
+
             $this->SetFont('Arial','',8);
-            
+
             $this->Cell(0,10,'Page '.$this->PageNo()." / {pages}",0,0,'C');
             $this->Cell(-20,10,'Printed By: Administrator',0,0,'C');
         }
@@ -51,9 +52,10 @@
     $query=mysqli_query($con,"select * from tbl_incoming_product");
     while($data=mysqli_fetch_array($query)){
         $pdf->Cell(30,5,$data['date'],'LRT',0);
-        $pdf->Cell(45,5,$data['brandName'],'LRT',0);
-        $pdf->Cell(45,5,$data['type'],'LRT',0);
-        $pdf->Cell(45,5,$data['model'],'LRT',0);
+        $pdf->Cell(35,5,$data['brandName'],'LRT',0);
+        $pdf->Cell(35,5,$data['type'],'LRT',0);
+        $pdf->Cell(40,5,$data['model'],'LRT',0);
+        $pdf->Cell(25,5,"P".$data['price'],'LRT',0);
         $pdf->Cell(25,5,$data['quantity'],'LRT',1);
     }
     $pdf->Output();
