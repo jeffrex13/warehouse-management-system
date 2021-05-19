@@ -6,6 +6,10 @@
         $quantity = mysqli_real_escape_string($db, $_POST['quantity']);
         $store = mysqli_real_escape_string($db, $_POST['store']);
 
+        $number = "0123456789";
+        $length = 8;
+        $id =  substr(str_shuffle($number),0,$length);
+
         $sql = "SELECT * FROM tbl_user WHERE store = '$store'";
         $result = $db->query($sql);
         if ($result->num_rows > 0) {
@@ -26,8 +30,8 @@
                             </div>
                         <?php
                     } else {
-                        $query = "INSERT INTO tbl_outgoing_product (product_id, brandName, type, model, date, quantity, store) 
-                        VALUES('$productId', '$brandName', '$type', '$model', '$date', '$quantity', '$store')";
+                        $query = "INSERT INTO tbl_outgoing_product (id, product_id, brandName, type, model, date, quantity, store) 
+                        VALUES('$id', '$productId', '$brandName', '$type', '$model', '$date', '$quantity', '$store')";
                         mysqli_query($db, $query);
 
                         ?>
