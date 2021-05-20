@@ -20,23 +20,25 @@
                     $brandName = $row['brandName'];
                     $type = $row['type'];
                     $model = $row['model'];
+                    $price = $row['price'];
                     $fetchedQuantity = $row['quantity'];
 
                     if($fetchedQuantity == 0 || $fetchedQuantity < $quantity) {
                         ?>
                             <div class="alert">
-                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                                 Invalid Quantity
                             </div>
                         <?php
                     } else {
-                        $query = "INSERT INTO tbl_outgoing_product (id, product_id, brandName, type, model, date, quantity, store) 
-                        VALUES('$id', '$productId', '$brandName', '$type', '$model', '$date', '$quantity', '$store')";
+                        $total = $price * $quantity;
+                        $query = "INSERT INTO tbl_outgoing_product (id, product_id, brandName, type, model, date, quantity, price, store)
+                        VALUES('$id', '$productId', '$brandName', '$type', '$model', '$date', '$quantity', '$total', '$store')";
                         mysqli_query($db, $query);
 
                         ?>
                             <div class="alert">
-                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                                 Successfully saved new outgoing product
                             </div>
                         <?php
@@ -52,8 +54,8 @@
                                 $fname = $row['firstname'];
                                 $lname = $row['lastname'];
                                 $mname = $row['middlename'];
-                                $query = "INSERT INTO tbl_audit_trail(username, firstname, lastname, middlename, 
-                                timein, activity, date) 
+                                $query = "INSERT INTO tbl_audit_trail(username, firstname, lastname, middlename,
+                                timein, activity, date)
                                 VALUES('$uName', '$fname', '$lname', '$mname', '$time', 'Input New Outgoing Product','$date')";
                                 mysqli_query($db, $query);
                             }
@@ -63,7 +65,7 @@
             } else {
                 ?>
                     <div class="alert">
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                         Incorrect product ID
                     </div>
                 <?php
@@ -71,7 +73,7 @@
         } else {
             ?>
                 <div class="alert">
-                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                     Invalid Store
                 </div>
             <?php

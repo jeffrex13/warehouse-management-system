@@ -20,20 +20,20 @@
 
             $this->SetFont('Arial','B',10);
             $this->SetDrawColor(180,180,255);
-            $this->Cell(35,10,'Time and Date',1,0,'C');
-            $this->Cell(25,10,'Staff',1,0,'C');
+            $this->Cell(40,10,'Time and Date',1,0,'C');
+            $this->Cell(42,10,'Staff',1,0,'C');
             $this->Cell(40,10,'Type of Transaction',1,0,'C');
-            $this->Cell(40,10,'Brand',1,0,'C');
-            $this->Cell(30,10,'Type',1,0,'C');
-            $this->Cell(20,10,'Quantity',1,1,'C');
+            $this->Cell(25,10,'Brand',1,0,'C');
+            $this->Cell(25,10,'Type',1,0,'C');
+            $this->Cell(18,10,'Quantity',1,1,'C');
         }
         function Footer(){
             $this->Cell(190,0,'','T',1,'',true);
-            
+
             $this->SetY(-15);
-                    
+
             $this->SetFont('Arial','',8);
-            
+
             $this->Cell(0,10,'Page '.$this->PageNo()." / {pages}",0,0,'C');
             $this->Cell(-20,10,'Printed By: Administrator',0,0,'C');
         }
@@ -46,17 +46,17 @@
     $pdf->SetAutoPageBreak(true,15);
     $pdf->AddPage();
 
-    $pdf->SetFont('Arial','',9);
+    $pdf->SetFont('Arial','',8);
     $pdf->SetDrawColor(180,180,255);
 
     $query=mysqli_query($con,"SELECT * FROM tb_daily_attendance");
     while($data=mysqli_fetch_array($query)){
-        $pdf->Cell(35,5,$data['time'] . " - " . $data['date'],'LRT',0);
-        $pdf->Cell(25,5,$data['staff'],'LRT',0);
+        $pdf->Cell(40,5,$data['time'] . " - " . $data['date'],'LRT',0);
+        $pdf->Cell(42,5,$data['staff'],'LRT',0);
         $pdf->Cell(40,5,$data['typeOfTransaction'],'LRT',0);
-        $pdf->Cell(40,5,$data['brand'],'LRT',0);
-        $pdf->Cell(30,5,$data['type'],'LRT',0);
-        $pdf->Cell(20,5,$data['quantity'],'LRT',1);
+        $pdf->Cell(25,5,$data['brand'],'LRT',0);
+        $pdf->Cell(25,5,$data['type'],'LRT',0);
+        $pdf->Cell(18,5,$data['quantity'],'LRT',1);
     }
     $pdf->Output();
 ?>
