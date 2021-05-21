@@ -1,6 +1,7 @@
 <?php
     session_start();
     $db = mysqli_connect('localhost', 'root', '', 'warehouse_management_system');
+    include('server.php');
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
@@ -11,7 +12,7 @@
         $time = date("h:i a");
         $date = date("M j, Y");
 
-        $query = "UPDATE tbl_audit_trail SET timeout = '$time', date = '$date' 
+        $query = "UPDATE tbl_audit_trail SET timeout = '$time', date = '$date'
         WHERE username='$username' AND timeout IS NULL";
         mysqli_query($db, $query);
         session_destroy();
@@ -38,7 +39,7 @@
         <a href="../Employee-Gallery/employee-gallery.php">Gallery</a>
         <a href="../Employee-Barcode-Generator/employee-barcode-generator.php">Barcode Generator</a>
         <a href="../Employee-Search/employee-search.php">Search</a>
-        <button class="dropdown-btn">Product Monitoring 
+        <button class="dropdown-btn">Product Monitoring
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
@@ -60,46 +61,89 @@
         <div class="container">
                 <h1 class="outgoing-product-h1">Outgoing Product</h1>
                 <div class="grid">
-                    <form class="search-form">
+                    <form action="employee-outgoing-product.php" method="POST" class="search-form">
                         <label for="search">Search Product</label>
-                        <input type="text" name="" id="search">
-                        <input class="search-btn" type="submit" value="Search">
+                        <input type="text" name="search" id="search" placeholder="Enter product information" required>
+                        <input class="search-btn" name="btn_search" type="submit" value="Search">
                     </form>
-                    <form class="received-form">
+                    <form action="employee-outgoing-product.php" method="POST" class="received-form">
+                        <input type="hidden" name="uname" value=<?php echo $username;?> />
                         <label for="received">Received Product</label>
-                        <input type="text" name="" id="received">
-                        <input class="received-btn" type="submit" value="Search">
+                        <input type="text" name="trackingID" id="received" placeholder="Enter tracking id" required>
+                        <input class="received-btn" name="btn_submit" type="submit" value="Search">
                     </form>
                 </div>
             <table>
                 <thead>
-                    <th>ID</th>
+                    <th>Tracking ID</th>
+                    <th>Product ID</th>
                     <th>Date</th>
-                    <th>Product Id</th>
                     <th>Brand Name</th>
                     <th>Type</th>
                     <th>Model</th>
                     <th>Quantity</th>
+                    <th>Price</th>
                     <th>Store</th>
                 </thead>
                 <tbody>
+                    <a class="refresh" href="employee-outgoing-product.php">Refresh</a>
                     <?php
-                        $sql = "SELECT * FROM tbl_outgoing_product";
-                        $result = $db->query($sql);
-                        if ($result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) {
+                        if (isset($_POST['btn_search'])) {
+                            $search = mysqli_real_escape_string($db, $_POST['search']);
+
+                            $sql = "SELECT * FROM tbl_outgoing_product WHERE id='$search' OR product_id='$search' OR brandName='$search'
+                            OR type='$search' OR model='$search' OR date='$search' OR quantity='$search' OR store='$search'";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $row['id'];?></td>
+                                            <td><?php echo $row['product_id'];?></td>
+                                            <td><?php echo $row['brandName'];?></td>
+                                            <td><?php echo $row['type'];?></td>
+                                            <td><?php echo $row['model'];?></td>
+                                            <td><?php echo $row['date'];?></td>
+                                            <td><?php echo $row['quantity'];?></td>
+                                            <td><?php echo "₱".$row['price'];?></td>
+                                            <td><?php echo $row['store'];?></td>
+                                        </tr>
+                                    <?php
+                                }
+                            } else {
                                 ?>
                                     <tr>
-                                        <td><?php echo $row['id'];?></td>
-                                        <td><?php echo $row['date'];?></td>
-                                        <td><?php echo $row['product_id'];?></td>
-                                        <td><?php echo $row['brandName'];?></td>
-                                        <td><?php echo $row['type'];?></td>
-                                        <td><?php echo $row['model'];?></td>
-                                        <td><?php echo $row['quantity'];?></td>
-                                        <td><?php echo $row['store'];?></td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
+                                        <td>0 Result</td>
                                     </tr>
                                 <?php
+                            }
+                        } else {
+                            $sql = "SELECT * FROM tbl_outgoing_product";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $row['id'];?></td>
+                                            <td><?php echo $row['product_id'];?></td>
+                                            <td><?php echo $row['date'];?></td>
+                                            <td><?php echo $row['brandName'];?></td>
+                                            <td><?php echo $row['type'];?></td>
+                                            <td><?php echo $row['model'];?></td>
+                                            <td><?php echo $row['quantity'];?></td>
+                                            <td><?php echo "₱".$row['price'];?></td>
+                                            <td><?php echo $row['store'];?></td>
+                                        </tr>
+                                    <?php
+                                }
                             }
                         }
                     ?>
