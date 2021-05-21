@@ -4,7 +4,7 @@
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
-        header('location: ../../index.php');
+        header('location: ../index.php');
     }
     if (isset($_GET['logout'])) {
         date_default_timezone_set('Asia/Manila');
@@ -16,7 +16,7 @@
         mysqli_query($db, $query);
         session_destroy();
         unset($_SESSION['username']);
-        header("location: ../../index.php");
+        header("location: ../index.php");
     }
 ?>
 <!DOCTYPE html>
@@ -42,31 +42,31 @@
         <a href="../Branch-Inventory/branch-inventory.php">Inventory</a>
         <a href="./branch-incoming-product.php" style="color: #4B778D">Incoming Product</a>
         <a href="#">Billing</a>
-        <button class="dropdown-btn">Maintenance 
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-container">
-                <a href="#">Edit</a>
-            </div>
+        <button class="dropdown-btn">Maintenance
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#">Edit</a>
+        </div>
         <a href="#">Help</a>
         <a href="branch-incoming-product.php?logout=<?php echo " $username"?>">Logout</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
-                <h1 class="incoming-product-h1">Incoming Product</h1>
-                <div class="grid">
-                    <form class="search-form">
-                        <label for="search">Search Product</label>
-                        <input type="text" name="" id="search">
-                        <input class="search-btn" type="submit" value="Search">
-                    </form>
-                    <form class="received-form">
-                        <label for="received">Received Product</label>
-                        <input type="text" name="" id="received">
-                        <input class="received-btn" type="submit" value="Search">
-                    </form>
-                </div>
+            <h1 class="incoming-product-h1">Incoming Product</h1>
+            <div class="grid">
+                <form class="search-form">
+                    <label for="search">Search Product</label>
+                    <input type="text" name="" id="search">
+                    <input class="search-btn" type="submit" value="Search">
+                </form>
+                <form class="received-form">
+                    <label for="received">Received Product</label>
+                    <input type="text" name="" id="received">
+                    <input class="received-btn" type="submit" value="Search">
+                </form>
+            </div>
             <table>
                 <thead>
                     <th>Date</th>
@@ -74,6 +74,7 @@
                     <th>Type</th>
                     <th>Model</th>
                     <th>Quantity</th>
+                    <th></th>
                 </thead>
                 <tbody>
                     <tr>
@@ -82,6 +83,7 @@
                         <td>Air-Condition</td>
                         <td>HTAC25S</td>
                         <td>15</td>
+                        <td><button class="myBtn">Received</button></td>
                     </tr>
                     <tr>
                         <td>Jan. 11, 2021</td>
@@ -89,6 +91,7 @@
                         <td>Air Circulator Fan</td>
                         <td>HACF88</td>
                         <td>30</td>
+                        <td><button class="myBtn">Received</button></td>
                     </tr>
                     <tr>
                         <td>Feb. 1, 2021</td>
@@ -96,11 +99,49 @@
                         <td>Microwave Oven</td>
                         <td>MWX203BL</td>
                         <td>3</td>
+                        <td><button class="myBtn">Received</button></td>
                     </tr>
                 </tbody>
             </table>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h3>Add Product</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form action=""> 
+                            <label class="add-label" for="add-product">Product ID</label>
+                            <input class="add-input" type="text" name="" id="add-product" placeholder="Input ID">
+                            <input type="button" value="Search">
+                            <div class="modal-info">
+                                <div>
+                                    <p>Date</p>
+                                    <p>Brand Name</p>
+                                    <p>Type</p>
+                                    <p>Model</p>
+                                    <p>Quantity</p>
+                                </div>
+                                <div>
+                                    <p>Jan. 6, 2021</p>
+                                    <p>Hanabishi</p>
+                                    <p>Air-Condition</p>
+                                    <p>HTAC25S</p>
+                                    <p>15</p>
+                                </div>
+                            </div>
+                            <label class="price-label" for="price">Price</label>
+                            <input class="price-input" type="text" name="" id="price">
+                            <div class="btn-div">
+                                <input class="add-btn" type="submit" value="Add">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="../index.js"></script>
+    <script src="./index.js"></script>
 </body>
+
 </html>
