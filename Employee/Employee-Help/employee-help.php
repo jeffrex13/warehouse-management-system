@@ -46,6 +46,12 @@
             <a href="../Employee-Outgoing-Product/employee-outgoing-product.php">Outgoing Product</a>
             <a href="../Employee-Stock-Replenishment/employee-stock-replenishment.php">Stock Replenishment</a>
         </div>
+        <button class="dropdown-btn">Maintenance 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">Edit</a>
+            </div>
         <a href="./employee-help.php" style="color: #4B778D">Help</a>
         <a href="employee-help.php?logout=<?php echo "$username"?>">Logout</a>
     </div>

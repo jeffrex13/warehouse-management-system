@@ -42,6 +42,12 @@
         <a href="./branch-inventory.php" style="color: #4B778D">Inventory</a>
         <a href="../Branch-Incoming-Product/branch-incoming-product.php">Incoming Product</a>
         <a href="#">Billing</a>
+        <button class="dropdown-btn">Maintenance 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">Edit</a>
+            </div>
         <a href="#">Help</a>
         <a href="branch-inventory.php?logout=<?php echo " $username"?>">Logout</a>
     </div>
