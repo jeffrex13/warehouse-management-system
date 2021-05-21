@@ -82,7 +82,7 @@
                                 }
                             }
                             $_SESSION['username'] = $userName;
-                            echo 'Welcome Branch';
+                            header('location: ./Branch/Branch-Homepage/branch-homepage.php');
                         }
                     }
                 }
