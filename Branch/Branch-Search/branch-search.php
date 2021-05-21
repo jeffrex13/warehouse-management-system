@@ -30,6 +30,10 @@
     <link rel="icon" href="https://static.thenounproject.com/png/165116-200.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+    <script src="jquery-ui/jquery-ui.min.js"></script>
     <title>Branch Search</title>
 </head>
 
@@ -54,59 +58,111 @@
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
-            <h1 class="search-header">Search</h1>
+            <h1 class="search-header ">Search</h1>
             <form action="branch-search.php" method="post" class="search-form">
-                <label for="search">Search</label>
-                <input type="text" name="search" id="search" aria-labelledby="search-label"
-                    placeholder="Start typing..." required>
-                <input type="submit" name="btn_search" value="Search">
+            <label for="search">Search</label>
+            <input type="text" name="search" id="search" aria-labelledby="search-label" placeholder="Start typing..." required>
+            <input type="submit" name="btn_search" value="Search">
             </form>
-            <a class="refresh" href="branch-search.php">Refresh</a>
-            <table>
-                <thead>
-                    <th>Username</th>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Middle name</th>
-                    <th>Contact Number</th>
-                    <th>Email</th>
-                    <th>Store</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table>
-                <thead>
-                    <th>Product Id</th>
-                    <th>Brand Name</th>
-                    <th>Type</th>
-                    <th>Model</th>
-                    <th>Color</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                    </tr>
-                </tbody>
-            </table>
-            </form>
+            <a class="refresh" href="employee-search.php">Refresh</a>
+            <?php
+                if (isset($_POST['btn_search'])) {
+                    $search = mysqli_real_escape_string($db, $_POST['search']);
+
+                    $sql = "SELECT * FROM tbl_user WHERE username='$username'";
+                    $result = $db->query($sql);
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            date_default_timezone_set('Asia/Manila');
+                            $time = date("h:i a");
+                            $date = date("M j, Y");
+                            $uName = $row['username'];
+                            $firstname = $row['firstname'];
+                            $lastname = $row['lastname'];
+                            $middlename = $row['middlename'];
+                            $query = "INSERT INTO tbl_audit_trail(username, firstname, lastname, middlename, 
+                            timein, activity, date) 
+                            VALUES('$uName', '$firstname', '$lastname', '$middlename', '$time', 'Searched user or product','$date')";
+                            mysqli_query($db, $query);
+                        }
+                    }
+
+                    $sql = "SELECT * FROM tbl_user WHERE username='$search' OR firstname='$search' OR
+                    lastname='$search' OR middlename='$search' OR contactnumber='$search' OR email='$search'
+                    OR store='$search'";
+                    $result = $db->query($sql);
+                    if ($result->num_rows > 0) {
+                        ?>
+                        <table>
+                            <thead>
+                                <th>Username</th>
+                                <th>First name</th>
+                                <th>Last name</th>
+                                <th>Middle name</th>
+                                <th>Contact Number</th>
+                                <th>Email</th>
+                                <th>Store</th>
+                            </thead>
+                            <tbody>     
+                        <?php
+                        while($row = $result->fetch_assoc()) {
+                            ?>
+                            <tr>
+                                <td><?php echo $row['username'];?></td>
+                                <td><?php echo $row['firstname'];?></td>
+                                <td><?php echo $row['lastname'];?></td>
+                                <td><?php echo $row['middlename'];?></td>
+                                <td><?php echo $row['contactnumber'];?></td>
+                                <td><?php echo $row['email'];?></td>
+                                <td><?php echo $row['store'];?></td>   
+                            </tr>
+                            <?php
+                        }
+                        ?>    
+                            </tbody>
+                        </table>
+                        <?php
+                    }
+
+                    $sql = "SELECT * FROM tbl_product WHERE productId='$search' OR brandName='$search' OR
+                    type='$search' OR model='$search' OR color='$search' OR quantity='$search'
+                    OR price='$search'";
+                    $result = $db->query($sql);
+                    if ($result->num_rows > 0) {
+                        ?>
+                        <table>
+                            <thead>
+                                <th>Product Id</th>
+                                <th>Brand Name</th>
+                                <th>Type</th>
+                                <th>Model</th>
+                                <th>Color</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </thead>
+                            <tbody>
+                        <?php
+                        while($row = $result->fetch_assoc()) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $row['productId'];?></td>
+                                    <td><?php echo $row['brandName'];?></td>
+                                    <td><?php echo $row['type'];?></td>
+                                    <td><?php echo $row['model'];?></td>
+                                    <td><?php echo $row['color'];?></td>
+                                    <td><?php echo $row['quantity'];?></td>
+                                    <td><?php echo $row['price'];?></td>
+                                </tr>
+                            <?php
+                        }
+                        ?>
+                            </tbody>
+                        </table>
+                        <?php
+                    }
+                }
+            ?>
+        </form>
         </div>
     </div>
     <script src="../index.js"></script>
