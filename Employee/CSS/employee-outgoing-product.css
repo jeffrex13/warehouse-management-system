@@ -4,7 +4,7 @@ body {
 
 .container {
     margin: 2% auto;
-    width: 70%;
+    width: 85%;
     padding: 1rem;
     border: 1px solid black;
     border-radius: 10px;
@@ -69,12 +69,12 @@ label {
 
 #search{
     height: 21px;
-    width: 60%;
+    width: 40%;
 }
 
 #received{
     height: 21px;
-    width: 60%;
+    width: 40%;
 }
 
 .received-btn, .search-btn {
@@ -113,15 +113,15 @@ label {
 
         border: none;
         position: relative;
-        padding-left: 50%; 
+        padding-left: 50%;
     }
 
     td:before {
         position: absolute;
         top: 6px;
         left: 6px;
-        width: 45%; 
-        padding-right: 10px; 
+        width: 45%;
+        padding-right: 10px;
         white-space: nowrap;
     }
 
@@ -130,7 +130,7 @@ label {
     td:nth-of-type(3):before { content: "Type"; }
     td:nth-of-type(4):before { content: "Model"; }
     td:nth-of-type(5):before { content: "Quantity"; }
-    
+
     tr {
         display: block;
         margin-bottom: 6.6rem;
@@ -141,7 +141,7 @@ label {
 /* Sidebar CSS */
 .sidebar {
     height: 100%;
-    width: 0; 
+    width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -151,7 +151,7 @@ label {
     padding-top: 50px;
     transition: 0.5s;
 }
-  
+
 .sidebar a {
     padding: 8px 8px 8px 16px;
     text-decoration: none;
@@ -160,11 +160,11 @@ label {
     display: block;
     transition: 0.3s;
 }
-  
+
 .sidebar a:hover {
     color: #000000;
 }
-  
+
 .sidebar .closebtn {
     position: absolute;
     top: 0;
@@ -172,7 +172,7 @@ label {
     font-size: 36px;
     margin-left: 50px;
 }
-  
+
 .openbtn {
     font-size: 20px;
     cursor: pointer;
@@ -224,4 +224,36 @@ label {
 .fa-caret-down {
     float: right;
     padding-right: 8px;
+}
+
+.refresh {
+    margin: 5rem 0 0 0;
+    text-decoration: none;
+    color: #28B5B5;
+}
+
+.refresh:hover {
+    text-decoration: underline;
+}
+
+/* CSS alert box */
+.alert {
+    padding: 20px;
+    background-color: #28B5B5;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.closebtn:hover {
+    color: black;
 }
