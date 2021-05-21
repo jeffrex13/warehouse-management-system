@@ -9,7 +9,7 @@
     if (isset($_GET['logout'])) {
         date_default_timezone_set('Asia/Manila');
         $time = date("h:i a");
-        $date = date("D M j, Y");
+        $date = date("M j, Y");
 
         $query = "UPDATE tbl_audit_trail SET timeout = '$time', date = '$date' 
         WHERE username='$username' AND timeout IS NULL";
@@ -55,27 +55,41 @@
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
             <h1 class="profile-header">Profile</h1>
-            <h3 class="name">User</h3>
-            <div class="div-info">
-                <p class="info">Level of Access: </p>
-                <p class="info1">Staff</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Phone Number: </p>
-                <p class="info1">09991111111</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Email Address: </p>
-                <p class="info1">user@staff.com</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Address: </p>
-                <p class="info1">Antipolo City</p>
-            </div>
-            <div class="div-info">
-                <p class="info">Birthdate: </p>
-                <p class="info1">01/01/2000</p>
-            </div>
+            <?php
+                $sql = "SELECT * FROM tbl_user WHERE username='$username'";
+                $result = $db->query($sql);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        ?>
+                            <h3 class="name"><?php echo $row['firstname'] . " " . $row['middlename'] . " " . $row['lastname'];?></h3>
+                            <div class="div-info">
+                                <p class="info" style="">Level of Access: </p>
+                                <p class="info1"><?php echo $row['loa'];?></p>
+                            </div>
+                            <div class="div-info">
+                                <p class="info">Phone Number: </p>
+                                <p class="info1"><?php echo $row['contactnumber'];?></p>
+                            </div>
+                            <div class="div-info">
+                                <p class="info">Email Address: </p>
+                                <p class="info1"><?php echo $row['email'];?></p>
+                            </div>
+                            <div class="div-info">
+                                <p class="info">Address: </p>
+                                <p class="info1"><?php echo $row['address'];?></p>
+                            </div>
+                            <div class="div-info">
+                                <p class="info">Birthdate: </p>
+                                <p class="info1"><?php echo $row['birthdate'];?></p>
+                            </div>
+                            <div class="div-info">
+                                <p class="info">Store: </p>
+                                <p class="info1"><?php echo $row['store'];?></p>
+                            </div>
+                        <?php
+                    }
+                }
+            ?>
         </div>
     </div>
     <script src="../index.js"></script>
