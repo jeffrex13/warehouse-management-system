@@ -49,7 +49,7 @@
         <div class="dropdown-container">
             <a href="./branch-maintenance.php" style="color: #51c4d3">Edit</a>
         </div>
-        <a href="#">Help</a>
+        <a href="../Branch-Help/branch-help.php">Help</a>
         <a href="branch-maintenance.php?logout=<?php echo " $username"?>">Logout</a>
     </div>
     <div id="main">

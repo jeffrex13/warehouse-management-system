@@ -73,7 +73,7 @@
             <a href="../Admin-Maintenance/admin-edit.php">Edit</a>
             <a href="../Admin-Maintenance/admin-backup-restore.php">Backup & Restore</a>
         </div>
-        <a href="#">Help</a>
+        <a href="../Admin-Help/admin-help.php">Help</a>
         <a href="Admin-Outgoing-products-report.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
     <div id="main">

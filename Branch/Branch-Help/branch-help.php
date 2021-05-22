@@ -26,36 +26,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/employee-help.css">
+    <link rel="stylesheet" href="../CSS/branch-help.css">
     <link rel="icon" href="https://static.thenounproject.com/png/165116-200.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Employee Help</title>
+    <title>Branch Help</title>
 </head>
 
 <body>
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="../Employee-Homepage/employee-homepage.php">Profile</a>
-        <a href="../Employee-Gallery/employee-gallery.php">Gallery</a>
-        <a href="../Employee-Barcode-Generator/employee-barcode-generator.php">Barcode Generator</a>
-        <a href="../Employee-Search/employee-search.php">Search</a>
-        <button class="dropdown-btn">Product Monitoring
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="../Employee-Incoming-Product/employee-incoming-product.php">Incoming Product</a>
-            <a href="../Employee-Outgoing-Product/employee-outgoing-product.php">Outgoing Product</a>
-            <a href="../Employee-Stock-Replenishment/employee-stock-replenishment.php">Stock Replenishment</a>
-        </div>
+        <a href="../Branch-Homepage/branch-homepage.php">Profile</a>
+        <a href="./branch-gallery.php">Gallery</a>
+        <a href="../Branch-Search/branch-search.php">Search</a>
+        <a href="../Branch-Inventory/branch-inventory.php">Inventory</a>
+        <a href="../Branch-Incoming-Product/branch-incoming-product.php">Incoming Product</a>
+        <a href="../Branch-Billing/branch-billing.php">Billing</a>
         <button class="dropdown-btn">Maintenance
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="../Employee-Maintenance/employee-maintenance.php">Edit</a>
+            <a href="../Branch-Maintenance/branch-maintenance.php">Edit</a>
         </div>
-        <a href="./employee-help.php" style="color: #4B778D">Help</a>
-        <a href="employee-help.php?logout=<?php echo " $username"?>">Logout</a>
+        <a href="./branch-help.php" style="color: #4B778D">Help</a>
+        <a href="branch-help.php?logout=<?php echo " $username"?>">Logout</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>

@@ -48,7 +48,7 @@
             <div class="dropdown-container">
                 <a href="../Branch-Maintenance/branch-maintenance.php">Edit</a>
             </div>
-        <a href="../Branch-Maintenance/branch-maintenance.php">Help</a>
+        <a href="../Branch-Help/branch-help.php">Help</a>
         <a href="branch-inventory.php?logout=<?php echo " $username"?>">Logout</a>
     </div>
     <div id="main">

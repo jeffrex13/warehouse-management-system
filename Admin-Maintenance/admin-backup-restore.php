@@ -75,7 +75,7 @@
             <a href="./admin-edit.php">Edit</a>
             <a href="./admin-backup-restore.php" style="color: #51c4d3">Backup & Restore</a>
         </div>
-        <a href="#">Help</a>
+        <a href="../Admin-Help/admin-help.php">Help</a>
         <a href="admin-backup-restore.php?logout=<?php echo "$username"?>">Logout</a>
     </div>
     <div id="main">
