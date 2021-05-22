@@ -17,7 +17,7 @@
         mysqli_query($db, $query);
         session_destroy();
         unset($_SESSION['username']);
-        header("location: ../index.php");
+        header("location: ../../index.php");
     }
 ?>
 <!DOCTYPE html>

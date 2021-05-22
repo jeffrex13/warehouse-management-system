@@ -1,6 +1,7 @@
 <?php
     session_start();
     $db = mysqli_connect('localhost', 'root', '', 'warehouse_management_system');
+    include('server.php');
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
@@ -55,50 +56,107 @@
         <div class="container">
             <h1 class="incoming-product-h1">Incoming Product</h1>
             <div class="grid">
-                <form class="search-form">
+                <form action="branch-incoming-product.php" method="POST" class="search-form">
                     <label for="search">Search Product</label>
-                    <input type="text" name="" id="search">
-                    <input class="search-btn" type="submit" value="Search">
+                    <input type="text" name="search" id="search">
+                    <input class="search-btn" name="btn_search" type="submit" value="Search">
                 </form>
-                <form class="received-form">
+                <form action="branch-incoming-product.php" method="POST" class="received-form">
+                    <input type="hidden" name="uname" value=<?php echo $username;?> />
                     <label for="received">Received Product</label>
-                    <input type="text" name="" id="received">
-                    <input class="received-btn" type="submit" value="Search">
+                    <input type="text" name="trackingID" id="received">
+                    <input class="received-btn" name="btn_received" type="submit" value="Received">
                 </form>
             </div>
             <table>
                 <thead>
+                    <th>Tracking ID</th>
+                    <th>Product ID</th>
                     <th>Date</th>
                     <th>Brand Name</th>
                     <th>Type</th>
                     <th>Model</th>
+                    <th>Price</th>
                     <th>Quantity</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Jan. 6, 2021</td>
-                        <td>Hanabishi</td>
-                        <td>Air-Condition</td>
-                        <td>HTAC25S</td>
-                        <td>15</td>
-                    </tr>
-                    <tr>
-                        <td>Jan. 11, 2021</td>
-                        <td>Hanabishi</td>
-                        <td>Air Circulator Fan</td>
-                        <td>HACF88</td>
-                        <td>30</td>
-                    </tr>
-                    <tr>
-                        <td>Feb. 1, 2021</td>
-                        <td>Whirlpool</td>
-                        <td>Microwave Oven</td>
-                        <td>MWX203BL</td>
-                        <td>3</td>
-                    </tr>
+                    <a class="refresh" href="branch-incoming-product.php">Refresh</a>
+                    <?php
+                        if (isset($_POST['btn_search'])) {
+                            $search = mysqli_real_escape_string($db, $_POST['search']);
+
+                            $sql = "SELECT * FROM tbl_user WHERE username='$username'";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    $store = $row['store'];
+
+                                    $sql = "SELECT * FROM tbl_incoming_product_branch WHERE (id='$search' OR productID='$search'
+                                    OR date='$search' OR brand_name='$search' OR type='$search' OR 	model='$search' OR price='$search'
+                                    OR quantity='$search') AND (store = '$store')";
+                                    $result = $db->query($sql);
+                                    if ($result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $row['id'];?></td>
+                                                    <td><?php echo $row['productID'];?></td>
+                                                    <td><?php echo $row['date'];?></td>
+                                                    <td><?php echo $row['brand_name'];?></td>
+                                                    <td><?php echo $row['type'];?></td>
+                                                    <td><?php echo $row['model'];?></td>
+                                                    <td><?php echo $row['price'];?></td>
+                                                    <td><?php echo $row['quantity'];?></td>
+                                                </tr>
+                                            <?php
+                                        }
+                                    } else {
+                                        ?>
+                                            <tr>
+                                                <td>0 Result</td>
+                                                <td>0 Result</td>
+                                                <td>0 Result</td>
+                                                <td>0 Result</td>
+                                                <td>0 Result</td>
+                                                <td>0 Result</td>
+                                                <td>0 Result</td>
+                                                <td>0 Result</td>
+                                            </tr>
+                                        <?php
+                                    }
+                                }
+                            }
+                        } else {
+                            $sql = "SELECT * FROM tbl_user WHERE username='$username'";
+                            $result = $db->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    $store = $row['store'];
+
+                                    $sql = "SELECT * FROM tbl_incoming_product_branch WHERE store='$store'";
+                                    $result = $db->query($sql);
+                                    if ($result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $row['id'];?></td>
+                                                    <td><?php echo $row['productID'];?></td>
+                                                    <td><?php echo $row['date'];?></td>
+                                                    <td><?php echo $row['brand_name'];?></td>
+                                                    <td><?php echo $row['type'];?></td>
+                                                    <td><?php echo $row['model'];?></td>
+                                                    <td><?php echo $row['price'];?></td>
+                                                    <td><?php echo $row['quantity'];?></td>
+                                                </tr>
+                                            <?php
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>
-
         </div>
     </div>
     <script src="./index.js"></script>

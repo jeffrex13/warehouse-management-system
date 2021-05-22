@@ -332,3 +332,35 @@ tr {
     color: #fff;
     cursor: pointer;
 }
+
+.refresh {
+    margin: 5rem 0 0 0;
+    text-decoration: none;
+    color: #28B5B5;
+}
+
+.refresh:hover {
+    text-decoration: underline;
+}
+
+/* CSS alert box */
+.alert {
+    padding: 20px;
+    background-color: #28B5B5;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.closebtn:hover {
+    color: black;
+}

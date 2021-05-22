@@ -44,7 +44,7 @@
                         $middlename = $row2['middlename'];
 
                         $query = "INSERT INTO tb_daily_attendance(time, date, staff, typeOfTransaction, brand, type, quantity)
-                        VALUES('$time', '$date', '$firstname $middlename $lastname', 'Delivered Product', '$brandName',
+                        VALUES('$time', '$date', '$firstname $lastname', 'Delivered Product', '$brandName',
                         '$type', '$quantity')";
                         mysqli_query($db, $query);
                     }

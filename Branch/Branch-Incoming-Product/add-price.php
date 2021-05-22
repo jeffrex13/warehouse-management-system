@@ -1,4 +1,26 @@
+<?php
+    session_start();
+    $db = mysqli_connect('localhost', 'root', '', 'warehouse_management_system');
+    include('server.php');
 
+    $trackingID = $_SESSION['trackingID'];
+    $username = $_SESSION['username'];
+    if (!isset($_SESSION['username'])) {
+        header('location: ../index.php');
+    }
+    if (isset($_GET['logout'])) {
+        date_default_timezone_set('Asia/Manila');
+        $time = date("h:i a");
+        $date = date("M j, Y");
+
+        $query = "UPDATE tbl_audit_trail SET timeout = '$time', date = '$date' 
+        WHERE username='$username' AND timeout IS NULL";
+        mysqli_query($db, $query);
+        session_destroy();
+        unset($_SESSION['username']);
+        header("location: ../index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +55,6 @@
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
-        
             <div id="myForm" class="form">
                 <div class="form-content">
                     <div class="form-header">
@@ -41,32 +62,54 @@
                         <h3 class="header">Add Product</h3>
                     </div>
                     <div class="form-body">
-                        <form action="">
+                        <form action="branch-incoming-product.php" method="POST">
+                            <input type="hidden" name="uname" value=<?php echo $username;?> />
+                            <input type="hidden" name="trackingID" value=<?php echo $trackingID;?> />
                             <label class="add-label" for="add-product">Tracking ID</label>
-                            <input class="add-input" type="text" name="" id="add-product" placeholder="Input ID">
-                            <input type="button" value="View">
+                            <input class="add-input" type="text" id="add-product" value=<?php echo $trackingID;?> disabled>
                             <div class="form-info">
                                 <div>
-                                    <p>Date</p>
+                                    <p>Product ID</p>
                                     <p>Brand Name</p>
                                     <p>Type</p>
                                     <p>Model</p>
+                                    <p>Price</p>
                                     <p>Quantity</p>
                                 </div>
                                 <div>
-                                    <p>Jan. 6, 2021</p>
-                                    <p>Hanabishi</p>
-                                    <p>Air-Condition</p>
-                                    <p>HTAC25S</p>
-                                    <p>15</p>
+                                   <?php
+                                        $sql = "SELECT * FROM tbl_user WHERE username='$username'";
+                                        $result = $db->query($sql);
+                                        if ($result->num_rows > 0) {
+                                            while($row = $result->fetch_assoc()) {
+                                                $store = $row['store'];
+
+                                                $sql = "SELECT * FROM tbl_incoming_product_branch WHERE id = '$trackingID' 
+                                                AND store='$store'";
+                                                $result = $db->query($sql);
+                                                if ($result->num_rows > 0) {
+                                                    while($row = $result->fetch_assoc()) {
+                                                        ?>
+                                                            <p><?php echo $row['productID'];?></p>
+                                                            <p><?php echo $row['brand_name'];?></p>
+                                                            <p><?php echo $row['type'];?></p>
+                                                            <p><?php echo $row['model'];?></p>
+                                                            <p><?php echo "₱".$row['price'];?></p>
+                                                            <p><?php echo "₱".$row['quantity'];?></p>
+                                                        <?php
+                                                    }
+                                                }
+                                            }
+                                        }
+                                   ?>
                                 </div>
                             </div>
                             <div class="price-div">
                                 <label class="price-label" for="price">Price</label>
-                                <input class="price-input" type="text" name="" id="price">
+                                <input class="price-input" type="text" name="price" id="price" required>
                             </div>
                             <div class="btn-div">
-                                <input class="add-btn" type="button" value="Add">
+                                <input class="add-btn" name="btn_submit" type="submit" value="Add">
                             </div>
                         </form>
                     </div>

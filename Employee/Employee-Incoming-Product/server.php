@@ -27,8 +27,8 @@
                         $query = "UPDATE tbl_product SET quantity = '$qty' WHERE model = '$productModel'";
                         mysqli_query($db, $query);
 
-                        $query = "INSERT INTO tbl_sales_and_purchase(typeOfTransaction, date, brandName, type, quantity, price)
-                        VALUES('Purchase', '$date', '$brandName', '$type', '$quantity', '$price')";
+                        $query = "INSERT INTO tbl_sales_and_purchase(typeOfTransaction, date, brandName, type, quantity, price, store)
+                        VALUES('Purchase', '$date', '$brandName', '$type', '$quantity', '$price', 'N/A')";
                         mysqli_query($db, $query);
 
                         $sql2 = "SELECT * FROM tbl_user WHERE username = '$uname'";
@@ -88,8 +88,8 @@
                             $date = date("M j, Y");
                             $time = date("h:i a");
 
-                            $query = "INSERT INTO tbl_sales_and_purchase(typeOfTransaction, date, brandName, type, quantity, price)
-                            VALUES('Purchase', '$date', '$brandName', '$type', '$quantity', '$price')";
+                            $query = "INSERT INTO tbl_sales_and_purchase(typeOfTransaction, date, brandName, type, quantity, price, store)
+                            VALUES('Purchase', '$date', '$brandName', '$type', '$quantity', '$price', 'N/A')";
                             mysqli_query($db, $query);
 
                             $sql2 = "SELECT * FROM tbl_user WHERE username = '$uname'";
@@ -101,7 +101,7 @@
                                     $middlename = $row2['middlename'];
 
                                     $query = "INSERT INTO tb_daily_attendance(time, date, staff, typeOfTransaction, brand, type, quantity)
-                                    VALUES('$time', '$date', '$firstname $middlename $lastname', 'Received Product', '$brandName',
+                                    VALUES('$time', '$date', '$firstname $lastname', 'Received Product', '$brandName',
                                     '$type', '$quantity')";
                                     mysqli_query($db, $query);
                                 }
