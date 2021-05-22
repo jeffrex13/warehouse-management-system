@@ -89,8 +89,8 @@
                     <th>Date</th>
                     <th>Brand Name</th>
                     <th>Type</th>
-                    <th>Quantity</th>
                     <th>Price</th>
+                    <th>Store</th>
                 </thead>
                 <tbody>
                     <?php
@@ -104,8 +104,8 @@
                                         <td><?php echo $row['date'];?></td>
                                         <td><?php echo $row['brandName'];?></td>
                                         <td><?php echo $row['type'];?></td>
-                                        <td><?php echo $row['quantity'];?></td>
-                                        <td><?php echo "₱".$row['price'];?></td>
+                                        <td><?php echo $row['price'];?></td>
+                                        <td><?php echo "₱".$row['store'];?></td>
                                     </tr>
                                 <?php
                             }

@@ -70,7 +70,7 @@
                         <input type="hidden" name="uname" value=<?php echo $username;?> />
                         <label for="received">Received Product</label>
                         <input type="text" name="trackingID" id="received" placeholder="Enter tracking id" required>
-                        <input class="received-btn" name="btn_submit" type="submit" value="Search">
+                        <input class="received-btn" name="btn_submit" type="submit" value="Deliver">
                     </form>
                 </div>
             <table>
