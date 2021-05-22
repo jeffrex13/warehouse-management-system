@@ -4,7 +4,7 @@ body {
 
 .container {
     margin: 2% auto;
-    width: 60%;
+    width: 80%;
     padding: 1rem;
     border: 1px solid black;
     border-radius: 10px;
@@ -19,7 +19,8 @@ body {
 
 /* Labels */
 label {
-    margin-left: 1rem;
+    margin-right: 2rem;
+    display: block;
 }
 
 /* Table CSS */
@@ -63,17 +64,18 @@ tr {
     text-align: center;
 }
 
-label {
-    display: block;
-}
 
 #search{
+    text-align: center;
     height: 21px;
+    margin-bottom: 1rem;
     width: 60%;
 }
 
 #received{
+    text-align: center;
     height: 21px;
+    margin-bottom: 1rem;
     width: 60%;
 }
 
@@ -226,50 +228,27 @@ label {
     padding-right: 8px;
 }
 
-/* MODAL */
-.modal {
-    display: none;
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 3rem; 
-    left: 0;
-    top: 0;
+/* FORM */
+.form {
     width: 100%; 
     height: 100%; 
     overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
   }
   
-  /* Modal Content */
-  .modal-content {
-    position: relative;
+  /* Form Content */
+  .form-content {
     background-color: #fefefe;
-    margin: auto;
+    margin: 2% auto;
     padding: 0;
     border: 1px solid #888;
+    border-radius: 5px;
     width: 63%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
-  }
-  
-  /* Add Animation */
-  @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-  }
-  
-  @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-  }
+
+  }  
   
   /* The Close Button */
   .close {
-    color: white;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -281,34 +260,61 @@ label {
     text-decoration: none;
     cursor: pointer;
   }
+
+  a {
+    color: white;
+      text-decoration: none;
+  }
+
+  a:hover,
+  a:focus {
+    color: #000;
+  }
   
-  .modal-header {
+.form-header {
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
-  }
+}
+
+.header {
+    text-align: center;
+}
   
-.modal-body {
-    padding: 1.5rem 0rem;
+.form-body {
+    padding: 1rem 0rem;
     justify-content: center;
 }
   
-.modal-info {
+.form-info {
     display: flex; 
     font-size: 14px;
     justify-content: space-between;
     padding: 1rem 2rem;
 }
 
+.add-label {
+    margin: 1rem 0.2rem 0 1rem;
+}
+
 .add-label, .add-input {
     display: inline-block;
 }
 
-.price-input {
-    margin: 0.5rem 1.5rem;
-    height: 1.5rem;
-    width: 90%;
+.price-div {
+    float: right;
+    margin-right: 1.5rem;
 }
+
+.price-label {
+    margin-right: 0;
+    display: inline-block;
+}
+
+.price-input {
+    margin: 0.5rem 0rem 0.5rem 0.5rem;
+    height: 1.2rem;
+} 
 
 .btn-div {
     width: 10%;
@@ -317,7 +323,7 @@ label {
 
 .add-btn {
     font-size: 15px;
-    margin-top: 10px;
+    margin: 3rem auto 0;
     padding: 0.5rem 2rem;
 }
 

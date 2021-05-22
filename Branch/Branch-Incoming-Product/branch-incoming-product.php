@@ -32,7 +32,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Branch Incoming Product</title>
 </head>
-
 <body>
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -74,7 +73,6 @@
                     <th>Type</th>
                     <th>Model</th>
                     <th>Quantity</th>
-                    <th></th>
                 </thead>
                 <tbody>
                     <tr>
@@ -83,7 +81,6 @@
                         <td>Air-Condition</td>
                         <td>HTAC25S</td>
                         <td>15</td>
-                        <td><button class="myBtn">Received</button></td>
                     </tr>
                     <tr>
                         <td>Jan. 11, 2021</td>
@@ -91,7 +88,6 @@
                         <td>Air Circulator Fan</td>
                         <td>HACF88</td>
                         <td>30</td>
-                        <td><button class="myBtn">Received</button></td>
                     </tr>
                     <tr>
                         <td>Feb. 1, 2021</td>
@@ -99,46 +95,10 @@
                         <td>Microwave Oven</td>
                         <td>MWX203BL</td>
                         <td>3</td>
-                        <td><button class="myBtn">Received</button></td>
                     </tr>
                 </tbody>
             </table>
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="close">&times;</span>
-                        <h3>Add Product</h3>
-                    </div>
-                    <div class="modal-body">
-                        <form action=""> 
-                            <label class="add-label" for="add-product">Product ID</label>
-                            <input class="add-input" type="text" name="" id="add-product" placeholder="Input ID">
-                            <input type="button" value="Search">
-                            <div class="modal-info">
-                                <div>
-                                    <p>Date</p>
-                                    <p>Brand Name</p>
-                                    <p>Type</p>
-                                    <p>Model</p>
-                                    <p>Quantity</p>
-                                </div>
-                                <div>
-                                    <p>Jan. 6, 2021</p>
-                                    <p>Hanabishi</p>
-                                    <p>Air-Condition</p>
-                                    <p>HTAC25S</p>
-                                    <p>15</p>
-                                </div>
-                            </div>
-                            <label class="price-label" for="price">Price</label>
-                            <input class="price-input" type="text" name="" id="price">
-                            <div class="btn-div">
-                                <input class="add-btn" type="submit" value="Add">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
     <script src="./index.js"></script>
