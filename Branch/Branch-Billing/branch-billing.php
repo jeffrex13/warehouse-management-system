@@ -1,6 +1,7 @@
 <?php
     session_start();
     $db = mysqli_connect('localhost', 'root', '', 'warehouse_management_system');
+    include('server.php');
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
@@ -54,7 +55,66 @@
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
-            
+            <h1 class="BH-header">Billing</h1>
+            <div class="form">
+                <form action="branch-billing.php" method="POST">
+                    <input type="hidden" name="uname" value=<?php echo $username;?> />
+                    <label for="productID">Product ID</label>
+                    <input type="text" name="productID" id="productID" placeholder="Enter product ID" required>
+                    <input type="submit" name="btn_add" value="Add">
+                </form>
+            </div>
+            <table>
+                <thead>
+                    <th>Brand Name</th>
+                    <th>Type</th>
+                    <th>Model</th>
+                    <th>Price</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <?php
+                        $sql = "SELECT * FROM tbl_billing WHERE username='$username'";
+                        $result = $db->query($sql);
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['brandName'];?></td>
+                                        <td><?php echo $row['type'];?></td>
+                                        <td><?php echo $row['model'];?></td>
+                                        <td><?php echo $row['price'];?></td>
+                                    </tr>
+                                <?php
+                            }
+                        }
+                    ?>
+                </tbody>
+            </table>
+            <div class="total-price">
+                <div>
+                    <h3>Total Amount</h3>
+                </div>
+                <div class="grid-2">
+                    <h3><?php
+                        $sql = "SELECT SUM(price) FROM tbl_billing WHERE username='$username'";
+                        $result = $db->query($sql);
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                $price = $row['SUM(price)'];
+                                echo "₱".$price;
+                            }
+                        }
+                    ?></h3>
+                </div>
+            </div>
+            <div class="submit-div">
+                <a href="receipt-pdf.php" target="_blank">Print PDF</a>
+                <form action="branch-billing.php" method="POST">
+                    <input type="hidden" name="uname" value=<?php echo $username;?> />
+                    <input class="submit" name="btn-submit" type="submit" value="Submit">
+                </form>
+            </div>
         </div>
     </div>
     <script src="./index1.js"></script>

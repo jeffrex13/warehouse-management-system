@@ -95,6 +95,7 @@
                     <th>Type</th>
                     <th>Quantity</th>
                     <th>Price</th>
+                    <th>Store</th>
                 </thead>
                 <tbody>
                     <a class="refresh" href="sales-and-purchase.php">Refresh</a>
@@ -133,12 +134,14 @@
                                             <td><?php echo $row['type'];?></td>
                                             <td><?php echo $row['quantity'];?></td>
                                             <td><?php echo $row['price'];?></td>
+                                            <td><?php echo $row['store'];?></td>
                                         </tr>
                                     <?php
                                 }
                             } else {
                                 ?>
                                     <tr>
+                                        <td>0 Result</td>
                                         <td>0 Result</td>
                                         <td>0 Result</td>
                                         <td>0 Result</td>
@@ -161,6 +164,7 @@
                                             <td><?php echo $row['type'];?></td>
                                             <td><?php echo $row['quantity'];?></td>
                                             <td><?php echo $row['price'];?></td>
+                                            <td><?php echo $row['store'];?></td>
                                         </tr>
                                     <?php
                                 }

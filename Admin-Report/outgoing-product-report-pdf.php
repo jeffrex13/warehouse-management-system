@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    $username = $_SESSION['username'];
+    $date = date('m/d/Y');
+    $_SESSION['date'] = $date;
+
     require('../fpdf183/fpdf.php');
     $con = mysqli_connect('localhost', 'root', '');
     mysqli_select_db($con, 'warehouse_management_system');
@@ -35,8 +40,10 @@
                     
             $this->SetFont('Arial','',8);
             
-            $this->Cell(0,10,'Page '.$this->PageNo()." / {pages}",0,0,'C');
-            $this->Cell(-20,10,'Printed By: Administrator',0,0,'C');
+            $this->Cell(0,10,"Prepared By: {$_SESSION['username']}",0,0,'L');
+			$this->Cell(0,10,"Date prepared: {$_SESSION['date']}",0,1,'R');
+			$this->Ln(-5);
+			$this->Cell(0,10,'Page'.$this->PageNo()." / {pages}",0,0,'C');
         }
     }
 
