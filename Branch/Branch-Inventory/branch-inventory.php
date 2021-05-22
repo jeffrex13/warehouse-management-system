@@ -41,12 +41,12 @@
         <a href="../Branch-Search/branch-search.php">Search</a>
         <a href="./branch-inventory.php" style="color: #4B778D">Inventory</a>
         <a href="../Branch-Incoming-Product/branch-incoming-product.php">Incoming Product</a>
-        <a href="#">Billing</a>
+        <a href="../Branch-Billing/branch-billing.php">Billing</a>
         <button class="dropdown-btn">Maintenance 
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="#">Edit</a>
+                <a href="../Branch-Maintenance/branch-maintenance.php">Edit</a>
             </div>
         <a href="../Branch-Maintenance/branch-maintenance.php">Help</a>
         <a href="branch-inventory.php?logout=<?php echo " $username"?>">Logout</a>
