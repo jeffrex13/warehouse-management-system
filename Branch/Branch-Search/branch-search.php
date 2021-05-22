@@ -50,7 +50,7 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="#">Edit</a>
+                <a href="../Branch-Maintenance/branch-maintenance.php">Edit</a>
             </div>
         <a href="#">Help</a>
         <a href="branch-search.php?logout=<?php echo " $username"?>">Logout</a>
