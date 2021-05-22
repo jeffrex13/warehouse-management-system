@@ -4,7 +4,7 @@
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
-        header('location: ../index.php');
+        header('location: ../../index.php');
     }
     if (isset($_GET['logout'])) {
         date_default_timezone_set('Asia/Manila');
@@ -16,7 +16,7 @@
         mysqli_query($db, $query);
         session_destroy();
         unset($_SESSION['username']);
-        header("location: ../index.php");
+        header("location: ../../index.php");
     }
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@
         <a href="../Branch-Search/branch-search.php">Search</a>
         <a href="../Branch-Inventory/branch-inventory.php">Inventory</a>
         <a href="./branch-incoming-product.php" style="color: #4B778D">Incoming Product</a>
-        <a href="#">Billing</a>
+        <a href="../Branch-Billing/branch-billing.php">Billing</a>
         <button class="dropdown-btn">Maintenance
             <i class="fa fa-caret-down"></i>
         </button>

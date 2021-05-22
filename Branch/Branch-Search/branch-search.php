@@ -44,8 +44,8 @@
         <a href="../Branch-Gallery/branch-gallery.php">Gallery</a>
         <a href="./branch-search.php" style="color: #4B778D">Search</a>
         <a href="../Branch-Inventory/branch-inventory.php">Inventory</a>
-        <a href="./branch-incoming-product.php">Incoming Product</a>
-        <a href="#">Billing</a>
+        <a href="../Branch-Incoming-Product/branch-incoming-product.php">Incoming Product</a>
+        <a href="../Branch-Billing/branch-billing.php">Billing</a>
         <button class="dropdown-btn">Maintenance 
                 <i class="fa fa-caret-down"></i>
             </button>

@@ -37,7 +37,7 @@
         <a href="../Employee-Homepage/employee-homepage.php">Profile</a>
         <a href="../Employee-Gallery/employee-gallery.php">Gallery</a>
         <a href="../Employee-Barcode-Generator/employee-barcode-generator.php">Barcode Generator</a>
-        <a href="./employee-search.php">Search</a>
+        <a href="../Employee-Search/employee-search.php">Search</a>
         <button class="dropdown-btn">Product Monitoring 
             <i class="fa fa-caret-down"></i>
         </button>
@@ -50,7 +50,7 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="../Employee-Maintenance/employee-maintenance">Edit</a>
+                <a href="../Employee-Maintenance/employee-maintenance.php">Edit</a>
             </div>
         <a href="./employee-help.php" style="color: #4B778D">Help</a>
         <a href="employee-help.php?logout=<?php echo "$username"?>">Logout</a>

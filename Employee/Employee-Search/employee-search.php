@@ -54,7 +54,7 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="../Employee-Maintenance/employee-maintenance">Edit</a>
+                <a href="../Employee-Maintenance/employee-maintenance.php">Edit</a>
             </div>
         <a href="../Employee-Help/employee-help.php">Help</a>
         <a href="employee-search.php?logout=<?php echo "$username"?>">Logout</a>

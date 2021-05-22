@@ -1,6 +1,7 @@
 <?php
     session_start();
     $db = mysqli_connect('localhost', 'root', '', 'warehouse_management_system');
+    include('server.php');
 
     $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
@@ -40,8 +41,8 @@
         <a href="../Branch-Gallery/branch-gallery.php">Gallery</a>
         <a href="../Branch-Search/branch-search.php">Search</a>
         <a href="../Branch-Inventory/branch-inventory.php">Inventory</a>
-        <a href="./branch-incoming-product.php">Incoming Product</a>
-        <a href="#">Billing</a>
+        <a href="../Branch-Incoming-Product/branch-incoming-product.php">Incoming Product</a>
+        <a href="../Branch-Billing/branch-billing.php">Billing</a>
         <button class="dropdown-btn">Maintenance
             <i class="fa fa-caret-down"></i>
         </button>
@@ -55,7 +56,7 @@
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
             <h1 class="edit-header">Edit</h1>
-            <form action="admin-edit.php" method="POST">
+            <form action="branch-maintenance.php" method="POST">
                 <h3>Personal Information</h3>
                 <input type="hidden" name="uname" value=<?php echo $username;?> />
                 <div class="info">

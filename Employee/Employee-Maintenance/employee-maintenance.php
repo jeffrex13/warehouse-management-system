@@ -62,7 +62,7 @@
         <button class="openbtn" onclick="openNav()">&#9776; Open Menu</button>
         <div class="container">
             <h1 class="edit-header">Edit</h1>
-            <form action="admin-edit.php" method="POST">
+            <form action="employee-maintenance.php" method="POST">
                 <h3>Personal Information</h3>
                 <input type="hidden" name="uname" value=<?php echo $username;?> />
                 <div class="info">
