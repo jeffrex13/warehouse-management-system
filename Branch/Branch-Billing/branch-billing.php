@@ -60,7 +60,7 @@
                 <form action="branch-billing.php" method="POST">
                     <input type="hidden" name="uname" value=<?php echo $username;?> />
                     <label for="productID">Product ID</label>
-                    <input type="text" name="productID" id="productID" placeholder="Enter product ID" required>
+                    <input type="text" name="productID" id="productID" autofocus placeholder="Enter product ID" required>
                     <input type="submit" name="btn_add" value="Add">
                 </form>
             </div>
